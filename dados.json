@@ -1,66 +1,79 @@
 {
   "ticker": [
-    "INSTITUTO NGV: João Neto 44% | Ângela Portela 37% | Eduardo Braga 7% | Michel Temer 9% | Eduardo Campos 3%",
-    "2º turno: João Neto 53,42% x Ângela Portela 46,58%",
-    "NGV: 5.000 entrevistados | ±2pp | 96% confiança",
-    "Bem-vindo à cobertura Tupi Notícias 2002",
-    "ATLAS INTEL (espontânea): João Neto 15,28% | Tasso Jereissati 11,30% | Eduardo Braga 10,91% | Michel Temer 8,17% | Ângela Portela 6,85% | Brancos/Nulos 2,19% | Indecisos 20,00%"
+    "🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias",
+    "📊 Atlas Intel (espontânea/fev): João Neto lidera com 15,28%",
+    "📊 NGV (estimulada): João Neto 44% | Ângela Portela 37%",
+    "⚡ 2º Turno simulado NGV: João Neto 53,42% × Ângela Portela 46,58%",
+    "🔴 Apuração começa às 17h de 6 de outubro de 2002",
+    "🏛️ Governadores de 27 estados também serão eleitos",
+    "📜 Renovação de 54 cadeiras no Senado Federal"
   ],
   "presidencial": {
-    "titulo_hero": "João Neto lidera intenções de voto no 1º turno com 44% | 2º turno: 53,42% contra 46,58% de Ângela Portela",
-    "meta_pesquisa": "NGV · 5.000 entrevistados · ±2pp · 96% confiança",
+    "titulo_hero": "Eleições Presidenciais 2002 — Pesquisas & Apuração em Tempo Real",
+    "meta_pesquisa": "Instituto NGV · 5.000 entrev. · ±2pp · 96% conf.",
     "primeiro_turno": [
-      { "nome": "João Neto", "sigla": "JN", "cor": "#1C2BCB", "pct": 44, "tendencia": "1º turno" },
-      { "nome": "Ângela Portela", "sigla": "AP", "cor": "#F5A000", "pct": 37, "tendencia": "1º turno" },
-      { "nome": "Michel Temer", "sigla": "MT", "cor": "#22c55e", "pct": 9, "tendencia": "1º turno" },
-      { "nome": "Eduardo Braga", "sigla": "EB", "cor": "#e84560", "pct": 7, "tendencia": "1º turno" },
-      { "nome": "Eduardo Campos", "sigla": "EC", "cor": "#aab", "pct": 3, "tendencia": "1º turno" }
+      { "nome": "João Neto",      "sigla": "JN", "partido": "PSDB", "numero": 45, "pct": 44, "cor": "#1C2BCB", "tendencia": "▲ +1pp" },
+      { "nome": "Ângela Portela", "sigla": "AP", "partido": "MDB",  "numero": 15, "pct": 37, "cor": "#e84560", "tendencia": "▲ +2pp" },
+      { "nome": "Michel Temer",   "sigla": "MT", "partido": "MDB",  "numero": 15, "pct":  9, "cor": "#F5A000", "tendencia": "▼ -1pp" },
+      { "nome": "Eduardo Braga",  "sigla": "EB", "partido": "PDT",  "numero": 12, "pct":  7, "cor": "#22c55e", "tendencia": "— 0pp"  },
+      { "nome": "Eduardo Campos", "sigla": "EC", "partido": "DEM",  "numero": 25, "pct":  3, "cor": "#aabbcc", "tendencia": "▼ -1pp" }
     ],
     "segundo_turno": [
-      { "nome": "João Neto", "pct_str": "53,42%" },
+      { "nome": "João Neto",      "pct_str": "53,42%" },
       { "nome": "Ângela Portela", "pct_str": "46,58%" }
     ],
     "pesquisas": [
       {
-        "instituto": "Instituto NGV",
-        "tipo": "1º Turno + Simulação 2º Turno",
+        "instituto":     "ATLAS INTEL",
+        "tipo":          "Espontânea",
+        "data":          "fev/2002",
         "entrevistados": 5000,
-        "margem": "±2 pp",
-        "confianca": "96% confiança",
-        "data": "Out/2002",
-        "search_tags": "instituto ngv joão neto ângela portela 1º turno 2002 44% 37% 9% 7% 3% 2º turno simulação"
+        "margem":        "±4,5 p.p.",
+        "confianca":     "95%",
+        "branco_nulo":   2.19,
+        "indecisos":     20.00,
+        "search_tags":   "atlas intel espontânea fevereiro 2002",
+        "resultados": [
+          { "nome": "João Neto",          "partido": "PSDB", "numero": 45, "pct": 15.28 },
+          { "nome": "Tasso Jereissati",   "partido": "PDT",  "numero": 12, "pct": 11.30 },
+          { "nome": "Eduardo Braga",      "partido": "PDT",  "numero": 12, "pct": 10.91 },
+          { "nome": "Michel Temer",       "partido": "PMDB", "numero": 15, "pct":  8.17 },
+          { "nome": "Angela Portela",     "partido": "PMDB", "numero": 15, "pct":  6.85 },
+          { "nome": "Jorge Bornhausen",   "partido": "PP",   "numero": 11, "pct":  4.69 },
+          { "nome": "Deocleciano Geisel", "partido": "REP",  "numero": 10, "pct":  2.02 },
+          { "nome": "João Goulart Filho", "partido": "PNM",  "numero": 33, "pct":  1.23 },
+          { "nome": "Maria João",         "partido": "PCC",  "numero": 99, "pct":  0.78 }
+        ],
+        "segundo_turno": []
       },
       {
-        "instituto": "Atlas Intel",
-        "tipo": "Pesquisa Eleitoral Espontânea",
+        "instituto":     "Instituto NGV",
+        "tipo":          "Estimulada",
+        "data":          "2002",
         "entrevistados": 5000,
-        "margem": "±4,5 pp",
-        "confianca": "95%",
-        "data": "Fev/2002",
-        "search_tags": "atlas intel espontânea fevereiro 2002 joão neto tasso jereissati eduardo braga michel temer angela portela",
+        "margem":        "±2 p.p.",
+        "confianca":     "96%",
+        "branco_nulo":   4.00,
+        "indecisos":     2.00,
+        "search_tags":   "instituto ngv estimulada 2002",
         "resultados": [
-          { "nome": "João Neto", "partido": "PSDB", "numero": 45, "pct": 15.28 },
-          { "nome": "Tasso Jereissati", "partido": "PDT", "numero": 12, "pct": 11.30 },
-          { "nome": "Eduardo Braga", "partido": "PDT", "numero": 12, "pct": 10.91 },
-          { "nome": "Michel Temer", "partido": "PMDB", "numero": 15, "pct": 8.17 },
-          { "nome": "Ângela Portela", "partido": "PMDB", "numero": 15, "pct": 6.85 },
-          { "nome": "Jorge Bornhausen", "partido": "PP", "numero": 11, "pct": 4.69 },
-          { "nome": "Deocleciano Geisel", "partido": "REP", "numero": 10, "pct": 2.02 },
-          { "nome": "João Goulart Filho", "partido": "PNM", "numero": 33, "pct": 1.23 },
-          { "nome": "Maria João", "partido": "PCC", "numero": 99, "pct": 0.78 },
-          { "nome": "Branco / Nulo", "partido": null, "numero": null, "pct": 2.19 },
-          { "nome": "Indecisos", "partido": null, "numero": null, "pct": 20.00 }
+          { "nome": "João Neto",      "partido": "PSDB", "numero": 45, "pct": 44.00 },
+          { "nome": "Ângela Portela", "partido": "MDB",  "numero": 15, "pct": 37.00 },
+          { "nome": "Michel Temer",   "partido": "MDB",  "numero": 15, "pct":  9.00 },
+          { "nome": "Eduardo Braga",  "partido": "PDT",  "numero": 12, "pct":  7.00 },
+          { "nome": "Eduardo Campos", "partido": "DEM",  "numero": 25, "pct":  3.00 }
+        ],
+        "segundo_turno": [
+          { "nome": "João Neto",      "pct_str": "53,42%" },
+          { "nome": "Ângela Portela", "pct_str": "46,58%" }
         ]
       }
     ]
   },
-  "agregador": {
-    "titulo": "Média ponderada — Instituto NGV (1º Turno + Simulação 2º Turno)",
-    "subtitulo": "Média ponderada — NGV (1º turno + Simulação 2º turno)"
-  },
   "apuracao": {
     "progresso": 0,
-    "candidato1": { "nome": "João Neto", "pct_str": "—", "votos": "aguardando apuração" },
+    "status":    "Aguardando início da apuração",
+    "candidato1": { "nome": "João Neto",      "pct_str": "—", "votos": "aguardando apuração" },
     "candidato2": { "nome": "Ângela Portela", "pct_str": "—", "votos": "aguardando apuração" }
   }
 }
