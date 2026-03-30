@@ -1,0 +1,43 @@
+{
+  "ticker": [
+    "INSTITUTO NGV: João Neto 44% | Ângela Portela 37% | Eduardo Braga 7% | Michel Temer 9% | Eduardo Campos 3%",
+    "2º turno: João Neto 53,42% x Ângela Portela 46,58%",
+    "NGV: 5.000 entrevistados | ±2pp | 96% confiança",
+    "Bem-vindo à cobertura Tupi Notícias 2002"
+  ],
+  "presidencial": {
+    "titulo_hero": "João Neto lidera intenções de voto no 1º turno com 44% | 2º turno: 53,42% contra 46,58% de Ângela Portela",
+    "meta_pesquisa": "NGV · 5.000 entrevistados · ±2pp · 96% confiança",
+    "primeiro_turno": [
+      { "nome": "João Neto",       "sigla": "JN", "cor": "#1C2BCB", "pct": 44, "tendencia": "1º turno" },
+      { "nome": "Ângela Portela",  "sigla": "AP", "cor": "#F5A000", "pct": 37, "tendencia": "1º turno" },
+      { "nome": "Michel Temer",    "sigla": "MT", "cor": "#22c55e", "pct":  9, "tendencia": "1º turno" },
+      { "nome": "Eduardo Braga",   "sigla": "EB", "cor": "#e84560", "pct":  7, "tendencia": "1º turno" },
+      { "nome": "Eduardo Campos",  "sigla": "EC", "cor": "#aab",    "pct":  3, "tendencia": "1º turno" }
+    ],
+    "segundo_turno": [
+      { "nome": "João Neto",      "pct_str": "53,42%" },
+      { "nome": "Ângela Portela", "pct_str": "46,58%" }
+    ],
+    "pesquisas": [
+      {
+        "instituto":      "Instituto NGV",
+        "tipo":           "1º Turno + Simulação 2º Turno",
+        "entrevistados":  5000,
+        "margem":         "±2 pp",
+        "confianca":      "96% confiança",
+        "data":           "Out/2002",
+        "search_tags":    "instituto ngv joão neto ângela portela 1º turno 2002 44% 37% 9% 7% 3% 2º turno simulação"
+      }
+    ]
+  },
+  "agregador": {
+    "titulo":    "Média ponderada — Instituto NGV (1º Turno + Simulação 2º Turno)",
+    "subtitulo": "Média ponderada — NGV (1º turno + Simulação 2º turno)"
+  },
+  "apuracao": {
+    "progresso": 0,
+    "candidato1": { "nome": "João Neto",     "pct_str": "—", "votos": "aguardando apuração" },
+    "candidato2": { "nome": "Ângela Portela","pct_str": "—", "votos": "aguardando apuração" }
+  }
+}
