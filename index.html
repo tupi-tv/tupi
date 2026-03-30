@@ -829,10 +829,18 @@ let DADOS = null;
 
 async function carregarDados() {
   try {
-    const resp = await fetch('dados.json');
+    const bust = `?v=${Date.now()}`;
+    const resp = await fetch('dados.json' + bust, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     DADOS = await resp.json();
-    console.info('[Tupi] dados.json carregado com sucesso.');
+    console.info('[Tupi] dados.json carregado com sucesso (cache-bust: ' + bust + ').');
   } catch (e) {
     console.warn('[Tupi] dados.json não encontrado ou erro ao carregar — usando dados embutidos.', e.message);
     DADOS = DADOS_DEFAULT;
