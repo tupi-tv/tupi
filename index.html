@@ -700,34 +700,8 @@ footer{background:var(--tupi-blue);color:rgba(255,255,255,.5);padding:clamp(28px
     </div>
 
     <!-- Presidencial -->
-    <div class="race-block active" data-block="presidencial-nacional">
-    <div class="apur-page-hero">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)">Votos válidos apurados — Presidencial</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.35);font-weight:600;font-family:'IBM Plex Mono',monospace">Aguardando dados</div>
-      </div>
-      <div style="height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-bottom:24px">
-        <div style="height:100%;width:0%;background:var(--tupi-orange);border-radius:4px;transition:width 1s"></div>
-      </div>
-      <div class="apur-cands-full">
-        <div class="apur-cand-cell"><div class="apur-photo-lg">JN</div><div class="apur-cand-nm">João Neto</div><div class="apur-cand-pct-big">—</div><div class="apur-cand-votes-sm">aguardando</div></div>
-        <div class="apur-cand-cell"><div class="apur-photo-lg">AP</div><div class="apur-cand-nm">Ângela Portela</div><div class="apur-cand-pct-big">—</div><div class="apur-cand-votes-sm">aguardando</div></div>
-        <div class="apur-cand-cell"><div class="apur-photo-lg">MT</div><div class="apur-cand-nm">Michel Temer</div><div class="apur-cand-pct-big">—</div><div class="apur-cand-votes-sm">aguardando</div></div>
-      </div>
-      <div style="height:12px;background:rgba(255,255,255,.05);border-radius:3px;margin-top:6px"></div>
-      <div style="font-size:11px;color:rgba(255,255,255,.3);margin-top:10px">Nenhum dado de apuração disponível ainda</div>
-    </div>
-
-    <div class="section-label" style="margin-bottom:14px">Candidatos — resultado parcial · Presidencial</div>
-    <div class="apur-cand-list" style="margin-bottom:26px">
-      <div class="apur-cand-list-item"><div class="apur-list-photo" style="background:#1a2560">JN</div><div class="apur-list-info"><div class="apur-list-name">João Neto</div><div class="apur-list-party">Partido · Número —</div><div class="apur-list-bar"><div class="bar-fill" style="width:0%"></div></div></div><div style="text-align:right"><div class="apur-list-pct">—</div><div class="apur-list-vcount">—</div></div></div>
-      <div class="apur-cand-list-item"><div class="apur-list-photo" style="background:#1a2560">AP</div><div class="apur-list-info"><div class="apur-list-name">Ângela Portela</div><div class="apur-list-party">Partido · Número —</div><div class="apur-list-bar"><div class="bar-fill" style="width:0%"></div></div></div><div style="text-align:right"><div class="apur-list-pct">—</div><div class="apur-list-vcount">—</div></div></div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr clamp(240px,28%,310px);gap:clamp(14px,3vw,22px)">
-      <div><div class="section-label">Resultado por Estado — Presidencial</div><div class="apur-mapa"><div class="apur-mapa-title">Brasil — Resultado parcial por UF</div><div class="estados-grid" id="estados-grid"></div></div></div>
-      <div class="sidebar"><div class="widget"><div class="widget-title">🔴 Atualização ao vivo</div><div class="empty-state" style="padding:20px 8px;border:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><h3 style="font-size:12px">Sem atualizações</h3><p style="font-size:11px">O feed ao vivo será ativado durante a apuração.</p></div></div><div class="widget"><div class="widget-title">Brancos e Nulos</div><div class="bar-row"><div class="bar-label"><span class="name">Brancos</span><span class="pct">—</span></div><div class="bar-track"><div class="bar-fill bar-gray" style="width:0%"></div></div></div><div class="bar-row"><div class="bar-label"><span class="name">Nulos</span><span class="pct">—</span></div><div class="bar-track"><div class="bar-fill bar-gray" style="width:0%"></div></div></div><div style="font-size:11.5px;color:var(--text-muted);margin-top:10px">Aguardando dados da apuração</div></div></div>
-    </div>
+    <div class="race-block active" data-block="presidencial-nacional" id="apur-presidencial-block">
+      <div id="apur-presidencial-content"></div>
     </div><!-- /race-block presidencial -->
 
     <!-- Governador SP -->
@@ -830,14 +804,7 @@ let DADOS = null;
 async function carregarDados() {
   try {
     const bust = `?v=${Date.now()}`;
-    const resp = await fetch('dados.json' + bust, {
-      cache: 'no-store',
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0'
-      }
-    });
+    const resp = await fetch('https://raw.githubusercontent.com/tupi-tv/tupi/refs/heads/main/dados.json' + bust, { cache: 'no-store' });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     DADOS = await resp.json();
     console.info('[Tupi] dados.json carregado com sucesso (cache-bust: ' + bust + ').');
@@ -846,7 +813,6 @@ async function carregarDados() {
     DADOS = DADOS_DEFAULT;
   }
 }
-
 /* ── Navegação ── */
 function go(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -1171,7 +1137,127 @@ function populateData(){
     const ufs=['AC','AL','AM','AP','BA','CE','DF','ES','GO','MA','MG','MS','MT','PA','PB','PE','PI','PR','RJ','RN','RO','RR','RS','SC','SE','SP','TO'];
     eg.innerHTML=ufs.map(uf=>`<div class="estado-card"><div class="estado-uf">${uf}</div><div class="estado-lider">—</div></div>`).join('');
   }
-}
+
+  /* ---------- APURAÇÃO — bloco presidencial ---------- */
+  const apurContent=document.getElementById('apur-presidencial-content');
+  if(apurContent){
+    const progresso=apur.progresso||0;
+    if(progresso===0){
+      /* Sem dados: empty state limpo lido do JSON */
+      const statusMsg=apur.status||'Aguardando início da apuração';
+      apurContent.innerHTML=`
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+          <h3>${statusMsg}</h3>
+          <p>Os resultados da apuração presidencial serão exibidos aqui assim que a contagem for iniciada. Apuração começa às 17h do dia 6 de outubro de 2002.</p>
+        </div>`;
+    } else {
+      /* Com dados: renderiza hero + lista + mapa */
+      const c1=apur.candidato1||{}, c2=apur.candidato2||{};
+      apurContent.innerHTML=`
+        <div class="apur-page-hero">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)">Votos válidos apurados — Presidencial</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:600;font-family:'IBM Plex Mono',monospace">${progresso.toFixed(1).replace('.',',')}% apurado</div>
+          </div>
+          <div style="height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-bottom:24px">
+            <div style="height:100%;width:${progresso}%;background:var(--tupi-orange);border-radius:4px;transition:width 1s"></div>
+          </div>
+          <div class="apur-cands-full">
+            <div class="apur-cand-cell">
+              <div class="apur-photo-lg">${(c1.sigla||c1.nome||'?').substring(0,2)}</div>
+              <div class="apur-cand-nm">${c1.nome||'—'}</div>
+              <div class="apur-cand-pct-big">${c1.pct_str||'—'}</div>
+              <div class="apur-cand-votes-sm">${c1.votos||'—'}</div>
+            </div>
+            <div class="apur-cand-cell">
+              <div class="apur-photo-lg">${(c2.sigla||c2.nome||'?').substring(0,2)}</div>
+              <div class="apur-cand-nm">${c2.nome||'—'}</div>
+              <div class="apur-cand-pct-big">${c2.pct_str||'—'}</div>
+              <div class="apur-cand-votes-sm">${c2.votos||'—'}</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-label" style="margin-bottom:14px">Resultado por Estado — Presidencial</div>
+        <div class="apur-mapa"><div class="apur-mapa-title">Brasil — Resultado parcial por UF</div><div class="estados-grid" id="estados-grid"></div></div>`;
+      /* repopula mapa após injetar HTML */
+      const eg2=document.getElementById('estados-grid');
+      if(eg2){
+        const ufs=['AC','AL','AM','AP','BA','CE','DF','ES','GO','MA','MG','MS','MT','PA','PB','PE','PI','PR','RJ','RN','RO','RR','RS','SC','SE','SP','TO'];
+        eg2.innerHTML=ufs.map(uf=>`<div class="estado-card"><div class="estado-uf">${uf}</div><div class="estado-lider">—</div></div>`).join('');
+      }
+    }
+  }
+
+  /* ---------- PESQUISAS & AGREGADOR — governadores e senadores por estado ---------- */
+  function renderPesqCard(p){
+    const res=p.resultados||[], pseg=p.segundo_turno||[];
+    return`<div class="pesquisa-full-card" data-search="${p.search_tags||''}">
+      <div class="pf-header">
+        <div class="pf-title">${p.instituto}</div>
+        <div class="pf-badge">${p.tipo}</div>
+      </div>
+      <div class="info-row">
+        <span>📊 ${p.entrevistados?Number(p.entrevistados).toLocaleString('pt-BR'):'n/d'} entrevistados</span>
+        <span>${p.margem||''}</span>
+        <span>${p.confianca||''}</span>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px">📅 ${p.data}</div>
+      ${res.map(c=>`<div class="cand-row">
+        <span class="cand-name">${c.nome}${c.partido?`<small style="color:var(--text-muted);margin-left:4px">${c.partido}${c.numero?'('+c.numero+')':''}</small>`:''}</span>
+        <span class="cand-pct">${c.pct.toFixed(2).replace('.',',')}%</span>
+      </div>`).join('')}
+      ${p.branco_nulo!=null?`<div class="cand-row"><span class="cand-name" style="color:var(--text-muted)">Branco / Nulo</span><span class="cand-pct">${String(p.branco_nulo).replace('.',',')}%</span></div>`:''}
+      ${p.indecisos!=null?`<div class="cand-row"><span class="cand-name" style="color:var(--text-muted)">Indecisos</span><span class="cand-pct">${String(p.indecisos).replace('.',',')}%</span></div>`:''}
+      ${pseg.length?`<div class="divider-light"></div><div style="font-weight:600;margin:8px 0 4px">⚡ 2º Turno (Simulação)</div>${pseg.map(c=>`<div class="cand-row"><span class="cand-name">${c.nome}</span><span class="cand-pct">${c.pct_str}</span></div>`).join('')}`:''}
+    </div>`;
+  }
+
+  const defCores=['#1C2BCB','#e84560','#F5A000','#22c55e','#9b59b6','#aabbcc','#2ecc71','#e67e22'];
+  const ufsDisponiveis=['SP','RS','GO','PE','AM'];
+  ['governador','senador'].forEach(cargo=>{
+    const dadosCargo=DADOS[cargo+'es']||{};
+    ufsDisponiveis.forEach(uf=>{
+      const dadosUF=dadosCargo[uf]||{};
+      const pesqsUF=dadosUF.pesquisas||[];
+      const nomeEstado=dadosUF.estado||uf;
+      const cargoLabel=cargo.charAt(0).toUpperCase()+cargo.slice(1);
+
+      /* — Bloco PESQUISAS — */
+      const bPesq=document.querySelector(`#page-pesquisas [data-block="${cargo}-${uf}"]`);
+      if(bPesq&&pesqsUF.length){
+        bPesq.innerHTML=`<div class="section-label">Pesquisas registradas — ${cargoLabel} · ${nomeEstado} (${uf})</div>
+          <div class="pesquisa-full-grid">${pesqsUF.map(renderPesqCard).join('')}</div>`;
+      }
+
+      /* — Bloco AGREGADOR — */
+      const bAgg=document.querySelector(`#page-agregador [data-block="${cargo}-${uf}"]`);
+      if(bAgg&&pesqsUF.length){
+        const aggUF=computeAggregador(pesqsUF);
+        const aggUFSeg=computeAggregadorSeg(pesqsUF);
+        const totalEntUF=pesqsUF.reduce((s,p)=>s+(Number(p.entrevistados)||0),0);
+        const allNUF=[];
+        pesqsUF.forEach(p=>(p.resultados||[]).forEach(r=>{if(!allNUF.includes(r.nome))allNUF.push(r.nome);}));
+        const avgMapUF=Object.fromEntries(aggUF.map(c=>[c.nome,c.pct]));
+        const theadUF=`<tr><th>Instituto</th><th>Tipo</th><th>Data</th><th>Entrev.</th>${allNUF.map(n=>`<th>${n.split(' ')[0]}</th>`).join('')}</tr>`;
+        const avgRowUF=`<tr style="background:rgba(28,43,203,.06);font-weight:700"><td colspan="3"><strong>📊 Média ponderada</strong></td><td class="agg-pct">${totalEntUF.toLocaleString('pt-BR')}</td>${allNUF.map(n=>`<td class="agg-pct">${avgMapUF[n]!=null?avgMapUF[n].toFixed(2).replace('.',',')+'%':'—'}</td>`).join('')}</tr>`;
+        const rowsUF=pesqsUF.map(p=>{
+          const pm=Object.fromEntries((p.resultados||[]).map(r=>[r.nome,r.pct]));
+          return`<tr><td><strong>${p.instituto}</strong></td><td>${p.tipo}</td><td>${p.data}</td><td class="agg-pct">${p.entrevistados?Number(p.entrevistados).toLocaleString('pt-BR'):'n/d'}</td>${allNUF.map(n=>`<td class="agg-pct">${pm[n]!=null?pm[n].toFixed(2).replace('.',',')+'%':'—'}</td>`).join('')}</tr>`;
+        }).join('');
+        const segBarras=aggUFSeg.length?`<div style="margin-top:20px"><div class="section-label" style="margin-bottom:12px">⚡ 2º Turno — Simulação</div>${aggUFSeg.map((c,i)=>`<div class="bar-row"><div class="bar-label"><span class="name">${c.nome}</span><span class="pct">${c.pct_str}</span></div><div class="bar-track"><div class="bar-fill" style="width:${c.pct}%;background:${defCores[i%defCores.length]}"></div></div></div>`).join('')}</div>`:'';
+        bAgg.innerHTML=`
+          <div class="section-label">Agregador — ${cargoLabel} · ${nomeEstado} (${uf})</div>
+          <div class="agg-cands-grid">${aggUF.map((c,i)=>`<div class="agg-cand-cell"><div class="agg-cand-photo" style="background:${defCores[i%defCores.length]}">${c.nome.substring(0,2).toUpperCase()}</div><div class="agg-cand-name">${c.nome}</div><div class="agg-cand-pct">${c.pct.toFixed(1).replace('.',',')}%</div></div>`).join('')}</div>
+          <div style="overflow-x:auto;margin-top:16px"><table class="agg-table"><thead>${theadUF}</thead><tbody>${avgRowUF+rowsUF}</tbody></table></div>
+          ${segBarras}`;
+      }
+    });
+  });
+
+} /* ── fim populateData ── */
 
 /* ── Init ── */
 window.addEventListener('load', async ()=>{
