@@ -4,7 +4,6 @@
     "📊 Atlas Intel (estimulada/ago): João Neto lidera com 38,5%",
     "📊 Instituto NGV (estimulada/set): Ângela Portela sobe para 33%",
     "📊 Datafolha (estimulada/set): João Neto 41% | Ângela Portela 35%",
-    "⚡ 2º Turno simulado Datafolha: João Neto 52% × Ângela Portela 48%",
     "🔴 Apuração começa às 17h do dia 6 de outubro de 2002",
     "📡 Acompanhe ao vivo pela Tupi Notícias"
   ],
@@ -67,16 +66,7 @@
         "tendencia": "— 0pp"
       }
     ],
-    "segundo_turno": [
-      {
-        "nome": "João Neto",
-        "pct_str": "52,00%"
-      },
-      {
-        "nome": "Ângela Portela",
-        "pct_str": "48,00%"
-      }
-    ],
+    "segundo_turno": [],
     "pesquisas": [
       {
         "instituto": "Atlas Intel",
@@ -126,16 +116,7 @@
             "pct": 2.0
           }
         ],
-        "segundo_turno": [
-          {
-            "nome": "João Neto",
-            "pct_str": "54,00%"
-          },
-          {
-            "nome": "Ângela Portela",
-            "pct_str": "46,00%"
-          }
-        ]
+        "segundo_turno": []
       },
       {
         "instituto": "Instituto NGV",
@@ -179,14 +160,27 @@
             "pct": 4.0
           }
         ],
+        "segundo_turno": []
+      },
+      {
+        "instituto": "Instituto NGV",
+        "tipo": "2º Turno (Simulação)",
+        "data": "2000",
+        "entrevistados": 5000,
+        "margem": "±2,0 p.p.",
+        "confianca": null,
+        "branco_nulo": null,
+        "indecisos": null,
+        "search_tags": "instituto ngv segundo turno simulacao 2000",
+        "resultados": [],
         "segundo_turno": [
           {
             "nome": "João Neto",
-            "pct_str": "51,00%"
+            "pct_str": "53,42%"
           },
           {
             "nome": "Ângela Portela",
-            "pct_str": "49,00%"
+            "pct_str": "46,58%"
           }
         ]
       }
