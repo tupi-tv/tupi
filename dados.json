@@ -193,6 +193,171 @@
     ]
   },
   "governadores": {
+    "SP": {
+      "cargo": "Governador",
+      "estado": "São Paulo",
+      "uf": "SP",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "set/2002",
+          "entrevistados": null,
+          "margem": "±4,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": null,
+          "indecisos": 32.0,
+          "search_tags": "atlas intel governador sao paulo espontanea setembro 2002",
+          "resultados": [
+            {
+              "nome": "Michel Temer",
+              "partido": "PMDB",
+              "numero": 15,
+              "pct": 30.0
+            },
+            {
+              "nome": "Jorge Dutra",
+              "partido": "PP",
+              "numero": 11,
+              "pct": 19.0
+            },
+            {
+              "nome": "Luciano Casablanca",
+              "partido": "PT",
+              "numero": 13,
+              "pct": 14.0
+            },
+            {
+              "nome": "Sarah Poncio",
+              "partido": "PSDB",
+              "numero": 45,
+              "pct": 5.0
+            }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "GO": {
+      "cargo": "Governador",
+      "estado": "Goiás",
+      "uf": "GO",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "set/2002",
+          "entrevistados": null,
+          "margem": "±4,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": null,
+          "indecisos": 55.0,
+          "search_tags": "atlas intel governador goias espontanea setembro 2002",
+          "resultados": [
+            {
+              "nome": "Angela Portela",
+              "partido": "PT",
+              "numero": 13,
+              "pct": 14.0
+            },
+            {
+              "nome": "Amanda Gentil",
+              "partido": "PT",
+              "numero": 13,
+              "pct": 13.0
+            },
+            {
+              "nome": "Marcio França",
+              "partido": "PSB",
+              "numero": 40,
+              "pct": 6.0
+            },
+            {
+              "nome": "Freitas Neto",
+              "partido": "PDT",
+              "numero": 12,
+              "pct": 6.0
+            },
+            {
+              "nome": "Min. José Von Richthofen",
+              "partido": "PP",
+              "numero": 11,
+              "pct": 5.0
+            },
+            {
+              "nome": "Wellington Fagundes",
+              "partido": "PL",
+              "numero": 22,
+              "pct": 3.0
+            }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "PE": {
+      "cargo": "Governador",
+      "estado": "Pernambuco",
+      "uf": "PE",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "set/2002",
+          "entrevistados": null,
+          "margem": "±3,8 p.p.",
+          "confianca": "95%",
+          "branco_nulo": null,
+          "indecisos": 36.0,
+          "search_tags": "atlas intel governador pernambuco espontanea setembro 2002",
+          "resultados": [
+            {
+              "nome": "Álvaro Dias",
+              "partido": "PDT",
+              "numero": 12,
+              "pct": 17.0
+            },
+            {
+              "nome": "Janja",
+              "partido": "PT",
+              "numero": 13,
+              "pct": 15.0
+            },
+            {
+              "nome": "Gilson Neto",
+              "partido": "PSDB",
+              "numero": 45,
+              "pct": 12.0
+            },
+            {
+              "nome": "Tasso Jereissati",
+              "partido": "PSDB",
+              "numero": 45,
+              "pct": 10.0
+            },
+            {
+              "nome": "Miguel Arraes",
+              "partido": "PSB",
+              "numero": 40,
+              "pct": 5.0
+            },
+            {
+              "nome": "Vivi Reais",
+              "partido": "—",
+              "numero": 0,
+              "pct": 3.0
+            },
+            {
+              "nome": "Narcisa",
+              "partido": "—",
+              "numero": 0,
+              "pct": 2.0
+            }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
     "AM": {
       "cargo": "Governador",
       "estado": "Amazonas",
@@ -308,9 +473,9 @@
     },
     {
       "uf": "GO",
-      "lider": "Marconi Perillo",
-      "partido": "PSDB",
-      "pct": 28
+      "lider": "Angela Portela",
+      "partido": "PT",
+      "pct": 14
     },
     {
       "uf": "MA",
@@ -352,7 +517,7 @@
       "uf": "PE",
       "lider": "Álvaro Dias",
       "partido": "PDT",
-      "pct": 32
+      "pct": 17
     },
     {
       "uf": "PI",
@@ -412,7 +577,7 @@
       "uf": "SP",
       "lider": "Michel Temer",
       "partido": "PMDB",
-      "pct": 34
+      "pct": 30
     },
     {
       "uf": "TO",
