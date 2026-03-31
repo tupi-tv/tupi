@@ -192,6 +192,53 @@
       }
     ]
   },
+  "governadores": {
+    "AM": {
+      "cargo": "Governador",
+      "estado": "Amazonas",
+      "uf": "AM",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "set/2002",
+          "entrevistados": null,
+          "margem": "±3,6 p.p.",
+          "confianca": "95%",
+          "branco_nulo": null,
+          "indecisos": 30.0,
+          "search_tags": "atlas intel governador amazonas setembro 2002",
+          "resultados": [
+            {
+              "nome": "Paul Lopes",
+              "partido": "PT",
+              "numero": 13,
+              "pct": 35.0
+            },
+            {
+              "nome": "Eduardo Braga",
+              "partido": "PMDB",
+              "numero": 15,
+              "pct": 20.0
+            },
+            {
+              "nome": "Brigitte Niborg",
+              "partido": "PDT",
+              "numero": 12,
+              "pct": 10.0
+            },
+            {
+              "nome": "Vick Safra",
+              "partido": "PP",
+              "numero": 11,
+              "pct": 5.0
+            }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    }
+  },
   "apuracao": {
     "progresso": 0,
     "status": "Aguardando início da apuração",
@@ -225,9 +272,9 @@
     },
     {
       "uf": "AM",
-      "lider": "Eduardo Braga",
-      "partido": "PMDB",
-      "pct": 38
+      "lider": "Paul Lopes",
+      "partido": "PT",
+      "pct": 35
     },
     {
       "uf": "AP",
