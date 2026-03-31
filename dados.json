@@ -1,226 +1,461 @@
 {
   "ticker": [
     "🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias",
-    "📊 Atlas Intel (espontânea/fev): João Neto lidera com 15,28%",
-    "📊 NGV (estimulada): João Neto 44% | Ângela Portela 37%",
-    "⚡ 2º Turno simulado NGV: João Neto 53,42% × Ângela Portela 46,58%",
-    "🔴 Apuração começa às 17h de 6 de outubro de 2002",
-    "🏛️ Governadores de 27 estados também serão eleitos",
-    "📜 Renovação de 54 cadeiras no Senado Federal"
+    "📊 Atlas Intel (estimulada/ago): João Neto lidera com 38,5%",
+    "📊 Instituto NGV (estimulada/set): Ângela Portela sobe para 33%",
+    "📊 Datafolha (estimulada/set): João Neto 41% | Ângela Portela 35%",
+    "⚡ 2º Turno simulado Datafolha: João Neto 52% × Ângela Portela 48%",
+    "🔴 Apuração começa às 17h do dia 6 de outubro de 2002",
+    "🏛️ 27 governadores serão eleitos em outubro",
+    "📜 54 vagas disputadas no Senado Federal",
+    "📡 Acompanhe ao vivo pela Tupi Notícias"
   ],
+
   "presidencial": {
     "titulo_hero": "Eleições Presidenciais 2002 — Pesquisas & Apuração em Tempo Real",
-    "meta_pesquisa": "Instituto NGV · 5.000 entrev. · ±2pp · 96% conf.",
+    "meta_pesquisa": "Datafolha · 3.500 entrev. · ±2pp · 95% conf.",
     "primeiro_turno": [
-      {
-        "nome": "João Neto",
-        "sigla": "JN",
-        "partido": "PSDB",
-        "numero": 45,
-        "pct": 44,
-        "cor": "#1C2BCB",
-        "tendencia": "▲ +1pp"
-      },
-      {
-        "nome": "Ângela Portela",
-        "sigla": "AP",
-        "partido": "MDB",
-        "numero": 15,
-        "pct": 37,
-        "cor": "#e84560",
-        "tendencia": "▲ +2pp"
-      },
-      {
-        "nome": "Michel Temer",
-        "sigla": "MT",
-        "partido": "MDB",
-        "numero": 15,
-        "pct": 9,
-        "cor": "#F5A000",
-        "tendencia": "▼ -1pp"
-      },
-      {
-        "nome": "Eduardo Braga",
-        "sigla": "EB",
-        "partido": "PDT",
-        "numero": 12,
-        "pct": 7,
-        "cor": "#22c55e",
-        "tendencia": "— 0pp"
-      },
-      {
-        "nome": "Eduardo Campos",
-        "sigla": "EC",
-        "partido": "DEM",
-        "numero": 25,
-        "pct": 3,
-        "cor": "#aabbcc",
-        "tendencia": "▼ -1pp"
-      }
+      { "nome": "João Neto",       "sigla": "JN", "partido": "PSDB", "numero": 45, "pct": 41, "cor": "#1C2BCB", "tendencia": "▲ +2pp" },
+      { "nome": "Ângela Portela",  "sigla": "AP", "partido": "PT",   "numero": 13, "pct": 35, "cor": "#e84560", "tendencia": "▲ +3pp" },
+      { "nome": "Michel Temer",    "sigla": "MT", "partido": "PMDB", "numero": 15, "pct": 11, "cor": "#F5A000", "tendencia": "▼ -1pp" },
+      { "nome": "Eduardo Braga",   "sigla": "EB", "partido": "PDT",  "numero": 12, "pct":  7, "cor": "#22c55e", "tendencia": "— 0pp"  },
+      { "nome": "Eduardo Campos",  "sigla": "EC", "partido": "PSB",  "numero": 40, "pct":  4, "cor": "#9b59b6", "tendencia": "▲ +1pp" },
+      { "nome": "Outros",          "sigla": "OT", "partido": "—",    "numero":  0, "pct":  2, "cor": "#aabbcc", "tendencia": "— 0pp"  }
     ],
     "segundo_turno": [
-      { "nome": "João Neto", "pct_str": "53,42%" },
-      { "nome": "Ângela Portela", "pct_str": "46,58%" }
+      { "nome": "João Neto",      "pct_str": "52,00%" },
+      { "nome": "Ângela Portela", "pct_str": "48,00%" }
     ],
     "pesquisas": [
       {
-        "instituto": "ATLAS INTEL",
-        "tipo": "Espontânea",
-        "data": "fev/2002",
+        "instituto": "Atlas Intel",
+        "tipo": "Estimulada",
+        "data": "ago/2002",
         "entrevistados": 5000,
-        "margem": "±4,5 p.p.",
+        "margem": "±1,5 p.p.",
         "confianca": "95%",
-        "branco_nulo": 2.19,
-        "indecisos": 20.0,
-        "search_tags": "atlas intel espontânea fevereiro 2002",
+        "branco_nulo": 2.50,
+        "indecisos": 6.00,
+        "search_tags": "atlas intel estimulada agosto 2002",
         "resultados": [
-          { "nome": "João Neto", "partido": "PSDB", "numero": 45, "pct": 15.28 },
-          { "nome": "Tasso Jereissati", "partido": "PDT", "numero": 12, "pct": 11.3 },
-          { "nome": "Eduardo Braga", "partido": "PDT", "numero": 12, "pct": 10.91 },
-          { "nome": "Michel Temer", "partido": "PMDB", "numero": 15, "pct": 8.17 },
-          { "nome": "Angela Portela", "partido": "PMDB", "numero": 15, "pct": 6.85 },
-          { "nome": "Jorge Bornhausen", "partido": "PP", "numero": 11, "pct": 4.69 },
-          { "nome": "Deocleciano Geisel", "partido": "REP", "numero": 10, "pct": 2.02 },
-          { "nome": "João Goulart Filho", "partido": "PNM", "numero": 33, "pct": 1.23 },
-          { "nome": "Maria João", "partido": "PCC", "numero": 99, "pct": 0.78 }
+          { "nome": "João Neto",      "partido": "PSDB", "numero": 45, "pct": 38.50 },
+          { "nome": "Ângela Portela", "partido": "PT",   "numero": 13, "pct": 30.00 },
+          { "nome": "Michel Temer",   "partido": "PMDB", "numero": 15, "pct": 13.00 },
+          { "nome": "Eduardo Braga",  "partido": "PDT",  "numero": 12, "pct":  7.50 },
+          { "nome": "Eduardo Campos", "partido": "PSB",  "numero": 40, "pct":  3.50 },
+          { "nome": "Outros",         "partido": "—",    "numero":  0, "pct":  2.00 }
         ],
-        "segundo_turno": []
+        "segundo_turno": [
+          { "nome": "João Neto",      "pct_str": "54,00%" },
+          { "nome": "Ângela Portela", "pct_str": "46,00%" }
+        ]
       },
       {
         "instituto": "Instituto NGV",
         "tipo": "Estimulada",
-        "data": "2002",
+        "data": "set/2002",
         "entrevistados": 5000,
-        "margem": "±2 p.p.",
+        "margem": "±2,0 p.p.",
         "confianca": "96%",
-        "branco_nulo": 4.0,
-        "indecisos": 2.0,
-        "search_tags": "instituto ngv estimulada 2002",
+        "branco_nulo": 4.00,
+        "indecisos": 3.00,
+        "search_tags": "instituto ngv estimulada setembro 2002",
         "resultados": [
-          { "nome": "João Neto", "partido": "PSDB", "numero": 45, "pct": 44.0 },
-          { "nome": "Ângela Portela", "partido": "MDB", "numero": 15, "pct": 37.0 },
-          { "nome": "Michel Temer", "partido": "MDB", "numero": 15, "pct": 9.0 },
-          { "nome": "Eduardo Braga", "partido": "PDT", "numero": 12, "pct": 7.0 },
-          { "nome": "Eduardo Campos", "partido": "DEM", "numero": 25, "pct": 3.0 }
+          { "nome": "João Neto",      "partido": "PSDB", "numero": 45, "pct": 43.00 },
+          { "nome": "Ângela Portela", "partido": "PT",   "numero": 13, "pct": 33.00 },
+          { "nome": "Michel Temer",   "partido": "PMDB", "numero": 15, "pct": 10.00 },
+          { "nome": "Eduardo Braga",  "partido": "PDT",  "numero": 12, "pct":  6.00 },
+          { "nome": "Eduardo Campos", "partido": "PSB",  "numero": 40, "pct":  4.00 }
         ],
         "segundo_turno": [
-          { "nome": "João Neto", "pct_str": "53,42%" },
-          { "nome": "Ângela Portela", "pct_str": "46,58%" }
+          { "nome": "João Neto",      "pct_str": "51,00%" },
+          { "nome": "Ângela Portela", "pct_str": "49,00%" }
         ]
+      },
+      {
+        "instituto": "Datafolha",
+        "tipo": "Estimulada",
+        "data": "set/2002",
+        "entrevistados": 3500,
+        "margem": "±2,0 p.p.",
+        "confianca": "95%",
+        "branco_nulo": 3.00,
+        "indecisos": 4.00,
+        "search_tags": "datafolha estimulada setembro 2002",
+        "resultados": [
+          { "nome": "João Neto",      "partido": "PSDB", "numero": 45, "pct": 41.00 },
+          { "nome": "Ângela Portela", "partido": "PT",   "numero": 13, "pct": 35.00 },
+          { "nome": "Michel Temer",   "partido": "PMDB", "numero": 15, "pct": 11.00 },
+          { "nome": "Eduardo Braga",  "partido": "PDT",  "numero": 12, "pct":  6.00 },
+          { "nome": "Eduardo Campos", "partido": "PSB",  "numero": 40, "pct":  4.00 }
+        ],
+        "segundo_turno": [
+          { "nome": "João Neto",      "pct_str": "52,00%" },
+          { "nome": "Ângela Portela", "pct_str": "48,00%" }
+        ]
+      },
+      {
+        "instituto": "IBOPE",
+        "tipo": "Espontânea",
+        "data": "fev/2002",
+        "entrevistados": 4000,
+        "margem": "±2,5 p.p.",
+        "confianca": "95%",
+        "branco_nulo": 2.19,
+        "indecisos": 22.00,
+        "search_tags": "ibope espontanea fevereiro 2002",
+        "resultados": [
+          { "nome": "João Neto",          "partido": "PSDB", "numero": 45, "pct": 16.80 },
+          { "nome": "Tasso Jereissati",   "partido": "PSDB", "numero": 45, "pct": 11.30 },
+          { "nome": "Eduardo Braga",      "partido": "PDT",  "numero": 12, "pct": 10.91 },
+          { "nome": "Michel Temer",       "partido": "PMDB", "numero": 15, "pct":  8.17 },
+          { "nome": "Ângela Portela",     "partido": "PT",   "numero": 13, "pct":  7.85 },
+          { "nome": "Jorge Bornhausen",   "partido": "PP",   "numero": 11, "pct":  4.69 },
+          { "nome": "Eduardo Campos",     "partido": "PSB",  "numero": 40, "pct":  2.02 },
+          { "nome": "João Goulart Filho", "partido": "PDT",  "numero": 12, "pct":  1.23 }
+        ],
+        "segundo_turno": []
       }
     ]
   },
+
+  "governadores": {
+    "SP": {
+      "cargo": "Governador",
+      "estado": "São Paulo",
+      "uf": "SP",
+      "pesquisas": [
+        {
+          "instituto": "Datafolha",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 2800,
+          "margem": "±2,5 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 4.00,
+          "indecisos": 5.00,
+          "search_tags": "datafolha governador sao paulo setembro 2002",
+          "resultados": [
+            { "nome": "Michel Temer",       "partido": "PMDB", "numero": 15, "pct": 34.00 },
+            { "nome": "Jorge Dutra",        "partido": "PP",   "numero": 11, "pct": 22.00 },
+            { "nome": "Luciano Casablanca", "partido": "PT",   "numero": 13, "pct": 19.00 },
+            { "nome": "Sarah Poncio",       "partido": "PSDB", "numero": 45, "pct": 11.00 },
+            { "nome": "Outros",             "partido": "—",    "numero":  0, "pct":  5.00 }
+          ],
+          "segundo_turno": [
+            { "nome": "Michel Temer",       "pct_str": "55,00%" },
+            { "nome": "Jorge Dutra",        "pct_str": "45,00%" }
+          ]
+        },
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "ago/2002",
+          "entrevistados": 3200,
+          "margem": "±2,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 3.00,
+          "indecisos": 12.00,
+          "search_tags": "atlas intel governador sao paulo agosto 2002",
+          "resultados": [
+            { "nome": "Michel Temer",       "partido": "PMDB", "numero": 15, "pct": 30.00 },
+            { "nome": "Jorge Dutra",        "partido": "PP",   "numero": 11, "pct": 19.00 },
+            { "nome": "Luciano Casablanca", "partido": "PT",   "numero": 13, "pct": 14.00 },
+            { "nome": "Sarah Poncio",       "partido": "PSDB", "numero": 45, "pct":  9.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "RS": {
+      "cargo": "Governador",
+      "estado": "Rio Grande do Sul",
+      "uf": "RS",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 2000,
+          "margem": "±3,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 3.50,
+          "indecisos": 7.00,
+          "search_tags": "atlas intel governador rio grande do sul setembro 2002",
+          "resultados": [
+            { "nome": "Germano Rigotto",  "partido": "PMDB", "numero": 15, "pct": 36.00 },
+            { "nome": "Tarso Genro",      "partido": "PT",   "numero": 13, "pct": 30.00 },
+            { "nome": "Hermes Lima Neto", "partido": "PDT",  "numero": 12, "pct": 17.00 },
+            { "nome": "Sara Winter",      "partido": "PP",   "numero": 11, "pct":  7.50 }
+          ],
+          "segundo_turno": [
+            { "nome": "Germano Rigotto", "pct_str": "52,00%" },
+            { "nome": "Tarso Genro",     "pct_str": "48,00%" }
+          ]
+        }
+      ]
+    },
+    "GO": {
+      "cargo": "Governador",
+      "estado": "Goiás",
+      "uf": "GO",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "ago/2002",
+          "entrevistados": 1800,
+          "margem": "±4,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 3.00,
+          "indecisos": 30.00,
+          "search_tags": "atlas intel governador goias agosto 2002",
+          "resultados": [
+            { "nome": "Marconi Perillo",       "partido": "PSDB", "numero": 45, "pct": 28.00 },
+            { "nome": "Amanda Gentil",         "partido": "PT",   "numero": 13, "pct": 18.00 },
+            { "nome": "Freitas Neto",          "partido": "PDT",  "numero": 12, "pct": 10.00 },
+            { "nome": "Wellington Fagundes",   "partido": "PL",   "numero": 22, "pct":  6.00 },
+            { "nome": "Min. José Von Richthofen", "partido": "PP", "numero": 11, "pct":  5.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "PE": {
+      "cargo": "Governador",
+      "estado": "Pernambuco",
+      "uf": "PE",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 2200,
+          "margem": "±3,5 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 3.00,
+          "indecisos": 10.00,
+          "search_tags": "atlas intel governador pernambuco setembro 2002",
+          "resultados": [
+            { "nome": "Álvaro Dias",       "partido": "PDT",  "numero": 12, "pct": 32.00 },
+            { "nome": "Janja",             "partido": "PT",   "numero": 13, "pct": 26.00 },
+            { "nome": "Gilson Neto",       "partido": "PSDB", "numero": 45, "pct": 18.00 },
+            { "nome": "Tasso Jereissati",  "partido": "PSDB", "numero": 45, "pct": 10.00 },
+            { "nome": "Miguel Arraes",     "partido": "PSB",  "numero": 40, "pct":  7.00 }
+          ],
+          "segundo_turno": [
+            { "nome": "Álvaro Dias", "pct_str": "55,00%" },
+            { "nome": "Janja",       "pct_str": "45,00%" }
+          ]
+        }
+      ]
+    },
+    "AM": {
+      "cargo": "Governador",
+      "estado": "Amazonas",
+      "uf": "AM",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "set/2002",
+          "entrevistados": 1500,
+          "margem": "±3,6 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 2.00,
+          "indecisos": 25.00,
+          "search_tags": "atlas intel governador amazonas setembro 2002",
+          "resultados": [
+            { "nome": "Eduardo Braga",  "partido": "PMDB", "numero": 15, "pct": 38.00 },
+            { "nome": "Paul Lopes",     "partido": "PT",   "numero": 13, "pct": 20.00 },
+            { "nome": "Brigitte Niborg","partido": "PDT",  "numero": 12, "pct": 10.00 },
+            { "nome": "Vick Safra",     "partido": "PP",   "numero": 11, "pct":  5.00 }
+          ],
+          "segundo_turno": [
+            { "nome": "Eduardo Braga", "pct_str": "60,00%" },
+            { "nome": "Paul Lopes",    "pct_str": "40,00%" }
+          ]
+        }
+      ]
+    }
+  },
+
+  "senadores": {
+    "SP": {
+      "cargo": "Senador",
+      "estado": "São Paulo",
+      "uf": "SP",
+      "vagas": 1,
+      "pesquisas": [
+        {
+          "instituto": "Datafolha",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 2000,
+          "margem": "±3,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 8.00,
+          "indecisos": 15.00,
+          "search_tags": "datafolha senado sao paulo setembro 2002",
+          "resultados": [
+            { "nome": "Aloysio Nunes",  "partido": "PSDB", "numero": 45, "pct": 35.00 },
+            { "nome": "Marta Suplicy",  "partido": "PT",   "numero": 13, "pct": 27.00 },
+            { "nome": "Paulo Maluf",    "partido": "PP",   "numero": 11, "pct": 15.00 },
+            { "nome": "Benedita Lima",  "partido": "PDT",  "numero": 12, "pct":  8.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "RS": {
+      "cargo": "Senador",
+      "estado": "Rio Grande do Sul",
+      "uf": "RS",
+      "vagas": 1,
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 1800,
+          "margem": "±3,2 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 7.00,
+          "indecisos": 12.00,
+          "search_tags": "atlas intel senado rio grande do sul setembro 2002",
+          "resultados": [
+            { "nome": "Pedro Simon",     "partido": "PMDB", "numero": 15, "pct": 38.00 },
+            { "nome": "Olívio Dutra",    "partido": "PT",   "numero": 13, "pct": 29.00 },
+            { "nome": "Leonel Brizola",  "partido": "PDT",  "numero": 12, "pct": 14.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "GO": {
+      "cargo": "Senador",
+      "estado": "Goiás",
+      "uf": "GO",
+      "vagas": 1,
+      "pesquisas": [
+        {
+          "instituto": "Instituto NGV",
+          "tipo": "Estimulada",
+          "data": "ago/2002",
+          "entrevistados": 1200,
+          "margem": "±4,0 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 9.00,
+          "indecisos": 20.00,
+          "search_tags": "ngv senado goias agosto 2002",
+          "resultados": [
+            { "nome": "Iris Rezende",    "partido": "PMDB", "numero": 15, "pct": 34.00 },
+            { "nome": "Flávia Morais",   "partido": "PDT",  "numero": 12, "pct": 22.00 },
+            { "nome": "Thales Ramalho",  "partido": "PL",   "numero": 22, "pct": 15.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "PE": {
+      "cargo": "Senador",
+      "estado": "Pernambuco",
+      "uf": "PE",
+      "vagas": 1,
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 1600,
+          "margem": "±3,5 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 6.00,
+          "indecisos": 14.00,
+          "search_tags": "atlas intel senado pernambuco setembro 2002",
+          "resultados": [
+            { "nome": "Roberto Magalhães", "partido": "PFL",  "numero": 25, "pct": 32.00 },
+            { "nome": "João Paulo Lima",   "partido": "PT",   "numero": 13, "pct": 26.00 },
+            { "nome": "Maurício Rands",    "partido": "PSB",  "numero": 40, "pct": 18.00 },
+            { "nome": "Humberto Costa",    "partido": "PT",   "numero": 13, "pct": 10.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "AM": {
+      "cargo": "Senador",
+      "estado": "Amazonas",
+      "uf": "AM",
+      "vagas": 1,
+      "pesquisas": [
+        {
+          "instituto": "Instituto NGV",
+          "tipo": "Estimulada",
+          "data": "set/2002",
+          "entrevistados": 1100,
+          "margem": "±4,2 p.p.",
+          "confianca": "95%",
+          "branco_nulo": 5.00,
+          "indecisos": 18.00,
+          "search_tags": "ngv senado amazonas setembro 2002",
+          "resultados": [
+            { "nome": "Jefferson Peres",   "partido": "PDT",  "numero": 12, "pct": 40.00 },
+            { "nome": "Arthur Virgílio",   "partido": "PSDB", "numero": 45, "pct": 28.00 },
+            { "nome": "Vanessa Grazziotin","partido": "PCdoB","numero": 65, "pct": 14.00 }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    }
+  },
+
   "apuracao": {
     "progresso": 0,
     "status": "Aguardando início da apuração",
     "candidato1": {
       "nome": "João Neto",
+      "sigla": "JN",
+      "partido": "PSDB",
       "pct_str": "—",
-      "votos": "aguardando apuração"
+      "votos": "Aguardando apuração"
     },
     "candidato2": {
       "nome": "Ângela Portela",
+      "sigla": "AP",
+      "partido": "PT",
       "pct_str": "—",
-      "votos": "aguardando apuração"
+      "votos": "Aguardando apuração"
     }
   },
-  "estados": [
-    {
-      "nome": "Amazonas",
-      "pesquisas": [
-        {
-          "instituto": "Atlas Intel",
-          "tipo": "Espontânea",
-          "data": "2002",
-          "entrevistados": null,
-          "margem": "±3,6 p.p.",
-          "confianca": null,
-          "branco_nulo": null,
-          "indecisos": 30.0,
-          "search_tags": "atlas intel governo amazonas 2002",
-          "resultados": [
-            { "nome": "Paul Lopes", "pct": 35.0 },
-            { "nome": "Eduardo Braga", "pct": 20.0 },
-            { "nome": "Brigitte Niborg", "pct": 10.0 },
-            { "nome": "Vick Safra", "pct": 5.0 }
-          ],
-          "segundo_turno": []
-        }
-      ]
-    },
-    {
-      "nome": "Pernambuco",
-      "pesquisas": [
-        {
-          "instituto": "Atlas Intel",
-          "tipo": "Espontânea",
-          "data": "2002",
-          "entrevistados": null,
-          "margem": "±3,8 p.p.",
-          "confianca": null,
-          "branco_nulo": null,
-          "indecisos": 36.0,
-          "search_tags": "atlas intel governo pernambuco 2002",
-          "resultados": [
-            { "nome": "Álvaro Dias", "pct": 17.0 },
-            { "nome": "Janja", "pct": 15.0 },
-            { "nome": "Gilson Neto", "pct": 12.0 },
-            { "nome": "Tasso Jereissati", "pct": 10.0 },
-            { "nome": "Miguel Arraes", "pct": 5.0 },
-            { "nome": "Vivi Reais", "pct": 3.0 },
-            { "nome": "Narcisa", "pct": 2.0 }
-          ],
-          "segundo_turno": []
-        }
-      ]
-    },
-    {
-      "nome": "Goiás",
-      "pesquisas": [
-        {
-          "instituto": "Atlas Intel",
-          "tipo": "Espontânea",
-          "data": "2002",
-          "entrevistados": null,
-          "margem": "±4 p.p.",
-          "confianca": null,
-          "branco_nulo": null,
-          "indecisos": 53.0,
-          "search_tags": "atlas intel governo goias 2002",
-          "resultados": [
-            { "nome": "Angela Portela", "pct": 14.0 },
-            { "nome": "Amanda Gentil", "pct": 13.0 },
-            { "nome": "Marcio França", "pct": 6.0 },
-            { "nome": "Freitas Neto", "pct": 6.0 },
-            { "nome": "Min. José Von Richthofen", "pct": 5.0 },
-            { "nome": "Wellington Fagundes", "pct": 3.0 }
-          ],
-          "segundo_turno": []
-        }
-      ]
-    },
-    {
-      "nome": "São Paulo",
-      "pesquisas": [
-        {
-          "instituto": "Atlas Intel",
-          "tipo": "Espontânea",
-          "data": "2002",
-          "entrevistados": null,
-          "margem": "±4 p.p.",
-          "confianca": null,
-          "branco_nulo": null,
-          "indecisos": 32.0,
-          "search_tags": "atlas intel governo sao paulo 2002",
-          "resultados": [
-            { "nome": "Michel Temer", "pct": 30.0 },
-            { "nome": "Jorge Dutra", "pct": 19.0 },
-            { "nome": "Luciano Casablanca", "pct": 14.0 },
-            { "nome": "Sarah Poncio", "pct": 5.0 }
-          ],
-          "segundo_turno": []
-        }
-      ]
-    }
+
+  "estados_mapa": [
+    { "uf": "AC", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "AL", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "AM", "lider": "Eduardo Braga", "partido": "PMDB", "pct": 38 },
+    { "uf": "AP", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "BA", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "CE", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "DF", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "ES", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "GO", "lider": "Marconi Perillo", "partido": "PSDB", "pct": 28 },
+    { "uf": "MA", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "MG", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "MS", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "MT", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "PA", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "PB", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "PE", "lider": "Álvaro Dias",    "partido": "PDT",  "pct": 32 },
+    { "uf": "PI", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "PR", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "RJ", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "RN", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "RO", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "RR", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "RS", "lider": "Germano Rigotto","partido": "PMDB", "pct": 36 },
+    { "uf": "SC", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "SE", "lider": "—", "partido": "—", "pct": 0 },
+    { "uf": "SP", "lider": "Michel Temer",   "partido": "PMDB", "pct": 34 },
+    { "uf": "TO", "lider": "—", "partido": "—", "pct": 0 }
   ]
 }
