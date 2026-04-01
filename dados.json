@@ -67,7 +67,58 @@
       }
     ],
     "segundo_turno": [],
-    "pesquisas": []
+    "pesquisas": [
+      {
+        "instituto": "Instituto Opinião",
+        "tipo": "Estimulada",
+        "data": "set/2002",
+        "entrevistados": 4200,
+        "margem": "±1,8 p.p.",
+        "confianca": "95%",
+        "branco_nulo": 2.8,
+        "indecisos": 4.2,
+        "search_tags": "instituto opiniao estimulada setembro 2002",
+        "resultados": [
+          {
+            "nome": "João Neto",
+            "partido": "PSDB",
+            "numero": 45,
+            "pct": 44.5
+          },
+          {
+            "nome": "Ângela Portela",
+            "partido": "PT",
+            "numero": 13,
+            "pct": 34.2
+          },
+          {
+            "nome": "Michel Temer",
+            "partido": "PMDB",
+            "numero": 15,
+            "pct": 9.8
+          },
+          {
+            "nome": "Eduardo Braga",
+            "partido": "PDT",
+            "numero": 12,
+            "pct": 5.5
+          },
+          {
+            "nome": "Eduardo Campos",
+            "partido": "PSB",
+            "numero": 40,
+            "pct": 3.2
+          },
+          {
+            "nome": "Outros",
+            "partido": "—",
+            "numero": 0,
+            "pct": 1.8
+          }
+        ],
+        "segundo_turno": []
+      }
+    ]
   },
   "governadores": {
     "SP": {
