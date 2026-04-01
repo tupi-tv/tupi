@@ -23,45 +23,63 @@
       {
         "nome": "Ângela Portela",
         "sigla": "AP",
-        "partido": "PT",
-        "numero": 13,
+        "partido": "PMDB",
+        "numero": 15,
         "pct": 35,
         "cor": "#e84560",
         "tendencia": "▲ +3pp"
-      },
-      {
-        "nome": "Michel Temer",
-        "sigla": "MT",
-        "partido": "PMDB",
-        "numero": 15,
-        "pct": 11,
-        "cor": "#F5A000",
-        "tendencia": "▼ -1pp"
       },
       {
         "nome": "Eduardo Braga",
         "sigla": "EB",
         "partido": "PDT",
         "numero": 12,
-        "pct": 7,
+        "pct": 11,
         "cor": "#22c55e",
+        "tendencia": "▼ -1pp"
+      },
+      {
+        "nome": "Maria João Abujamra",
+        "sigla": "MJ",
+        "partido": "PCC",
+        "numero": 99,
+        "pct": 7,
+        "cor": "#e84560",
         "tendencia": "— 0pp"
       },
       {
-        "nome": "Eduardo Campos",
-        "sigla": "EC",
-        "partido": "PSB",
-        "numero": 40,
+        "nome": "João Goulart Filho",
+        "sigla": "JG",
+        "partido": "PSOL/PMN",
+        "numero": 50,
         "pct": 4,
         "cor": "#9b59b6",
         "tendencia": "▲ +1pp"
+      },
+      {
+        "nome": "Enéas Carneiro",
+        "sigla": "EC",
+        "partido": "PRONA",
+        "numero": 56,
+        "pct": 2,
+        "cor": "#8B4513",
+        "tendencia": "— 0pp"
+      },
+      {
+        "nome": "Marcos Pontes",
+        "sigla": "MP",
+        "partido": "DEM",
+        "numero": 25,
+        "pct": 1,
+        "cor": "#228B22",
+        "tendencia": "— 0pp"
       },
       {
         "nome": "Outros",
         "sigla": "OT",
         "partido": "—",
         "numero": 0,
-        "pct": 2,
+        "pct": 1,
         "cor": "#aabbcc",
         "tendencia": "— 0pp"
       }
@@ -87,33 +105,45 @@
           },
           {
             "nome": "Ângela Portela",
-            "partido": "PT",
-            "numero": 13,
-            "pct": 34.2
-          },
-          {
-            "nome": "Michel Temer",
             "partido": "PMDB",
             "numero": 15,
-            "pct": 9.8
+            "pct": 34.2
           },
           {
             "nome": "Eduardo Braga",
             "partido": "PDT",
             "numero": 12,
+            "pct": 9.8
+          },
+          {
+            "nome": "Maria João Abujamra",
+            "partido": "PCC",
+            "numero": 99,
             "pct": 5.5
           },
           {
-            "nome": "Eduardo Campos",
-            "partido": "PSB",
-            "numero": 40,
+            "nome": "João Goulart Filho",
+            "partido": "PSOL",
+            "numero": 50,
             "pct": 3.2
+          },
+          {
+            "nome": "Enéas Carneiro",
+            "partido": "PRONA",
+            "numero": 56,
+            "pct": 1.8
+          },
+          {
+            "nome": "Marcos Pontes",
+            "partido": "DEM",
+            "numero": 25,
+            "pct": 0.8
           },
           {
             "nome": "Outros",
             "partido": "—",
             "numero": 0,
-            "pct": 1.8
+            "pct": 0.2
           }
         ],
         "segundo_turno": []
@@ -138,28 +168,28 @@
           "search_tags": "atlas intel governador sao paulo espontanea setembro 2002",
           "resultados": [
             {
-              "nome": "Michel Temer",
-              "partido": "PMDB",
-              "numero": 15,
+              "nome": "Luciano Casablanca",
+              "partido": "PSDB/PP",
+              "numero": 45,
               "pct": 30.0
             },
             {
-              "nome": "Jorge Dutra",
-              "partido": "PP",
-              "numero": 11,
-              "pct": 19.0
+              "nome": "Michel Temer",
+              "partido": "PMDB/REP",
+              "numero": 15,
+              "pct": 28.0
             },
             {
-              "nome": "Luciano Casablanca",
-              "partido": "PT",
-              "numero": 13,
-              "pct": 14.0
+              "nome": "Duda Salabert",
+              "partido": "PSOL/PMN",
+              "numero": 50,
+              "pct": 12.0
             },
             {
-              "nome": "Sarah Poncio",
-              "partido": "PSDB",
-              "numero": 45,
-              "pct": 5.0
+              "nome": "Antônio Carlos Magalhães",
+              "partido": "DEM",
+              "numero": 25,
+              "pct": 8.0
             }
           ],
           "segundo_turno": []
@@ -183,40 +213,34 @@
           "search_tags": "atlas intel governador goias espontanea setembro 2002",
           "resultados": [
             {
-              "nome": "Angela Portela",
-              "partido": "PT",
-              "numero": 13,
-              "pct": 14.0
+              "nome": "Aliel Machado",
+              "partido": "PCC",
+              "numero": 99,
+              "pct": 18.0
             },
             {
-              "nome": "Amanda Gentil",
-              "partido": "PT",
-              "numero": 13,
-              "pct": 13.0
+              "nome": "Marcos Ritela",
+              "partido": "PP/PSDB",
+              "numero": 11,
+              "pct": 15.0
             },
             {
-              "nome": "Marcio França",
-              "partido": "PSB",
-              "numero": 40,
-              "pct": 6.0
-            },
-            {
-              "nome": "Freitas Neto",
+              "nome": "Márcio França",
               "partido": "PDT",
               "numero": 12,
-              "pct": 6.0
+              "pct": 12.0
             },
             {
-              "nome": "Min. José Von Richthofen",
-              "partido": "PP",
-              "numero": 11,
+              "nome": "Bruno Peixoto",
+              "partido": "PMDB/REP",
+              "numero": 15,
+              "pct": 10.0
+            },
+            {
+              "nome": "Juan Carlos Osório",
+              "partido": "DEM",
+              "numero": 25,
               "pct": 5.0
-            },
-            {
-              "nome": "Wellington Fagundes",
-              "partido": "PL",
-              "numero": 22,
-              "pct": 3.0
             }
           ],
           "segundo_turno": []
@@ -240,46 +264,34 @@
           "search_tags": "atlas intel governador pernambuco espontanea setembro 2002",
           "resultados": [
             {
-              "nome": "Álvaro Dias",
-              "partido": "PDT",
-              "numero": 12,
-              "pct": 17.0
-            },
-            {
-              "nome": "Janja",
-              "partido": "PT",
-              "numero": 13,
-              "pct": 15.0
+              "nome": "Vivi Reis",
+              "partido": "PCC",
+              "numero": 99,
+              "pct": 22.0
             },
             {
               "nome": "Gilson Neto",
-              "partido": "PSDB",
+              "partido": "PSDB/PP",
               "numero": 45,
-              "pct": 12.0
+              "pct": 18.0
             },
             {
-              "nome": "Tasso Jereissati",
-              "partido": "PSDB",
-              "numero": 45,
+              "nome": "Janja",
+              "partido": "PDT",
+              "numero": 12,
+              "pct": 16.0
+            },
+            {
+              "nome": "Narcisa Saldanha",
+              "partido": "PSOL/PMN",
+              "numero": 50,
               "pct": 10.0
             },
             {
-              "nome": "Miguel Arraes",
-              "partido": "PSB",
-              "numero": 40,
-              "pct": 5.0
-            },
-            {
-              "nome": "Vivi Reais",
-              "partido": "—",
-              "numero": 0,
-              "pct": 3.0
-            },
-            {
-              "nome": "Narcisa",
-              "partido": "—",
-              "numero": 0,
-              "pct": 2.0
+              "nome": "Campos Neto",
+              "partido": "PMDB/REP",
+              "numero": 15,
+              "pct": 8.0
             }
           ],
           "segundo_turno": []
@@ -304,27 +316,60 @@
           "resultados": [
             {
               "nome": "Paul Lopes",
-              "partido": "PT",
-              "numero": 13,
+              "partido": "PSDB/PP",
+              "numero": 45,
               "pct": 35.0
             },
             {
-              "nome": "Eduardo Braga",
-              "partido": "PMDB",
+              "nome": "Renato Impera",
+              "partido": "PMDB/REP",
               "numero": 15,
-              "pct": 20.0
+              "pct": 28.0
+            }
+          ],
+          "segundo_turno": []
+        }
+      ]
+    },
+    "RS": {
+      "cargo": "Governador",
+      "estado": "Rio Grande do Sul",
+      "uf": "RS",
+      "pesquisas": [
+        {
+          "instituto": "Atlas Intel",
+          "tipo": "Espontânea",
+          "data": "set/2002",
+          "entrevistados": null,
+          "margem": "±3,6 p.p.",
+          "confianca": "95%",
+          "branco_nulo": null,
+          "indecisos": 28.0,
+          "search_tags": "atlas intel governador rio grande do sul setembro 2002",
+          "resultados": [
+            {
+              "nome": "Artibulas Maximus",
+              "partido": "PP/PSDB",
+              "numero": 11,
+              "pct": 32.0
             },
             {
-              "nome": "Brigitte Niborg",
+              "nome": "Pedro Simon",
+              "partido": "PMDB/REP",
+              "numero": 15,
+              "pct": 28.0
+            },
+            {
+              "nome": "Jorginho Mello",
               "partido": "PDT",
               "numero": 12,
-              "pct": 10.0
+              "pct": 18.0
             },
             {
-              "nome": "Vick Safra",
-              "partido": "PP",
-              "numero": 11,
-              "pct": 5.0
+              "nome": "William Waack",
+              "partido": "PSOL/PMN",
+              "numero": 50,
+              "pct": 12.0
             }
           ],
           "segundo_turno": []
@@ -345,7 +390,7 @@
     "candidato2": {
       "nome": "Ângela Portela",
       "sigla": "AP",
-      "partido": "PT",
+      "partido": "PMDB",
       "pct_str": "—",
       "votos": "Aguardando apuração"
     }
@@ -366,7 +411,7 @@
     {
       "uf": "AM",
       "lider": "Paul Lopes",
-      "partido": "PT",
+      "partido": "PSDB/PP",
       "pct": 35
     },
     {
@@ -401,9 +446,9 @@
     },
     {
       "uf": "GO",
-      "lider": "Angela Portela",
-      "partido": "PT",
-      "pct": 14
+      "lider": "Aliel Machado",
+      "partido": "PCC",
+      "pct": 18
     },
     {
       "uf": "MA",
@@ -443,9 +488,9 @@
     },
     {
       "uf": "PE",
-      "lider": "Álvaro Dias",
-      "partido": "PDT",
-      "pct": 17
+      "lider": "Vivi Reis",
+      "partido": "PCC",
+      "pct": 22
     },
     {
       "uf": "PI",
@@ -485,9 +530,9 @@
     },
     {
       "uf": "RS",
-      "lider": "Germano Rigotto",
-      "partido": "PMDB",
-      "pct": 36
+      "lider": "Artibulas Maximus",
+      "partido": "PP/PSDB",
+      "pct": 32
     },
     {
       "uf": "SC",
@@ -503,8 +548,8 @@
     },
     {
       "uf": "SP",
-      "lider": "Michel Temer",
-      "partido": "PMDB",
+      "lider": "Luciano Casablanca",
+      "partido": "PSDB/PP",
       "pct": 30
     },
     {
