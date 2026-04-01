@@ -79,13 +79,48 @@
         "indecisos": null,
         "search_tags": "atlas intel espontanea fevereiro 2002",
         "resultados": [
-          { "nome": "João Neto",         "partido": "PSDB", "numero": 45, "pct": 27.30 },
-          { "nome": "Eduardo Braga",     "partido": "PDT",  "numero": 12, "pct": 23.05 },
-          { "nome": "Angela Portela",    "partido": "PT",   "numero": 13, "pct": 23.03 },
-          { "nome": "Eneas Carneiro",    "partido": "—",    "numero": 0,  "pct": 9.74  },
-          { "nome": "Marcos Pontes",     "partido": "—",    "numero": 0,  "pct": 2.59  },
-          { "nome": "Maria João",        "partido": "—",    "numero": 0,  "pct": 2.30  },
-          { "nome": "João Goulart Filho","partido": "—",    "numero": 0,  "pct": 1.68  }
+          {
+            "nome": "João Neto",
+            "partido": "PSDB",
+            "numero": 45,
+            "pct": 27.30
+          },
+          {
+            "nome": "Eduardo Braga",
+            "partido": "PDT",
+            "numero": 12,
+            "pct": 23.05
+          },
+          {
+            "nome": "Angela Portela",
+            "partido": "PT",
+            "numero": 13,
+            "pct": 23.03
+          },
+          {
+            "nome": "Maria João",
+            "partido": "—",
+            "numero": 0,
+            "pct": 2.30
+          },
+          {
+            "nome": "João Goulart Filho",
+            "partido": "PDT",
+            "numero": 12,
+            "pct": 1.68
+          },
+          {
+            "nome": "Eneas Carneiro",
+            "partido": "PRONA",
+            "numero": 56,
+            "pct": 9.74
+          },
+          {
+            "nome": "Marcos Pontes",
+            "partido": "PSB",
+            "numero": 40,
+            "pct": 2.59
+          }
         ],
         "segundo_turno": []
       },
