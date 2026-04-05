@@ -1,20 +1,14 @@
 {
-  "meta": {
-    "versao": "2.0",
-    "fonte": "Tupi Notícias — Cobertura Eleitoral 2002",
-    "ultima_atualizacao": "6 out. 2002 · 22h18"
-  },
   "ticker": [
     "🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias",
-    "📊 Eduardo Braga lidera com 26,7% — diferença de apenas 281.563 votos para João Neto",
-    "⚡ Eduardo Braga e João Neto vão ao 2º turno em 27 de outubro",
-    "🔴 Ângela Portela eliminada com 25,5% — terceiro lugar mais próximo da história",
-    "📅 2º Turno: 27 de outubro de 2002 — Braga × João Neto",
-    "📡 Apuração encerrada · 402.762 seções · 6 de outubro de 2002 · 22h18",
-    "⚠️ Margem histórica: apenas 0,3 p.p. entre 1º e 2º colocados"
+    "📊 Eduardo Braga lidera com 26,7%",
+    "⚡ Eduardo Braga e João Neto vão ao 2º turno",
+    "📅 2º Turno: 27 de outubro de 2002",
+    "🚨 Sistema detectou ponto de inflexão em 78,4% das urnas",
+    "📉 Chance de virada de João Neto: 22,4%"
   ],
   "primeirTurno": {
-    "progresso": 100.0,
+    "progresso": 100,
     "secoes_apuradas": 402762,
     "secoes_total": 402762,
     "total_votos": 102032451,
@@ -81,10 +75,10 @@
         "ordem": 4
       },
       {
-        "nome": "Maria João Abujamras",
+        "nome": "Maria João Abujamra",
         "sigla": "MJ",
-        "partido": "PSTU",
-        "numero": 16,
+        "partido": "PCC",
+        "numero": 99,
         "cor": "#9b59b6",
         "votos": 5063928,
         "pct": 4.9,
@@ -125,22 +119,73 @@
     ]
   },
   "evolucao": [
-    { "h": "17:00", "eb": 0.0,  "jn": 0.0,  "ap": 0.0  },
-    { "h": "17:30", "eb": 25.1, "jn": 27.3, "ap": 24.8 },
-    { "h": "18:00", "eb": 25.8, "jn": 26.9, "ap": 25.1 },
-    { "h": "18:30", "eb": 26.1, "jn": 26.7, "ap": 25.3 },
-    { "h": "19:00", "eb": 26.4, "jn": 26.5, "ap": 25.4 },
-    { "h": "19:30", "eb": 26.6, "jn": 26.5, "ap": 25.5 },
-    { "h": "20:00", "eb": 26.7, "jn": 26.4, "ap": 25.5 },
-    { "h": "20:30", "eb": 26.7, "jn": 26.4, "ap": 25.5 },
-    { "h": "21:00", "eb": 26.7, "jn": 26.4, "ap": 25.5 },
-    { "h": "22:18", "eb": 26.7, "jn": 26.4, "ap": 25.5 }
+    {
+      "h": "17:00",
+      "eb": 0,
+      "jn": 0,
+      "ap": 0,
+      "pct_apurado": 0
+    },
+    {
+      "h": "17:30",
+      "eb": 25.1,
+      "jn": 27.3,
+      "ap": 24.8,
+      "pct_apurado": 8.2
+    },
+    {
+      "h": "18:00",
+      "eb": 25.8,
+      "jn": 26.9,
+      "ap": 25.1,
+      "pct_apurado": 22.5
+    },
+    {
+      "h": "18:30",
+      "eb": 26.1,
+      "jn": 26.7,
+      "ap": 25.3,
+      "pct_apurado": 38.1
+    },
+    {
+      "h": "19:00",
+      "eb": 26.4,
+      "jn": 26.5,
+      "ap": 25.4,
+      "pct_apurado": 51.4
+    },
+    {
+      "h": "19:30",
+      "eb": 26.6,
+      "jn": 26.5,
+      "ap": 25.5,
+      "pct_apurado": 66.8
+    },
+    {
+      "h": "20:00",
+      "eb": 26.7,
+      "jn": 26.4,
+      "ap": 25.5,
+      "pct_apurado": 78.4
+    },
+    {
+      "h": "20:30",
+      "eb": 26.7,
+      "jn": 26.4,
+      "ap": 25.5,
+      "pct_apurado": 89.2
+    },
+    {
+      "h": "22:18",
+      "eb": 26.7,
+      "jn": 26.4,
+      "ap": 25.5,
+      "pct_apurado": 100.0
+    }
   ],
   "projecoes": {
     "status": "pre_segundo_turno",
     "atualizado_em": "6 out. 2002 · 22h45",
-    "modelos": ["Regressão ponderada regional", "Modelo de atraso de urnas (delay bias)", "Simulação Monte Carlo (10.000 cenários)", "Ajuste dinâmico por cluster eleitoral"],
-    "variaveis": ["% urnas apuradas por região", "histórico eleitoral por zona", "perfil socioeconômico (proxy)", "tipo de voto (urbano x rural)", "comparecimento esperado", "padrão de atraso das urnas", "rejeição e transferência de votos"],
     "segundo_turno": {
       "candidato_a": {
         "nome": "Eduardo Braga",
@@ -148,10 +193,13 @@
         "sigla": "EB",
         "cor": "#1C2BCB",
         "chance_vitoria": 0.58,
-        "cenarios": { "base": 51.8, "otimista": 54.2, "adverso": 49.1 },
+        "cenarios": {
+          "base": 51.8,
+          "otimista": 54.2,
+          "adverso": 49.1
+        },
         "tendencia": "+0.4%",
-        "pct_esperado": 51.8,
-        "votos_esperados": "30.842.000"
+        "pct_esperado": 51.8
       },
       "candidato_b": {
         "nome": "João Neto",
@@ -159,10 +207,13 @@
         "sigla": "JN",
         "cor": "#e84560",
         "chance_vitoria": 0.42,
-        "cenarios": { "base": 48.2, "otimista": 50.9, "adverso": 45.8 },
+        "cenarios": {
+          "base": 48.2,
+          "otimista": 50.9,
+          "adverso": 45.8
+        },
         "tendencia": "-0.4%",
-        "pct_esperado": 48.2,
-        "votos_esperados": "28.730.000"
+        "pct_esperado": 48.2
       },
       "diferenca_pct_esperada": 3.6,
       "diferenca_votos_esperada": 2112000,
@@ -178,45 +229,164 @@
       }
     },
     "regioes": [
-      { "nome": "Capital",  "eb_1t": 48, "jn_1t": 50, "eb_2t_proj": 49, "jn_2t_proj": 51, "pct_votos": 45, "decisiva": true,  "cor": "#e84560" },
-      { "nome": "Interior", "eb_1t": 57, "jn_1t": 39, "eb_2t_proj": 56, "jn_2t_proj": 44, "pct_votos": 38, "decisiva": false, "cor": "#1C2BCB" },
-      { "nome": "Litoral",  "eb_1t": 51, "jn_1t": 44, "eb_2t_proj": 52, "jn_2t_proj": 48, "pct_votos": 17, "decisiva": false, "cor": "#F5A000" }
+      {
+        "nome": "Capital",
+        "eb_1t": 48,
+        "jn_1t": 50,
+        "eb_2t_proj": 49,
+        "jn_2t_proj": 51,
+        "pct_votos": 45,
+        "decisiva": true,
+        "cor": "#e84560"
+      },
+      {
+        "nome": "Interior",
+        "eb_1t": 57,
+        "jn_1t": 39,
+        "eb_2t_proj": 56,
+        "jn_2t_proj": 44,
+        "pct_votos": 38,
+        "decisiva": false,
+        "cor": "#1C2BCB"
+      },
+      {
+        "nome": "Litoral",
+        "eb_1t": 51,
+        "jn_1t": 44,
+        "eb_2t_proj": 52,
+        "jn_2t_proj": 48,
+        "pct_votos": 17,
+        "decisiva": false,
+        "cor": "#F5A000"
+      }
     ],
     "evolucao_chance": [
-      { "h": "Resultado 1T", "eb": 52, "jn": 48 },
-      { "h": "Ajuste regional",  "eb": 58, "jn": 42 },
-      { "h": "Transferência AP", "eb": 55, "jn": 45 },
-      { "h": "Monte Carlo", "eb": 57, "jn": 43 },
-      { "h": "Ajuste capital", "eb": 53, "jn": 47 },
-      { "h": "Modelo final",  "eb": 58, "jn": 42 }
+      {
+        "h": "Resultado 1T",
+        "eb": 52,
+        "jn": 48
+      },
+      {
+        "h": "Ajuste regional",
+        "eb": 58,
+        "jn": 42
+      },
+      {
+        "h": "Transferência AP",
+        "eb": 55,
+        "jn": 45
+      },
+      {
+        "h": "Monte Carlo",
+        "eb": 57,
+        "jn": 43
+      },
+      {
+        "h": "Ajuste capital",
+        "eb": 53,
+        "jn": 47
+      },
+      {
+        "h": "Modelo final",
+        "eb": 58,
+        "jn": 42
+      }
     ],
     "monte_carlo": {
       "simulacoes": 10000,
       "distribuicao_eb": [
-        { "faixa": "47–48%", "freq": 5 },
-        { "faixa": "48–49%", "freq": 10 },
-        { "faixa": "49–50%", "freq": 18 },
-        { "faixa": "50–51%", "freq": 20 },
-        { "faixa": "51–52%", "freq": 22 },
-        { "faixa": "52–53%", "freq": 14 },
-        { "faixa": "53–54%", "freq": 8 },
-        { "faixa": "54–55%", "freq": 3 }
+        {
+          "faixa": "47–48%",
+          "freq": 5
+        },
+        {
+          "faixa": "48–49%",
+          "freq": 10
+        },
+        {
+          "faixa": "49–50%",
+          "freq": 18
+        },
+        {
+          "faixa": "50–51%",
+          "freq": 20
+        },
+        {
+          "faixa": "51–52%",
+          "freq": 22
+        },
+        {
+          "faixa": "52–53%",
+          "freq": 14
+        },
+        {
+          "faixa": "53–54%",
+          "freq": 8
+        },
+        {
+          "faixa": "54–55%",
+          "freq": 3
+        }
       ]
     },
     "alertas": [
-      { "tipo": "info",    "icone": "📅", "msg": "Projeção baseada nos resultados do 1º turno. O 2º turno ocorre em 27 de outubro." },
-      { "tipo": "warning", "icone": "⚠️", "msg": "Disputa acirrada: margem projetada de apenas 3,6 p.p. — dentro da margem de erro." },
-      { "tipo": "danger",  "icone": "🔥", "msg": "João Neto tem vantagem histórica nas capitais (+3,2 p.p. vs interior). Capital ainda não apurada." },
-      { "tipo": "success", "icone": "🟢", "msg": "Braga domina o interior (57% × 43%) — 38% do eleitorado total." }
+      {
+        "tipo": "info",
+        "icone": "📅",
+        "msg": "Projeção baseada nos resultados do 1º turno. O 2º turno ocorre em 27 de outubro."
+      },
+      {
+        "tipo": "warning",
+        "icone": "⚠️",
+        "msg": "Disputa acirrada: margem projetada de apenas 3,6 p.p. — dentro da margem de erro."
+      },
+      {
+        "tipo": "danger",
+        "icone": "🔥",
+        "msg": "João Neto tem vantagem histórica nas capitais (+3,2 p.p.). Capital representa 45% dos votos."
+      },
+      {
+        "tipo": "success",
+        "icone": "🟢",
+        "msg": "Braga domina o interior (57% × 43%) — 38% do eleitorado total."
+      }
     ],
     "cenarios_simulador": {
-      "base": { "eb": 51.8, "jn": 48.2, "chance_eb": 58 },
-      "capital_pesa_mais": { "eb": 48.9, "jn": 51.1, "chance_eb": 34 },
-      "interior_pesa_mais": { "eb": 54.2, "jn": 45.8, "chance_eb": 79 },
-      "alto_comparecimento": { "eb": 52.1, "jn": 47.9, "chance_eb": 61 },
-      "baixo_comparecimento": { "eb": 51.3, "jn": 48.7, "chance_eb": 55 },
-      "indecisos_braga": { "eb": 53.5, "jn": 46.5, "chance_eb": 75 },
-      "indecisos_neto": { "eb": 50.2, "jn": 49.8, "chance_eb": 52 }
+      "base": {
+        "eb": 51.8,
+        "jn": 48.2,
+        "chance_eb": 58
+      },
+      "capital_pesa_mais": {
+        "eb": 48.9,
+        "jn": 51.1,
+        "chance_eb": 34
+      },
+      "interior_pesa_mais": {
+        "eb": 54.2,
+        "jn": 45.8,
+        "chance_eb": 79
+      },
+      "alto_comparecimento": {
+        "eb": 52.1,
+        "jn": 47.9,
+        "chance_eb": 61
+      },
+      "baixo_comparecimento": {
+        "eb": 51.3,
+        "jn": 48.7,
+        "chance_eb": 55
+      },
+      "indecisos_braga": {
+        "eb": 53.5,
+        "jn": 46.5,
+        "chance_eb": 75
+      },
+      "indecisos_neto": {
+        "eb": 50.2,
+        "jn": 49.8,
+        "chance_eb": 52
+      }
     }
   }
 }
