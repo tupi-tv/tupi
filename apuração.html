@@ -138,6 +138,7 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .tag-2t{background:rgba(28,43,203,.12);color:var(--tupi-blue-2);border:1px solid rgba(28,43,203,.2)}
 [data-theme="dark"] .tag-2t{background:rgba(100,120,255,.15);color:#aab8ff;border-color:rgba(100,120,255,.2)}
 .tag-nao{background:rgba(160,160,160,.1);color:var(--text-muted);border:1px solid var(--border)}
+.tag-wait{background:rgba(245,160,0,.1);color:var(--tupi-orange);border:1px solid rgba(245,160,0,.25);animation:badge-pulse 1.6s infinite}
 
 /* ══ RANKING TABLE ══ */
 .rank-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:24px}
@@ -880,41 +881,65 @@ let analistaAtivo = false;
 let cenarioAtivo = 'base';
 
 /* ═══ LOAD JSON ═══ */
+const JSON_URL = 'https://raw.githubusercontent.com/tupi-tv/tupi/refs/heads/main/apuracao_2002.json';
+
 async function loadData() {
   try {
-    const r = await fetch('apuracao_2002.json');
+    const r = await fetch(JSON_URL + '?t=' + Date.now()); // cache-bust
     if (!r.ok) throw new Error('HTTP ' + r.status);
     D = await r.json();
   } catch (e) {
-    console.warn('JSON não encontrado, usando fallback embutido.', e);
+    console.warn('JSON remoto indisponível, usando fallback embutido.', e);
     D = getFallbackData();
   }
 }
 
-/* ═══ FALLBACK DATA (caso o JSON não seja encontrado) ═══ */
+/* ═══ POLLING AO VIVO — re-busca o JSON a cada 10s e atualiza tudo ═══ */
+async function pollData() {
+  try {
+    const r = await fetch(JSON_URL + '?t=' + Date.now());
+    if (!r.ok) return;
+    D = await r.json();
+    // Re-renderiza tudo automaticamente a cada ciclo
+    renderTicker();
+    renderCards();
+    renderRanking();
+    renderPanorama();
+    renderHistorico();
+    renderProjecoes();
+    renderChart();
+    // Regrava gráficos da aba de projeções se estiver ativa E apuração iniciou
+    const progAtivo = (D?.primeirTurno?.progresso ?? 0) > 0;
+    if (progAtivo && document.getElementById('page-projecoes')?.classList.contains('active')) {
+      renderChanceChart(D.projecoes.evolucao_chance);
+      renderMCChart(D.projecoes.monte_carlo);
+    }
+  } catch (_) { /* silencioso — não interrompe a exibição */ }
+}
+
+function startPolling(intervaloMs = 10000) {
+  setInterval(pollData, intervaloMs);
+}
+
+/* ═══ FALLBACK DATA (caso o JSON não seja encontrado — inicia sempre zerado) ═══ */
 function getFallbackData() {
   return {
-    ticker:["🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias","📊 Eduardo Braga lidera com 26,7%","⚡ Eduardo Braga e João Neto vão ao 2º turno","📅 2º Turno: 27 de outubro de 2002"],
-    primeirTurno:{progresso:100,secoes_apuradas:402762,secoes_total:402762,total_votos:102032451,votos_validos:94842054,brancos:0,nulos:0,data:"6 de outubro de 2002",hora_encerramento:"22h18",candidatos:[
-      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",numero:12,cor:"#1C2BCB",votos:27460571,pct:26.7,pct_str:"26,7%",votos_fmt:"27.460.571",status:"2º TURNO",status_code:"2t",ordem:1},
-      {nome:"João Neto",sigla:"JN",partido:"PSDB",numero:45,cor:"#e84560",votos:27179008,pct:26.4,pct_str:"26,4%",votos_fmt:"27.179.008",status:"2º TURNO",status_code:"2t",ordem:2},
-      {nome:"Ângela Portela",sigla:"AP",partido:"MDB",numero:15,cor:"#F5A000",votos:26260114,pct:25.5,pct_str:"25,5%",votos_fmt:"26.260.114",status:"NÃO ELEITA",status_code:"nao",ordem:3},
-      {nome:"Enéas Carneiro",sigla:"EC",partido:"PRONA",numero:56,cor:"#22c55e",votos:12035104,pct:11.7,pct_str:"11,7%",votos_fmt:"12.035.104",status:"NÃO ELEITO",status_code:"nao",ordem:4},
-      {nome:"Maria João Abujamras",sigla:"MJ",partido:"PSTU",numero:16,cor:"#9b59b6",votos:5063928,pct:4.9,pct_str:"4,9%",votos_fmt:"5.063.928",status:"NÃO ELEITA",status_code:"nao",ordem:5},
-      {nome:"João Goulart Filho",sigla:"JGF",partido:"PNM",numero:33,cor:"#e67e22",votos:3720239,pct:3.6,pct_str:"3,6%",votos_fmt:"3.720.239",status:"NÃO ELEITO",status_code:"nao",ordem:6},
-      {nome:"Marcos Pontes",sigla:"MP",partido:"PSB",numero:40,cor:"#aabbcc",votos:1313487,pct:1.3,pct_str:"1,3%",votos_fmt:"1.313.487",status:"NÃO ELEITO",status_code:"nao",ordem:7}
+    ticker:["🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias","⏳ Aguardando início da apuração","📅 1º Turno: 6 de outubro de 2002","🔴 AO VIVO — Tupi Notícias acompanha em tempo real"],
+    primeirTurno:{progresso:0,secoes_apuradas:0,secoes_total:402762,total_votos:0,votos_validos:0,brancos:0,nulos:0,data:"6 de outubro de 2002",hora_encerramento:null,candidatos:[
+      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",numero:12,cor:"#1C2BCB",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:1},
+      {nome:"João Neto",sigla:"JN",partido:"PSDB",numero:45,cor:"#e84560",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:2},
+      {nome:"Ângela Portela",sigla:"AP",partido:"MDB",numero:15,cor:"#F5A000",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:3},
+      {nome:"Enéas Carneiro",sigla:"EC",partido:"PRONA",numero:56,cor:"#22c55e",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:4},
+      {nome:"Maria João Abujamras",sigla:"MJ",partido:"PSTU",numero:16,cor:"#9b59b6",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:5},
+      {nome:"João Goulart Filho",sigla:"JGF",partido:"PNM",numero:33,cor:"#e67e22",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:6},
+      {nome:"Marcos Pontes",sigla:"MP",partido:"PSB",numero:40,cor:"#aabbcc",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:7}
     ]},
-    evolucao:[
-      {h:"17:00",pct_apurado:0,   eb:0,   jn:0,   ap:0},
-      {h:"17:30",pct_apurado:8.2, eb:25.1,jn:27.3,ap:24.8},
-      {h:"18:00",pct_apurado:22.5,eb:25.8,jn:26.9,ap:25.1},
-      {h:"18:30",pct_apurado:38.1,eb:26.1,jn:26.7,ap:25.3},
-      {h:"19:00",pct_apurado:51.4,eb:26.4,jn:26.5,ap:25.4},
-      {h:"19:30",pct_apurado:66.8,eb:26.6,jn:26.5,ap:25.5},
-      {h:"20:00",pct_apurado:78.4,eb:26.7,jn:26.4,ap:25.5},
-      {h:"20:30",pct_apurado:89.2,eb:26.7,jn:26.4,ap:25.5},
-      {h:"22:18",pct_apurado:100, eb:26.7,jn:26.4,ap:25.5}
-    ],
+    evolucao:[{h:"--:--",pct_apurado:0,eb:0,jn:0,ap:0}],
+    segundoTurno:{progresso:0,secoes_apuradas:0,secoes_total:402762,total_votos:0,votos_validos:0,data:"27 de outubro de 2002",hora_encerramento:null,candidatos:[
+      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",cor:"#1C2BCB",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:1},
+      {nome:"João Neto",sigla:"JN",partido:"PSDB",cor:"#e84560",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:2}
+    ]},
+    evolucaoT2:[{h:"--:--",pct_apurado:0,eb:0,jn:0}],
     projecoes:{
       status:"pre_segundo_turno",atualizado_em:"6 out. 2002 · 22h45",
       segundo_turno:{
@@ -982,8 +1007,8 @@ function renderCards() {
   if (!grid) return;
   const maxPct = Math.max(...D.primeirTurno.candidatos.map(c => c.pct));
   grid.innerHTML = D.primeirTurno.candidatos.map(c => {
-    const tagClass = c.status_code==='2t' ? 'tag-2t':'tag-nao';
-    const tagIcon  = c.status_code==='2t' ? '⚡':'✕';
+    const tagClass = c.status_code==='2t' ? 'tag-2t' : c.status_code==='wait' ? 'tag-wait' : 'tag-nao';
+    const tagIcon  = c.status_code==='2t' ? '⚡' : c.status_code==='wait' ? '⏳' : '✕';
     return `<div class="cand-card">
       <div class="cand-card-header">
         <div class="cand-avatar" style="background:${c.cor}">${c.sigla}</div>
@@ -1011,8 +1036,8 @@ function renderRanking() {
   if (!tbody) return;
   const maxPct = Math.max(...D.primeirTurno.candidatos.map(c => c.pct));
   tbody.innerHTML = D.primeirTurno.candidatos.map(c => {
-    const tagClass = c.status_code==='2t' ? 'tag-2t':'tag-nao';
-    const tagIcon  = c.status_code==='2t' ? '⚡':'✕';
+    const tagClass = c.status_code==='2t' ? 'tag-2t' : c.status_code==='wait' ? 'tag-wait' : 'tag-nao';
+    const tagIcon  = c.status_code==='2t' ? '⚡' : c.status_code==='wait' ? '⏳' : '✕';
     return `<tr>
       <td class="rank-pos">${c.ordem}º</td>
       <td><div class="rank-cand-cell">
@@ -1127,8 +1152,8 @@ function renderHistorico() {
           <div class="section-label" style="margin-bottom:12px">Resultado Completo</div>
           <div class="hist-cands-list">
             ${pt.candidatos.map(c=>{
-              const tagClass = c.status_code==='2t' ? 'tag-2t':'tag-nao';
-              const tagIcon  = c.status_code==='2t' ? '⚡':'✕';
+              const tagClass = c.status_code==='2t' ? 'tag-2t' : c.status_code==='wait' ? 'tag-wait' : 'tag-nao';
+              const tagIcon  = c.status_code==='2t' ? '⚡' : c.status_code==='wait' ? '⏳' : '✕';
               return `<div class="hist-cand-row">
                 <div class="hist-cand-av" style="background:${c.cor}">${c.sigla}</div>
                 <div style="flex:1;min-width:0">
@@ -1178,11 +1203,11 @@ function renderHistorico() {
    "zona irreversível" (validado empiricamente).
 */
 function calcInflexao(D) {
-  const pt    = D.primeirTurno;
-  // Zerado enquanto apuração não iniciou
+  const pt    = D.segundoTurno;
+  // Zerado enquanto apuração do 2º turno não iniciou
   if (!pt || (pt.progresso ?? 0) === 0) return null;
   const total = pt.total_votos;
-  const evo   = D.evolucao || [];
+  const evo   = D.evolucaoT2 || [];
 
   // Ordena candidatos: 1º e 2º colocados reais (pelo resultado final)
   const sorted = [...pt.candidatos].sort((a,b) => b.votos - a.votos);
@@ -1271,9 +1296,11 @@ function calcInflexao(D) {
       tipo:'danger' });
   }
 
-  // Evento 4 — encerramento
-  timeline.push({ pct: pt.progresso, hora: pt.hora_encerramento,
-    desc: `Apuração encerrada — ${c1.nome} e ${c2.nome} ao 2º turno`, tipo:'success' });
+  // Evento 4 — encerramento (só adiciona se apuração encerrada)
+  if (pt.hora_encerramento) {
+    timeline.push({ pct: pt.progresso, hora: pt.hora_encerramento,
+      desc: `Apuração encerrada — ${c1.nome} e ${c2.nome} ao 2º turno`, tipo:'success' });
+  }
 
   // Garante ordem e sem duplicatas de pct
   timeline.sort((a,b) => a.pct - b.pct);
@@ -1284,7 +1311,7 @@ function calcInflexao(D) {
   const refEv   = evIrreverivel || evo.find(e => (e.pct_apurado ?? 0) === 100) || evo[evo.length-1];
   const gapPP   = parseFloat(((refEv[k1] ?? c1.pct) - (refEv[k2] ?? c2.pct)).toFixed(1));
   const pctMom  = evIrreverivel ? evIrreverivel.pct_apurado : pt.progresso;
-  const horaMom = evIrreverivel ? evIrreverivel.h : pt.hora_encerramento;
+  const horaMom = evIrreverivel ? evIrreverivel.h : (pt.hora_encerramento ?? '--:--');
 
   const irreversivel = evIrreverivel !== null;
 
@@ -1303,77 +1330,146 @@ function calcInflexao(D) {
   };
 }
 
+/* ─── NORMAL CDF (Abramowitz & Stegun approximation) ─── */
+function normCDF(z) {
+  const sign = z < 0 ? -1 : 1;
+  const az = Math.abs(z);
+  const t  = 1 / (1 + 0.2316419 * az);
+  const d  = 0.3989423 * Math.exp(-az * az / 2);
+  const p  = d * t * (0.3193815 + t * (-0.3565638 + t * (1.7814779 + t * (-1.8212560 + t * 1.3302745))));
+  return 0.5 + sign * (0.5 - p);
+}
+
+/* ─── CHANCE AO VIVO (2º turno) ───
+   Recalcula probabilidade de vitória em tempo real conforme
+   as urnas do 2T são apuradas.
+   Modelo: normal CDF onde σ decresce com √(fração restante),
+   simulando a crescente certeza do resultado à medida que
+   mais votos são contabilizados.
+*/
+function calcChanceAoVivo(D) {
+  const st = D.segundoTurno;
+  if (!st || (st.progresso ?? 0) === 0) return null;
+
+  const p   = st.progresso; // % apurado (0–100)
+  const evo = D.evolucaoT2 || [];
+
+  // Ponto mais recente com dados reais de urna
+  const ultimo = [...evo].reverse().find(e => (e.pct_apurado ?? 0) > 0);
+  if (!ultimo) return null;
+
+  const eb   = ultimo.eb;  // % de EB nos votos já contados
+  const jn   = ultimo.jn;  // % de JN nos votos já contados
+  const frac = p / 100;
+  const rem  = 1 - frac;
+
+  let chanceEB;
+  if (rem <= 0.001) {
+    // Apuração encerrada
+    chanceEB = eb > 50 ? 99.5 : 0.5;
+  } else {
+    // Quantos % dos votos restantes EB precisa para atingir 50% do total
+    const pNeeded = (50 - eb * frac) / rem;
+    // σ base = 3.5 p.p. no início, decresce com √(fração restante)
+    const sigma = 3.5 * Math.sqrt(rem);
+    const z = (eb - pNeeded) / sigma;
+    chanceEB = Math.max(0.5, Math.min(99.5, normCDF(z) * 100));
+  }
+
+  return {
+    chanceEB: parseFloat(chanceEB.toFixed(1)),
+    chanceJN: parseFloat((100 - chanceEB).toFixed(1)),
+    eb, jn, p,
+    difPP: parseFloat((eb - jn).toFixed(1)),
+    lider: eb >= jn ? 'EB' : 'JN'
+  };
+}
+
 /* ─── PROBABILIDADE DE VIRADA (2º turno) ───
-   Derivada de:
-   · monte_carlo.distribuicao_eb → chance base (JN vence = EB<50%)
-   · evolucao_chance → tendência dos modelos (delta)
-   · regioes → componente capital/interior
-   · segundo_turno → pct_esperado, tendencia
-   · monte_carlo → desvio padrão da distribuição
+   Usa chance ao vivo quando 2T está em apuração;
+   cai para Monte Carlo pré-calculado antes do início.
 */
 function calcVirada(D) {
-  // Zerado enquanto apuração não iniciou
-  if (!D.primeirTurno || (D.primeirTurno.progresso ?? 0) === 0) return null;
+  // Zerado enquanto apuração do 2º turno não iniciou
+  if (!D.segundoTurno || (D.segundoTurno.progresso ?? 0) === 0) return null;
   const P  = D.projecoes;
   if (!P || !P.segundo_turno || !P.monte_carlo) return null;
 
   const ST  = P.segundo_turno;
-  const CA  = ST.candidato_a;   // líder (Braga)
-  const CB  = ST.candidato_b;   // trailer (JN)
+  const CA  = ST.candidato_a;
+  const CB  = ST.candidato_b;
   const mc  = P.monte_carlo.distribuicao_eb || [];
   const sim = P.monte_carlo.simulacoes || 10000;
 
-  // ── Chance base: % de simulações Monte Carlo onde EB < 50% (JN vence) ──
-  const totalFreq  = mc.reduce((s,d) => s + d.freq, 0) || 1;
-  const jnFreq     = mc.filter(d => parseFloat(d.faixa) < 50).reduce((s,d) => s + d.freq, 0);
-  const chanceBase = parseFloat((jnFreq / totalFreq * 100).toFixed(1));
+  // ── Chance base: ao vivo se disponível, senão Monte Carlo ──
+  const live = calcChanceAoVivo(D);
+  let chanceBase; // % de chance que o trailer vira
+  if (live) {
+    chanceBase = live.lider === 'EB' ? live.chanceJN : live.chanceEB;
+  } else {
+    const totalFreqMC = mc.reduce((s,d) => s + d.freq, 0) || 1;
+    const jnFreq      = mc.filter(d => parseFloat(d.faixa) < 50).reduce((s,d) => s + d.freq, 0);
+    chanceBase = parseFloat((jnFreq / totalFreqMC * 100).toFixed(1));
+  }
+  chanceBase = parseFloat(chanceBase.toFixed(1));
 
-  // ── Tendência: delta do modelo entre primeira e última etapa de evolucao_chance ──
+  // ── Tendência: delta entre primeira e última etapa de evolucao_chance ──
   const evoC = P.evolucao_chance || [];
   let delta = 0;
-  if (evoC.length >= 2) delta = evoC[evoC.length-1].eb - evoC[0].eb; // >0 = Braga melhora
+  if (evoC.length >= 2) delta = evoC[evoC.length-1].eb - evoC[0].eb;
   const deltaMag = Math.abs(delta);
 
-  const seTendContinua  = parseFloat(Math.max(2,  chanceBase - deltaMag * 1.5).toFixed(1));
-  const seTendInverte   = parseFloat(Math.min(65, chanceBase + deltaMag * 1.5).toFixed(1));
+  const seTendContinua = parseFloat(Math.max(2,  chanceBase - deltaMag * 1.5).toFixed(1));
+  const seTendInverte  = parseFloat(Math.min(65, chanceBase + deltaMag * 1.5).toFixed(1));
 
-  // ── Desvio padrão da distribuição Monte Carlo ──
-  const mean = CA.pct_esperado || 51.8;
-  let variance = 0;
-  mc.forEach(d => {
-    const v = parseFloat(d.faixa) + 0.5;   // ponto médio da faixa
-    variance += d.freq * Math.pow(v - mean, 2);
-  });
-  const stdDev  = parseFloat(Math.sqrt(variance / totalFreq).toFixed(1));
-  const volLabel= stdDev < 1.5 ? 'Baixa' : stdDev < 2.5 ? 'Moderada' : 'Alta';
+  // ── Desvio padrão: ao vivo (decresce) ou Monte Carlo ──
+  let stdDev;
+  if (live) {
+    stdDev = parseFloat((3.5 * Math.sqrt(1 - live.p / 100)).toFixed(1));
+  } else {
+    const totalFreqMC2 = mc.reduce((s,d) => s + d.freq, 0) || 1;
+    const mean = CA.pct_esperado || 51.8;
+    let variance = 0;
+    mc.forEach(d => { const v = parseFloat(d.faixa) + 0.5; variance += d.freq * Math.pow(v - mean, 2); });
+    stdDev = parseFloat(Math.sqrt(variance / totalFreqMC2).toFixed(1));
+  }
+  const volLabel = stdDev < 1.5 ? 'Baixa' : stdDev < 2.5 ? 'Moderada' : 'Alta';
 
-  // ── Componentes derivados das regioes e transferencia ──
+  // ── Componentes ──
   const regioes  = P.regioes || [];
   const capital  = regioes.find(r => r.nome === 'Capital');
-  const interior = regioes.find(r => r.nome === 'Interior');
   const tv       = ST.transferencia_votos || {};
 
-  const compUrnas = capital
-    ? `Capital (${capital.pct_votos}% dos votos): proj. ${capital.jn_2t_proj}% JN × ${capital.eb_2t_proj}% Braga no 2T`
-    : `Distribuição regional baseada no resultado do 1º turno`;
+  const liderObj   = live && live.lider === 'JN' ? CB : CA;
+  const trailerObj = live && live.lider === 'JN' ? CA : CB;
 
-  const compTend = `${CA.nome}: ${CA.pct_esperado}% projetado (${CA.tendencia} vs 1T) · `
-    + `${CB.nome}: ${CB.pct_esperado}% (${CB.tendencia})`;
+  const compUrnas = live
+    ? `${live.p.toFixed(1)}% apurado — EB ${live.eb.toFixed(1)}% × JN ${live.jn.toFixed(1)}% (dados reais)`
+    : (capital ? `Capital (${capital.pct_votos}% dos votos): proj. ${capital.jn_2t_proj}% JN × ${capital.eb_2t_proj}% Braga no 2T`
+      : `Distribuição regional baseada no resultado do 1º turno`);
 
-  const compDesvio = `±${stdDev} p.p. — desvio-padrão de ${sim.toLocaleString('pt-BR')} simulações Monte Carlo`;
+  const compTend = live
+    ? `Tendência ao vivo: EB ${live.eb.toFixed(1)}% · JN ${live.jn.toFixed(1)}% · ${live.p.toFixed(0)}% apurado`
+    : (`${CA.nome}: ${CA.pct_esperado}% projetado (${CA.tendencia} vs 1T) · ${CB.nome}: ${CB.pct_esperado}% (${CB.tendencia})`);
+
+  const compDesvio = `±${stdDev} p.p. — ${live
+    ? 'desvio ao vivo (decresce com a apuração)'
+    : `desvio-padrão de ${sim.toLocaleString('pt-BR')} simulações Monte Carlo`}`;
 
   const compVol = `${volLabel} — σ ${stdDev} p.p.`
-    + (tv.portela_para_neto_pct ? ` · ${tv.portela_para_neto_pct}% dos votos de AP projetados para JN` : '');
+    + (tv.portela_para_neto_pct ? ` · ${tv.portela_para_neto_pct}% dos votos de AP proj. para JN` : '');
 
-  // ── Leitura final ──
-  const leitura = `${CB.nome} precisa reverter ${ST.diferenca_pct_esperada.toFixed(1)} p.p. na projeção do 2º turno. `
-    + `Nas ${sim.toLocaleString('pt-BR')} simulações Monte Carlo, ${CB.nome} vence em ${chanceBase}% dos cenários — `
-    + `concentrados nas faixas onde ${CA.nome} fica abaixo de 50%. `
-    + (capital ? `A Capital (${capital.pct_votos}% do eleitorado) é o principal fator de reversão.` : '');
+  const leitura = live
+    ? `Com ${live.p.toFixed(1)}% das urnas apuradas, ${trailerObj.nome} precisaria reverter `
+      + `${Math.abs(live.difPP).toFixed(1)} p.p. nos votos restantes. `
+      + `O modelo ao vivo projeta ${chanceBase}% de chance de virada — σ ${stdDev} p.p. neste estágio da apuração.`
+    : (`${CB.nome} precisa reverter ${ST.diferenca_pct_esperada.toFixed(1)} p.p. na projeção do 2º turno. `
+      + `Nas ${sim.toLocaleString('pt-BR')} simulações Monte Carlo, ${CB.nome} vence em ${chanceBase}% dos cenários. `
+      + (capital ? `A Capital (${capital.pct_votos}% do eleitorado) é o principal fator de reversão.` : ''));
 
   return {
-    candidato_ref:   { nome:CB.nome, sigla:CB.sigla, partido:CB.partido, cor:CB.cor },
-    candidato_lider: { nome:CA.nome, sigla:CA.sigla, partido:CA.partido, cor:CA.cor },
+    candidato_ref:   { nome:trailerObj.nome, sigla:trailerObj.sigla, partido:trailerObj.partido, cor:trailerObj.cor },
+    candidato_lider: { nome:liderObj.nome,   sigla:liderObj.sigla,   partido:liderObj.partido,   cor:liderObj.cor   },
     chance_base:            chanceBase,
     se_tendencia_continua:  seTendContinua,
     se_tendencia_inverter:  seTendInverte,
@@ -1441,7 +1537,7 @@ function renderProjecoesZero() {
 function renderProjecoes() {
   if (!D || !D.projecoes) return;
 
-  // ── Aguarda dados reais da apuração antes de mostrar projeções ──
+  // ── Aguarda 1º turno ter resultado antes de ativar o motor ──
   const progresso = D.primeirTurno?.progresso ?? 0;
   if (progresso === 0) {
     renderProjecoesZero();
@@ -1450,47 +1546,116 @@ function renderProjecoes() {
   }
 
   const P = D.projecoes;
-  const ST = P.segundo_turno;
+
+  // ── Cópia imutável de ST — será enriquecida com dados ao vivo ──
+  const STbase = P.segundo_turno;
+  const ST = {
+    ...STbase,
+    candidato_a: { ...STbase.candidato_a },
+    candidato_b: { ...STbase.candidato_b }
+  };
   const CA = ST.candidato_a;
   const CB = ST.candidato_b;
 
-  // Classificação
-  renderClassificacao(ST, CA, CB);
+  // ── Blenda com apuração ao vivo do 2T se disponível ──
+  const live = calcChanceAoVivo(D);
+  let evolucaoGrafico = P.evolucao_chance;
 
-  // Simulador
+  if (live) {
+    const liderEB = live.lider === 'EB';
+    const lider   = liderEB ? CA : CB;
+
+    // Sobrescreve chances e percentuais com valores reais
+    CA.chance_vitoria = live.chanceEB / 100;
+    CB.chance_vitoria = live.chanceJN / 100;
+    CA.pct_esperado   = live.eb;
+    CB.pct_esperado   = live.jn;
+
+    // Diferença e risco com dados reais
+    ST.diferenca_pct_esperada   = Math.abs(live.difPP);
+    ST.diferenca_votos_esperada = Math.round(Math.abs(live.difPP) / 100 *
+      (D.segundoTurno.votos_validos || D.segundoTurno.total_votos || 94842054));
+    ST.risco_virada = liderEB ? live.chanceJN / 100 : live.chanceEB / 100;
+
+    // Classificação dinâmica
+    const chA = Math.round(live.chanceEB);
+    if (chA >= 90)      ST.classificacao = 'cravando';
+    else if (chA <= 10) ST.classificacao = 'cravando_b';
+    else if (chA >= 70) ST.classificacao = 'tendencia';
+    else if (chA <= 30) ST.classificacao = 'tendencia_b';
+    else                ST.classificacao = 'disputa_acirrada';
+
+    // Tendência: real vs projeção base do modelo pré-1T
+    const diffEB = (live.eb - STbase.candidato_a.pct_esperado).toFixed(1);
+    const diffJN = (live.jn - STbase.candidato_b.pct_esperado).toFixed(1);
+    CA.tendencia = (parseFloat(diffEB) >= 0 ? '+' : '') + diffEB + ' p.p. vs proj.';
+    CB.tendencia = (parseFloat(diffJN) >= 0 ? '+' : '') + diffJN + ' p.p. vs proj.';
+
+    // Banner do topo da página
+    const headlinePct  = document.getElementById('proj-headline-pct');
+    const headlineCand = document.getElementById('proj-headline-cand');
+    const updEl        = document.getElementById('proj-update-time');
+    if (headlinePct)  headlinePct.textContent  = Math.round(liderEB ? live.chanceEB : live.chanceJN) + '%';
+    if (headlineCand) headlineCand.textContent = lider.nome;
+    if (updEl)        updEl.textContent = `⏱ Ao vivo · ${live.p.toFixed(1)}% apurado · 2º turno`;
+
+    // Janela crítica e ponto de não retorno dinâmicos
+    const restante = (100 - live.p).toFixed(0);
+    ST.janela_critica = live.p > 50
+      ? `${restante}% restante — janela de virada se fechando.`
+      : `${restante}% ainda a apurar. Urnas das capitais são o fator decisivo.`;
+    ST.ponto_nao_retorno = (100 - live.p) < 10
+      ? 'Apuração quase encerrada — resultado praticamente definido.'
+      : live.p > 70
+        ? `${lider.nome} atingiu margem difícil de reverter nos ${restante}% restantes.`
+        : `Se ${lider.nome} atingir +5 p.p. com 70% apurado → vitória irreversível.`;
+
+    // Gráfico de evolução da chance: etapas do modelo + pontos reais do 2T
+    const evo2T = (D.evolucaoT2 || []).filter(e => (e.pct_apurado ?? 0) > 0);
+    if (evo2T.length > 0) {
+      evolucaoGrafico = [...P.evolucao_chance];
+      evo2T.forEach(e => {
+        const frac = e.pct_apurado / 100;
+        const rem  = 1 - frac;
+        const sigma = rem > 0.001 ? 3.5 * Math.sqrt(rem) : 0.01;
+        const pNeed = rem > 0.001 ? (50 - e.eb * frac) / rem : (e.eb > 50 ? 0 : 100);
+        const chEB  = parseFloat(Math.max(0.5, Math.min(99.5, normCDF((e.eb - pNeed) / sigma) * 100)).toFixed(1));
+        evolucaoGrafico.push({ h: `${e.pct_apurado.toFixed(0)}%↑`, eb: chEB, jn: parseFloat((100 - chEB).toFixed(1)) });
+      });
+    }
+
+    // Alertas gerados automaticamente da apuração
+    P.alertas = [
+      { tipo:'info',    icone:'📡', msg:`Apuração ao vivo: ${live.p.toFixed(1)}% das urnas. EB ${live.eb.toFixed(1)}% × JN ${live.jn.toFixed(1)}%.` },
+      Math.abs(live.difPP) > 5
+        ? { tipo:'success', icone:'✅', msg:`Margem de ${Math.abs(live.difPP).toFixed(1)} p.p. — ${ST.risco_virada < 0.15 ? 'dificilmente reversível' : 'confortável mas monitorada'}.` }
+        : { tipo:'warning', icone:'⚠️', msg:`Margem de ${Math.abs(live.difPP).toFixed(1)} p.p. — disputa tecnicamente aberta.` },
+      live.p < 50
+        ? { tipo:'danger',  icone:'🏙️', msg:'Urnas das capitais ainda em apuração — maior fonte de incerteza.' }
+        : { tipo:'success', icone:'📊', msg:`+50% apurado — modelo com alta confiança. σ ${(3.5 * Math.sqrt(1 - live.p / 100)).toFixed(1)} p.p.` }
+    ];
+  }
+
+  // ── Renderiza todos os componentes com ST possivelmente enriquecido ──
+  renderClassificacao(ST, CA, CB);
   renderSimulador(P.cenarios_simulador, CA, CB);
 
-  // Gráficos
   setTimeout(()=>{
-    renderChanceChart(P.evolucao_chance);
+    renderChanceChart(evolucaoGrafico);
     renderMCChart(P.monte_carlo);
   }, 200);
 
-  // Indicadores
   renderIndicadores(ST);
-
-  // Alertas
   renderAlertas(P.alertas);
-
-  // Matriz regional
   renderMatriz(P.regioes);
-
-  // Análise
   renderAnalise(ST);
-
-  // Transferência
   renderTransferencia(ST.transferencia_votos);
-
-  // Modo analista panel
   renderAnalistaPanel(ST, P.regioes);
 
-  // Ponto de inflexão — calculado ao vivo da apuração
+  // Ponto de inflexão e virada — ao vivo
   renderInflexao(calcInflexao(D));
-
-  // Probabilidade de virada — calculada do monte carlo + projeções
   renderVirada(calcVirada(D));
 
-  // Bug simulado: delay pulsante no topbar
   simulateBug();
 }
 
@@ -1693,13 +1858,13 @@ function renderIndicadores(ST) {
       </div>
       <div class="indic-card">
         <div class="indic-label">Tend. E. Braga</div>
-        <div class="indic-val indic-positive tend-up">↑ ${CA.tendencia}</div>
-        <div class="indic-sub">projeção base</div>
+        <div class="indic-val ${CA.tendencia && CA.tendencia.startsWith('-') ? 'indic-danger tend-down' : 'indic-positive tend-up'}">${CA.tendencia && CA.tendencia.startsWith('-') ? '↓' : '↑'} ${CA.tendencia}</div>
+        <div class="indic-sub">${D?.segundoTurno?.progresso > 0 ? 'real vs projeção base' : 'projeção base'}</div>
       </div>
       <div class="indic-card">
         <div class="indic-label">Tend. João Neto</div>
-        <div class="indic-val indic-danger tend-down">↓ ${CB.tendencia.replace('-','')}</div>
-        <div class="indic-sub">projeção base</div>
+        <div class="indic-val ${CB.tendencia && !CB.tendencia.startsWith('-') && !CB.tendencia.startsWith('+0') ? 'indic-positive tend-up' : 'indic-danger tend-down'}">${CB.tendencia && !CB.tendencia.startsWith('-') && !CB.tendencia.startsWith('+0') ? '↑' : '↓'} ${CB.tendencia.replace('-','')}</div>
+        <div class="indic-sub">${D?.segundoTurno?.progresso > 0 ? 'real vs projeção base' : 'projeção base'}</div>
       </div>
     </div>
     <div style="background:rgba(232,69,96,.07);border:1px solid rgba(232,69,96,.2);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.65;color:var(--text)">
@@ -1842,8 +2007,9 @@ function renderInflexao(inf) {
   const el = document.getElementById('inflexao-container');
   if (!el) return;
 
-  // Zero state — apuração não iniciada
-  if (!inf) {
+  // GUARD ABSOLUTO — se apuração do 2º turno não iniciou, sempre zero, independente do chamador
+  const progresso = D?.segundoTurno?.progresso ?? 0;
+  if (progresso === 0 || !inf) {
     el.innerHTML = `
       <div class="empty-state" style="border-color:rgba(232,69,96,.2);background:rgba(232,69,96,.03)">
         <div class="empty-icon" style="font-size:36px;opacity:.35">🧠</div>
@@ -1861,9 +2027,7 @@ function renderInflexao(inf) {
         <div class="empty-sub">Será calculado automaticamente conforme<br>as urnas forem apuradas.</div>
       </div>`;
     return;
-  }
-
-  const tipoClass = inf.zona_irreversivel ? 'inflexao-irreversivel' : 'inflexao-atencao';
+  }  const tipoClass = inf.zona_irreversivel ? 'inflexao-irreversivel' : 'inflexao-atencao';
   const chipClass = inf.zona_irreversivel ? 'chip-irreversivel' : 'chip-atencao';
   const chipIcon  = inf.zona_irreversivel ? '🚨' : '⚠️';
   const chipText  = inf.zona_irreversivel ? 'ZONA IRREVERSÍVEL' : 'ZONA DE ATENÇÃO';
@@ -1931,8 +2095,9 @@ function renderVirada(vir) {
   const el = document.getElementById('virada-container');
   if (!el) return;
 
-  // Zero state — apuração não iniciada
-  if (!vir) {
+  // GUARD ABSOLUTO — se apuração do 2º turno não iniciou, sempre zero, independente do chamador
+  const progresso = D?.segundoTurno?.progresso ?? 0;
+  if (progresso === 0 || !vir) {
     el.innerHTML = `
       <div class="empty-state" style="border-color:rgba(245,160,0,.2);background:rgba(245,160,0,.03)">
         <div class="empty-icon" style="font-size:36px;opacity:.35">📉</div>
@@ -1948,7 +2113,7 @@ function renderVirada(vir) {
           </div>
         </div>
         <div style="width:100%;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden;margin:8px 0">
-          <div style="width:0%;height:100%;background:linear-gradient(90deg,#1acb4b,#FF7A00);border-radius:4px;transition:width 1.4s ease"></div>
+          <div style="width:0%;height:100%;background:linear-gradient(90deg,#1acb4b,#FF7A00);border-radius:4px"></div>
         </div>
         <div class="empty-sub">Será calculada automaticamente a partir dos<br>dados da apuração e simulações Monte Carlo.</div>
       </div>`;
@@ -2107,11 +2272,13 @@ function go(page) {
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active-nav'));
   const n = document.getElementById('nav-'+page);
   if (n) n.classList.add('active-nav');
-  // Rende gráficos de projeção quando a página fica visível
+  // Rende gráficos de projeção quando a página fica visível — só se apuração iniciou
   if (page === 'projecoes') {
     setTimeout(()=>{
-      renderChanceChart(D.projecoes.evolucao_chance);
-      renderMCChart(D.projecoes.monte_carlo);
+      if ((D?.primeirTurno?.progresso ?? 0) > 0) {
+        renderChanceChart(D.projecoes.evolucao_chance);
+        renderMCChart(D.projecoes.monte_carlo);
+      }
     }, 100);
   }
   if (page === 'apuracao') setTimeout(renderChart, 60);
@@ -2120,7 +2287,14 @@ function go(page) {
 function toggleTheme() {
   const dark = document.documentElement.getAttribute('data-theme')==='dark';
   document.documentElement.setAttribute('data-theme', dark?'light':'dark');
-  setTimeout(()=>{ renderChart(); renderChanceChart(D.projecoes.evolucao_chance); renderMCChart(D.projecoes.monte_carlo); }, 60);
+  const prog = D?.primeirTurno?.progresso ?? 0;
+  setTimeout(()=>{
+    renderChart();
+    if (prog > 0) {
+      renderChanceChart(D.projecoes.evolucao_chance);
+      renderMCChart(D.projecoes.monte_carlo);
+    }
+  }, 60);
 }
 
 /* ═══ CLOCK ═══ */
@@ -2146,6 +2320,7 @@ window.addEventListener('load', async () => {
   setTimeout(renderChart, 300);
   tickClock();
   setInterval(tickClock, 1000);
+  startPolling(10000); // re-busca e atualiza tudo a cada 10s
   setTimeout(()=>{
     const ov = document.getElementById('loading');
     if (ov){ ov.classList.add('gone'); setTimeout(()=>ov.remove(),600); }
