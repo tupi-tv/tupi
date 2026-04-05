@@ -6,11 +6,11 @@
     "🔴 AO VIVO — Tupi Notícias acompanha em tempo real"
   ],
   "primeirTurno": {
-    "progresso": 0,
+    "progresso": 0.4,
     "secoes_apuradas": 0,
     "secoes_total": 402762,
-    "total_votos": 0,
-    "votos_validos": 0,
+    "total_votos": 381752,
+    "votos_validos": 381752,
     "brancos": 0,
     "nulos": 0,
     "data": "6 de outubro de 2002",
@@ -22,12 +22,12 @@
         "partido": "PDT",
         "numero": 12,
         "cor": "#1C2BCB",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
+        "votos": 194680,
+        "pct": 51.0,
+        "pct_str": "51,0%",
+        "votos_fmt": "194.680",
+        "status": "EM_APURACAO",
+        "status_code": "counting",
         "ordem": 1
       },
       {
@@ -36,12 +36,12 @@
         "partido": "PSDB",
         "numero": 45,
         "cor": "#e84560",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
+        "votos": 187072,
+        "pct": 49.0,
+        "pct_str": "49,0%",
+        "votos_fmt": "187.072",
+        "status": "EM_APURACAO",
+        "status_code": "counting",
         "ordem": 2
       },
       {
@@ -332,11 +332,11 @@
     }
   },
   "segundoTurno": {
-    "progresso": 0.4,
-    "secoes_apuradas": 1611,
+    "progresso": 0,
+    "secoes_apuradas": 0,
     "secoes_total": 402762,
-    "total_votos": 381752,
-    "votos_validos": 381752,
+    "total_votos": 23,
+    "votos_validos": 23,
     "brancos": 0,
     "nulos": 0,
     "data": "27 de outubro de 2002",
@@ -348,10 +348,10 @@
         "partido": "PDT",
         "numero": 12,
         "cor": "#1C2BCB",
-        "votos": 194680,
-        "pct": 51.0,
-        "pct_str": "51,0%",
-        "votos_fmt": "194.680",
+        "votos": 15,
+        "pct": 65.21739130434783,
+        "pct_str": "65,2%",
+        "votos_fmt": "15",
         "status": "EM_APURACAO",
         "status_code": "counting",
         "ordem": 1
@@ -362,37 +362,13 @@
         "partido": "PSDB",
         "numero": 45,
         "cor": "#e84560",
-        "votos": 187072,
-        "pct": 49.0,
-        "pct_str": "49,0%",
-        "votos_fmt": "187.072",
+        "votos": 8,
+        "pct": 34.78260869565217,
+        "pct_str": "34,8%",
+        "votos_fmt": "8",
         "status": "EM_APURACAO",
         "status_code": "counting",
         "ordem": 2
-      }
-    ],
-    "evolucao_apuracao": [
-      {
-        "momento": "anterior",
-        "progresso": 0,
-        "secoes_apuradas": 0,
-        "total_votos": 23,
-        "votos_validos": 23,
-        "votos_eb": 15,
-        "pct_eb": 65.21739130434783,
-        "votos_jn": 8,
-        "pct_jn": 34.78260869565217
-      },
-      {
-        "momento": "atual",
-        "progresso": 0.4,
-        "secoes_apuradas": 1611,
-        "total_votos": 381752,
-        "votos_validos": 381752,
-        "votos_eb": 194680,
-        "pct_eb": 51.0,
-        "votos_jn": 187072,
-        "pct_jn": 49.0
       }
     ]
   }
