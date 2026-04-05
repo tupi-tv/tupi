@@ -1179,6 +1179,8 @@ function renderHistorico() {
 */
 function calcInflexao(D) {
   const pt    = D.primeirTurno;
+  // Zerado enquanto apuração não iniciou
+  if (!pt || (pt.progresso ?? 0) === 0) return null;
   const total = pt.total_votos;
   const evo   = D.evolucao || [];
 
@@ -1310,6 +1312,8 @@ function calcInflexao(D) {
    · monte_carlo → desvio padrão da distribuição
 */
 function calcVirada(D) {
+  // Zerado enquanto apuração não iniciou
+  if (!D.primeirTurno || (D.primeirTurno.progresso ?? 0) === 0) return null;
   const P  = D.projecoes;
   if (!P || !P.segundo_turno || !P.monte_carlo) return null;
 
@@ -1387,8 +1391,64 @@ function calcVirada(D) {
    PROJEÇÕES — RENDER
 ═══════════════════════════════════════ */
 
+/* Zero state: apuração ainda não iniciada — nenhum dado de urna disponível */
+function renderProjecoesZero() {
+  const aguardandoHtml = (icon, titulo, sub) => `
+    <div class="empty-state" style="padding:28px 20px">
+      <div class="empty-icon" style="font-size:28px;opacity:.35">${icon}</div>
+      <div class="empty-title">${titulo}</div>
+      <div class="empty-sub">${sub}</div>
+    </div>`;
+
+  const zeroIndicHtml = `
+    <div class="indicadores-grid" style="grid-template-columns:1fr 1fr">
+      ${['Diferença projetada','Risco de virada','Tend. E. Braga','Tend. João Neto'].map(lbl => `
+        <div class="indic-card">
+          <div class="indic-label">${lbl}</div>
+          <div class="indic-val" style="color:var(--text-muted);font-size:22px">—</div>
+          <div class="indic-sub">aguardando apuração</div>
+        </div>`).join('')}
+    </div>`;
+
+  const targets = {
+    'classif-container':       aguardandoHtml('🏆', 'Classificação', 'Disponível após início da apuração.'),
+    'indicadores-container':   zeroIndicHtml,
+    'sim-controls':            aguardandoHtml('🎯', 'Simulador de Cenários', 'Disponível após início da apuração.'),
+    'sim-results':             '',
+    'alertas-container':       aguardandoHtml('⚡', 'Alertas', 'Os alertas do sistema serão gerados com o início da contagem.'),
+    'analise-auto':            aguardandoHtml('🤖', 'Análise Automática', 'A análise será gerada conforme as urnas apuradas.'),
+    'transferencia-container': aguardandoHtml('🔀', 'Transferência de Votos', 'Disponível após resultado do 1º turno.')
+  };
+
+  Object.entries(targets).forEach(([id, html]) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  });
+
+  // Zerar tbody da matriz regional
+  const tbody = document.getElementById('matrix-tbody');
+  if (tbody) tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:18px;color:var(--text-muted);font-size:12px">Aguardando início da apuração</td></tr>`;
+
+  // Destruir gráficos se existirem
+  if (chanceChartInst) { chanceChartInst.destroy(); chanceChartInst = null; }
+  if (mcChartInst)     { mcChartInst.destroy();     mcChartInst = null; }
+
+  // Inflexão e virada zerados
+  renderInflexao(null);
+  renderVirada(null);
+}
+
 function renderProjecoes() {
   if (!D || !D.projecoes) return;
+
+  // ── Aguarda dados reais da apuração antes de mostrar projeções ──
+  const progresso = D.primeirTurno?.progresso ?? 0;
+  if (progresso === 0) {
+    renderProjecoesZero();
+    simulateBug();
+    return;
+  }
+
   const P = D.projecoes;
   const ST = P.segundo_turno;
   const CA = ST.candidato_a;
@@ -1780,7 +1840,28 @@ function renderAnalistaPanel(ST, regioes) {
 /* ═══ PONTO DE INFLEXÃO ═══ */
 function renderInflexao(inf) {
   const el = document.getElementById('inflexao-container');
-  if (!el || !inf) return;
+  if (!el) return;
+
+  // Zero state — apuração não iniciada
+  if (!inf) {
+    el.innerHTML = `
+      <div class="empty-state" style="border-color:rgba(232,69,96,.2);background:rgba(232,69,96,.03)">
+        <div class="empty-icon" style="font-size:36px;opacity:.35">🧠</div>
+        <div class="empty-title">Ponto de Inflexão</div>
+        <div style="display:flex;gap:18px;justify-content:center;margin:14px 0">
+          <div style="text-align:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">—</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">% apurado</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">0,0%</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">diferença</div>
+          </div>
+        </div>
+        <div class="empty-sub">Será calculado automaticamente conforme<br>as urnas forem apuradas.</div>
+      </div>`;
+    return;
+  }
 
   const tipoClass = inf.zona_irreversivel ? 'inflexao-irreversivel' : 'inflexao-atencao';
   const chipClass = inf.zona_irreversivel ? 'chip-irreversivel' : 'chip-atencao';
@@ -1848,7 +1929,31 @@ function renderInflexao(inf) {
 /* ═══ PROBABILIDADE DE VIRADA HIPER DETALHADA ═══ */
 function renderVirada(vir) {
   const el = document.getElementById('virada-container');
-  if (!el || !vir) return;
+  if (!el) return;
+
+  // Zero state — apuração não iniciada
+  if (!vir) {
+    el.innerHTML = `
+      <div class="empty-state" style="border-color:rgba(245,160,0,.2);background:rgba(245,160,0,.03)">
+        <div class="empty-icon" style="font-size:36px;opacity:.35">📉</div>
+        <div class="empty-title">Probabilidade de Virada</div>
+        <div style="display:flex;gap:18px;justify-content:center;margin:14px 0">
+          <div style="text-align:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">0,0%</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">chance de virada</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">—</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">cenário base</div>
+          </div>
+        </div>
+        <div style="width:100%;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden;margin:8px 0">
+          <div style="width:0%;height:100%;background:linear-gradient(90deg,#1acb4b,#FF7A00);border-radius:4px;transition:width 1.4s ease"></div>
+        </div>
+        <div class="empty-sub">Será calculada automaticamente a partir dos<br>dados da apuração e simulações Monte Carlo.</div>
+      </div>`;
+    return;
+  }
 
   const cRef  = vir.candidato_ref;
   const cLid  = vir.candidato_lider;
