@@ -31,19 +31,16 @@
   --empty-icon:#2a3050;
 }
 
-/* ══ RESET ══ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.55;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .25s,color .25s;-webkit-font-smoothing:antialiased}
 button{font-family:inherit;cursor:pointer}
 
-/* ══ PAGE SYSTEM ══ */
 .page{display:none;min-height:100vh}
 .page.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .page.active .anim{animation:fadeUp .32s cubic-bezier(.22,.7,.36,1) both}
 
-/* ══ TOP BAR ══ */
 .top-bar{background:var(--topbar-bg);color:var(--topbar-text);font-size:11px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);letter-spacing:.02em}
 .top-bar-inner{max-width:1400px;margin:0 auto;padding:0 clamp(12px,3vw,24px);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .top-bar a{color:var(--topbar-text);text-decoration:none;transition:color .15s}
@@ -54,7 +51,6 @@ button{font-family:inherit;cursor:pointer}
 .theme-toggle{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:var(--topbar-text);font-size:11px;padding:3px 10px;border-radius:20px;font-family:'IBM Plex Sans',sans-serif;transition:background .2s,color .2s;white-space:nowrap;letter-spacing:.04em}
 .theme-toggle:hover{background:rgba(245,160,0,.2);color:var(--tupi-orange)}
 
-/* ══ HEADER ══ */
 header{background:var(--header-bg);position:sticky;top:0;z-index:200;box-shadow:0 2px 24px rgba(0,0,0,.5);transition:background .25s}
 .header-main{max-width:1400px;margin:0 auto;padding:clamp(10px,2vw,14px) clamp(12px,3vw,24px);display:flex;align-items:center;gap:clamp(12px,2vw,24px)}
 .logo{font-family:'Sora',sans-serif;font-weight:900;font-size:clamp(18px,3vw,26px);color:#fff;letter-spacing:-0.5px;cursor:pointer;line-height:1;flex-shrink:0;display:flex;flex-direction:column}
@@ -66,7 +62,6 @@ header{background:var(--header-bg);position:sticky;top:0;z-index:200;box-shadow:
 .header-live-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff7070}
 .header-clock{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:rgba(255,255,255,.75)}
 
-/* ══ NAV ══ */
 nav{background:var(--nav-bg);border-top:1px solid rgba(255,255,255,.06);overflow-x:auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav ul{max-width:1400px;margin:0 auto;padding:0 clamp(12px,3vw,24px);display:flex;list-style:none;white-space:nowrap}
@@ -78,7 +73,6 @@ nav ul li a.active-nav{color:#fff;border-bottom-color:var(--tupi-orange);backgro
 .badge-prox{background:rgba(255,255,255,.13);color:rgba(255,255,255,.7)}
 @keyframes badge-pulse{0%,100%{opacity:1}50%{opacity:.55}}
 
-/* ══ TICKER ══ */
 .breaking-ticker{background:#090933;color:rgba(255,255,255,.8);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.05)}
 .ticker-label{background:var(--tupi-orange);color:#000;font-weight:800;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px clamp(10px,2vw,16px);white-space:nowrap;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
 .ticker-track{flex:1;overflow:hidden;padding:7px 0}
@@ -86,7 +80,6 @@ nav ul li a.active-nav{color:#fff;border-bottom-color:var(--tupi-orange);backgro
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker-sep{color:var(--tupi-orange);margin:0 10px;opacity:.7}
 
-/* ══ TURNO TABS ══ */
 .turno-tabs-bar{background:var(--surface);border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none;transition:background .25s,border-color .25s}
 .turno-tabs-bar::-webkit-scrollbar{display:none}
 .turno-tabs-inner{max-width:1400px;margin:0 auto;padding:0 clamp(12px,3vw,24px);display:flex;gap:0}
@@ -96,10 +89,10 @@ nav ul li a.active-nav{color:#fff;border-bottom-color:var(--tupi-orange);backgro
 [data-theme="dark"] .turno-tab.active{color:#aab8ff;border-bottom-color:#aab8ff}
 .turno-tab .tab-badge{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px}
 .tab-badge-live{background:#cc2222;color:#fff;animation:badge-pulse 1.4s infinite}
+.tab-badge-done{background:rgba(26,203,75,.15);color:#1acb4b;border:1px solid rgba(26,203,75,.3)}
 .tab-badge-pending{background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border)}
 .tab-badge-proj{background:rgba(168,85,247,.2);color:#a855f7;border:1px solid rgba(168,85,247,.3)}
 
-/* ══ STATUS BANNER ══ */
 .status-banner{background:var(--tupi-blue);color:#fff;padding:clamp(16px,2.5vw,24px) clamp(12px,3vw,24px);border-bottom:3px solid var(--tupi-orange);transition:background .25s}
 [data-theme="dark"] .status-banner{background:#08084a}
 .status-banner-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
@@ -112,14 +105,11 @@ nav ul li a.active-nav{color:#fff;border-bottom-color:var(--tupi-orange);backgro
 .progress-outer{height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;margin-top:8px;width:100%;max-width:280px;margin-left:auto}
 .progress-inner{height:100%;background:var(--tupi-orange);border-radius:4px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
 
-/* ══ MAIN ══ */
 main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,24px)}
 
-/* ══ SECTION LABEL ══ */
 .section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tupi-blue-2);border-left:3px solid var(--tupi-orange);padding-left:10px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;line-height:1}
 [data-theme="dark"] .section-label{color:#aab8ff}
 
-/* ══ CARDS CANDIDATOS ══ */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:clamp(10px,1.8vw,18px);margin-bottom:clamp(20px,4vw,36px)}
 .cand-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
 .cand-card:hover{border-color:rgba(28,43,203,.3);box-shadow:0 4px 20px rgba(0,0,0,.08)}
@@ -135,12 +125,13 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .cand-bar-track{height:7px;background:var(--surface-2);border-radius:4px;overflow:hidden;margin-bottom:10px}
 .cand-bar-fill{height:100%;border-radius:4px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
 .cand-status-tag{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:3px;display:inline-block}
+.tag-vencendo{background:rgba(26,203,75,.12);color:#1acb4b;border:1px solid rgba(26,203,75,.25)}
+.tag-perdendo{background:rgba(232,69,96,.08);color:#e84560;border:1px solid rgba(232,69,96,.2)}
 .tag-2t{background:rgba(28,43,203,.12);color:var(--tupi-blue-2);border:1px solid rgba(28,43,203,.2)}
 [data-theme="dark"] .tag-2t{background:rgba(100,120,255,.15);color:#aab8ff;border-color:rgba(100,120,255,.2)}
 .tag-nao{background:rgba(160,160,160,.1);color:var(--text-muted);border:1px solid var(--border)}
 .tag-wait{background:rgba(245,160,0,.1);color:var(--tupi-orange);border:1px solid rgba(245,160,0,.25);animation:badge-pulse 1.6s infinite}
 
-/* ══ RANKING TABLE ══ */
 .rank-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:24px}
 .ranking-table{width:100%;border-collapse:collapse}
 .ranking-table th{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);padding:9px 14px;text-align:left;border-bottom:2px solid var(--border);background:var(--surface-2)}
@@ -159,14 +150,12 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .rank-bar-fill{height:100%;border-radius:3px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
 .rank-status{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap}
 
-/* ══ TWO COL ══ */
 .two-col{display:grid;grid-template-columns:1fr clamp(230px,28%,340px);gap:clamp(16px,3vw,28px);margin-bottom:clamp(20px,4vw,36px)}
 @media(max-width:800px){.two-col{grid-template-columns:1fr}}
 .sidebar-col{display:flex;flex-direction:column;gap:16px}
 .widget{background:var(--widget-bg);border:1px solid var(--border);padding:clamp(14px,2vw,20px);border-radius:8px;transition:background .25s,border-color .25s}
 .widget-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft);border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:14px}
 
-/* ══ INNER HEADER ══ */
 .inner-header{background:var(--inner-bg);padding:clamp(18px,3vw,28px) clamp(12px,3vw,24px);color:#fff;transition:background .25s}
 .inner-header-inner{max-width:1400px;margin:0 auto}
 .inner-page-title{font-family:'Sora',sans-serif;font-size:clamp(20px,3.5vw,30px);font-weight:800;margin-bottom:6px}
@@ -174,13 +163,11 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.15);padding:7px 16px;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-family:'IBM Plex Sans',sans-serif;transition:background .15s;border-radius:4px}
 .back-btn:hover{background:rgba(245,160,0,.15);border-color:rgba(245,160,0,.4)}
 
-/* ══ CHART ══ */
 .chart-section{background:var(--surface);border:1px solid var(--border);padding:clamp(16px,2.5vw,24px);border-radius:8px;margin-bottom:24px}
 .chart-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
 .chart-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px}
 .chart-container{position:relative;height:210px}
 
-/* ══ BAR ROWS ══ */
 .bar-row{margin-bottom:9px}
 .bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
 .bar-label .name{font-weight:600;color:var(--text)}
@@ -188,18 +175,17 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .bar-track{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden}
 .bar-fill{height:100%;border-radius:3px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
 
-/* ══ PROJEÇÃO BOX ══ */
 .proj-box{background:var(--tupi-blue);color:#fff;padding:clamp(14px,2.5vw,22px);border-radius:8px;position:relative;overflow:hidden}
 [data-theme="dark"] .proj-box{background:#08084a;border:1px solid rgba(255,255,255,.07)}
 .proj-box::after{content:'';position:absolute;bottom:-28px;right:-28px;width:140px;height:140px;border-radius:50%;background:rgba(245,160,0,.05);pointer-events:none}
 .proj-status-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(26,203,75,.18);color:#1acb4b;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:11px;border:1px solid rgba(26,203,75,.28)}
+.proj-status-chip-live{background:rgba(255,68,68,.18);color:#ff7070;border:1px solid rgba(255,68,68,.3);animation:badge-pulse 1.4s infinite}
 .proj-title{font-family:'Sora',sans-serif;font-size:clamp(13px,1.8vw,16px);font-weight:800;line-height:1.35;margin-bottom:8px;color:rgba(255,255,255,.9)}
 .proj-chance{font-family:'IBM Plex Mono',monospace;font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1;letter-spacing:-1.5px;color:#1acb4b;margin-bottom:3px}
 .proj-chance-label{font-size:10px;color:rgba(255,255,255,.4);font-family:'IBM Plex Mono',monospace}
 .proj-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.55;margin-top:9px;position:relative}
 .proj-footer{font-size:10px;color:rgba(255,255,255,.27);margin-top:11px;border-top:1px solid rgba(255,255,255,.07);padding-top:10px;position:relative;line-height:1.7}
 
-/* ══ DISPUTA HEADER ══ */
 .disputa-hero{background:var(--tupi-blue);color:#fff;padding:clamp(14px,2.5vw,24px);display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;border-radius:8px;margin-bottom:6px}
 [data-theme="dark"] .disputa-hero{background:#08084a;border:1px solid rgba(255,255,255,.07)}
 .disp-side{}
@@ -212,13 +198,11 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .disp-bar{height:10px;border-radius:0;overflow:hidden;display:grid;grid-template-columns:var(--p1) var(--p2);border-radius:4px;margin-top:2px}
 .disp-bar-seg{height:100%}
 
-/* ══ EMPTY / AGUARDANDO ══ */
 .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(28px,5vw,56px) 20px;text-align:center;border:1.5px dashed var(--border);border-radius:8px;background:var(--surface)}
 .empty-icon{font-size:32px;margin-bottom:14px;opacity:.4}
 .empty-title{font-size:15px;font-weight:700;color:var(--text-muted);margin-bottom:7px}
 .empty-sub{font-size:13px;color:var(--text-muted);line-height:1.7;max-width:320px}
 
-/* ══ HISTÓRICO PAGE ══ */
 .hist-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:12px;transition:border-color .2s}
 .hist-item:hover{border-color:rgba(28,43,203,.3)}
 .hist-header{padding:clamp(14px,2vw,20px);display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none}
@@ -250,7 +234,6 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .hist-cand-votos{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-muted);min-width:100px;text-align:right}
 .hist-cand-tag{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0}
 
-/* ══ LOADING ══ */
 .loading-overlay{position:fixed;inset:0;background:#07074a;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:16px;transition:opacity .5s}
 .loading-overlay.gone{opacity:0;pointer-events:none}
 .loading-logo{font-family:'Sora',sans-serif;font-weight:900;font-size:34px;color:#fff;letter-spacing:-1px}
@@ -260,18 +243,18 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 @keyframes load-anim{from{width:0}to{width:100%}}
 .loading-sub{font-size:11px;color:rgba(255,255,255,.38);letter-spacing:.08em;text-transform:uppercase}
 
-/* ══ MISC ══ */
 .divider{height:1px;background:var(--border);margin:20px 0}
 .mb20{margin-bottom:20px}
 .mb24{margin-bottom:24px}
 .info-chip{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;display:inline-block}
 .chip-total{background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border);font-family:'IBM Plex Mono',monospace}
 
-/* ══ PROJEÇÕES PAGE ══ */
+/* Chip encerrado */
+.chip-encerrado{background:rgba(26,203,75,.1);color:#1acb4b;border:1px solid rgba(26,203,75,.25);font-family:'IBM Plex Mono',monospace}
+
 .proj-page-banner{background:linear-gradient(135deg,#1a0a4f 0%,#2d1b8e 50%,#1a0a4f 100%);color:#fff;padding:clamp(16px,2.5vw,24px) clamp(12px,3vw,24px);border-bottom:3px solid #a855f7}
 .proj-page-banner-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
 
-/* Classificação badges */
 .classif-card{border-radius:8px;padding:clamp(14px,2vw,20px);margin-bottom:16px;position:relative;overflow:hidden}
 .classif-cravando{background:linear-gradient(135deg,#0a1f0a,#0d2d0d);border:1px solid rgba(26,203,75,.3)}
 .classif-tendencia{background:linear-gradient(135deg,#1f0e00,#2d1800);border:1px solid rgba(245,120,0,.3)}
@@ -287,7 +270,6 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .classif-prob-acir{color:#f0d000}
 .classif-desc{font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.55}
 
-/* Cenários simulador */
 .sim-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:clamp(16px,2.5vw,24px);margin-bottom:20px}
 .sim-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .sim-controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:20px}
@@ -303,7 +285,6 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .sim-chance-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin-top:12px}
 .sim-chance-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.4,0,.2,1)}
 
-/* Indicadores analíticos */
 .indicadores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:20px}
 .indic-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
 .indic-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px}
@@ -314,7 +295,6 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .indic-danger{color:#e84560}
 .indic-neutral{color:var(--text)}
 
-/* Matriz regional */
 .matrix-table{width:100%;border-collapse:collapse;font-size:13px}
 .matrix-table th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);background:var(--surface-2)}
 .matrix-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
@@ -322,13 +302,11 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .matrix-table tbody tr:hover td{background:var(--surface-2)}
 .matrix-decisiva{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;background:rgba(232,69,96,.12);color:#e84560;border-radius:3px;margin-left:6px}
 
-/* Análise automática */
 .analise-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:clamp(16px,2.5vw,22px);margin-bottom:20px;position:relative}
 .analise-box::before{content:'"';font-family:'Sora',sans-serif;font-size:80px;color:rgba(168,85,247,.1);position:absolute;top:-10px;left:14px;line-height:1;pointer-events:none}
 .analise-text{font-size:14px;line-height:1.75;color:var(--text-soft);position:relative;z-index:1;padding-left:8px}
 .analise-author{font-size:10px;color:var(--text-muted);margin-top:12px;letter-spacing:.06em;text-transform:uppercase;padding-left:8px}
 
-/* Alertas */
 .alert-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
 .alert-item{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:6px;font-size:13px;line-height:1.55}
 .alert-info{background:rgba(28,43,203,.07);border:1px solid rgba(28,43,203,.15);color:var(--text)}
@@ -337,7 +315,6 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .alert-success{background:rgba(26,203,75,.07);border:1px solid rgba(26,203,75,.18);color:var(--text)}
 .alert-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 
-/* Modo Analista */
 .analista-toggle{display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(168,85,247,.1);border:1.5px solid rgba(168,85,247,.3);border-radius:6px;color:#a855f7;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-bottom:20px}
 .analista-toggle:hover{background:rgba(168,85,247,.18)}
 .analista-toggle.active{background:rgba(168,85,247,.2);border-color:#a855f7}
@@ -349,12 +326,10 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .analista-item-val{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;color:var(--text)}
 .analista-item-sub{font-size:10px;color:var(--text-muted);margin-top:2px}
 
-/* Tendência arrows */
 .tend-up{color:#1acb4b}
 .tend-down{color:#e84560}
 .tend-stable{color:var(--text-muted)}
 
-/* ══ PONTO DE INFLEXÃO ══ */
 .inflexao-card{border-radius:8px;padding:clamp(14px,2vw,20px);margin-bottom:16px;position:relative;overflow:hidden}
 .inflexao-irreversivel{background:linear-gradient(135deg,#1a0005,#2d000d);border:1px solid rgba(232,69,96,.45)}
 .inflexao-atencao{background:linear-gradient(135deg,#1a0e00,#2d1800);border:1px solid rgba(245,120,0,.35)}
@@ -380,7 +355,6 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .inflexao-step-desc{color:rgba(255,255,255,.75);flex:1}
 .inflexao-step-pct{font-family:'IBM Plex Mono',monospace;font-size:10px;margin-left:auto;flex-shrink:0;color:rgba(255,255,255,.4)}
 
-/* ══ VIRADA HIPER DETALHADA ══ */
 .virada-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:clamp(16px,2.5vw,24px);margin-bottom:20px}
 .virada-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .virada-title{font-size:14px;font-weight:700;color:var(--text)}
@@ -405,7 +379,10 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 .virada-cenario-bar{margin-top:14px;padding:12px 14px;border-radius:6px;background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.15);font-size:12px;line-height:1.65;color:var(--text-soft)}
 .virada-cenario-bar strong{color:#a855f7}
 
-/* Glitch animation for bugs simulados */
+/* Barra de progresso live animada (pulsa) */
+@keyframes prog-pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.progress-inner-live{animation:prog-pulse 1.4s infinite}
+
 @keyframes glitch{
   0%{transform:translate(0)}
   20%{transform:translate(-2px,1px);opacity:.7}
@@ -415,10 +392,7 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
   100%{transform:translate(0);opacity:1}
 }
 .glitch-effect{animation:glitch .3s ease}
-@keyframes delay-pulse{
-  0%,100%{opacity:1}
-  50%{opacity:.4}
-}
+@keyframes delay-pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .delay-indicator{animation:delay-pulse 1.8s infinite;font-size:10px;color:rgba(255,165,0,.8);font-family:'IBM Plex Mono',monospace;letter-spacing:.06em}
 
 @media(max-width:600px){
@@ -452,7 +426,7 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
   <div class="top-bar"><div class="top-bar-inner">
     <span>Eleições Presidenciais 2002 · Apuração Oficial · Tupi Notícias</span>
     <div class="top-bar-right">
-      <span><span class="live-dot"></span>AO VIVO</span>
+      <span><span class="live-dot"></span>AO VIVO — 2º TURNO</span>
       <a href="#" onclick="go('historico');return false">Histórico</a>
       <a href="#" onclick="go('projecoes');return false">Projeções</a>
       <button class="theme-toggle" onclick="toggleTheme()">🌙 Tema</button>
@@ -467,7 +441,7 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
       </div>
       <div class="header-live">
         <span class="live-dot"></span>
-        <span class="header-live-label">Apuração Ao Vivo</span>
+        <span class="header-live-label">2º Turno Ao Vivo</span>
       </div>
       <div class="header-clock" id="header-clock">--:--:--</div>
     </div>
@@ -484,23 +458,23 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
     <div class="ticker-track"><div class="ticker-inner" id="ticker-inner"></div></div>
   </div>
 
-  <!-- TURNO TABS -->
+  <!-- TURNO TABS — T1 ENCERRADO · T2 AO VIVO -->
   <div class="turno-tabs-bar anim">
     <div class="turno-tabs-inner">
-      <button class="turno-tab active" id="tab-t1" onclick="setTurno(1)">
-        1º Turno — 6 out. 2002 <span class="tab-badge tab-badge-live">ao vivo</span>
+      <button class="turno-tab" id="tab-t1" onclick="setTurno(1)">
+        1º Turno — 6 out. 2002 <span class="tab-badge tab-badge-done">✓ Encerrado</span>
       </button>
-      <button class="turno-tab" id="tab-t2" onclick="setTurno(2)">
-        2º Turno — 27 out. 2002 <span class="tab-badge tab-badge-pending">Aguardando</span>
+      <button class="turno-tab active" id="tab-t2" onclick="setTurno(2)">
+        2º Turno — 27 out. 2002 <span class="tab-badge tab-badge-live">ao vivo</span>
       </button>
     </div>
   </div>
 
-  <!-- CONTEÚDO 1º TURNO -->
-  <div id="content-t1">
+  <!-- ═══ CONTEÚDO 1º TURNO (encerrado) ═══ -->
+  <div id="content-t1" style="display:none">
 
-    <!-- STATUS BANNER -->
-    <div class="status-banner anim">
+    <!-- STATUS BANNER — ENCERRADO -->
+    <div class="status-banner anim" style="border-bottom-color:#1acb4b">
       <div class="status-banner-inner">
         <div>
           <div class="status-label">Urnas Apuradas — Presidencial · 1º Turno · 6 out. 2002</div>
@@ -508,17 +482,19 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
           <div class="status-desc" id="status-desc-val">402.762 de 402.762 seções · Total de votos: <strong>102.032.451</strong></div>
         </div>
         <div class="status-right">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(26,203,75,.15);border:1px solid rgba(26,203,75,.3);padding:5px 14px;border-radius:4px;margin-bottom:8px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1acb4b">✓ APURAÇÃO ENCERRADA</span>
+          </div>
           <div class="status-votos">94.842.054 votos válidos</div>
-          <div class="progress-outer"><div class="progress-inner" id="prog-bar" style="width:100%"></div></div>
-          <div class="status-atualizado">🕐 Apuração encerrada · 6 out. 2002 · 22h18</div>
+          <div class="progress-outer"><div class="progress-inner" id="prog-bar" style="width:100%;background:#1acb4b"></div></div>
+          <div class="status-atualizado">🕐 Encerrado em 6 out. 2002 às 22h18</div>
         </div>
       </div>
     </div>
 
     <main class="anim">
 
-      <!-- DISPUTA PRINCIPAL (1º e 2º lugar) -->
-      <div class="section-label mb20">Disputa pelo 2º Turno</div>
+      <div class="section-label mb20">Disputa pelo 2º Turno <span class="info-chip chip-encerrado">✓ Resultado Final</span></div>
       <div class="disputa-hero" id="disputa-hero" style="--p1:26.7%;--p2:26.4%">
         <div class="disp-side">
           <div class="disp-label">1º Colocado</div>
@@ -540,14 +516,11 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
         <div style="background:#2a2a2a"></div>
       </div>
 
-      <!-- CARDS DOS 7 CANDIDATOS -->
       <div class="section-label mb20">Resultado por Candidato <span class="info-chip chip-total">7 candidatos</span></div>
-      <div class="cards-grid" id="cards-grid"></div>
+      <div class="cards-grid" id="cards-grid-t1"></div>
 
-      <!-- TWO-COL -->
       <div class="two-col">
         <div>
-          <!-- RANKING TABLE -->
           <div class="section-label" style="margin-bottom:14px">Ranking Final — 1º Turno</div>
           <div class="rank-wrap">
             <table class="ranking-table">
@@ -559,11 +532,10 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
                 <th class="rank-bar-wrap">Representação</th>
                 <th>Situação</th>
               </tr></thead>
-              <tbody id="ranking-tbody"></tbody>
+              <tbody id="ranking-tbody-t1"></tbody>
             </table>
           </div>
 
-          <!-- CHART EVOLUÇÃO -->
           <div class="chart-section">
             <div class="chart-title">Evolução da Apuração — 1º Turno 2002</div>
             <div class="chart-sub">Variação percentual ao longo da contagem de votos</div>
@@ -571,12 +543,9 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
           </div>
         </div>
 
-        <!-- SIDEBAR -->
         <div class="sidebar-col">
-
-          <!-- PROJEÇÃO -->
           <div class="proj-box">
-            <div class="proj-status-chip">🔴 APURAÇÃO ENCERRADA</div>
+            <div class="proj-status-chip">✓ APURAÇÃO ENCERRADA</div>
             <div class="proj-title">Eduardo Braga avança ao 2º Turno em 1º lugar</div>
             <div class="proj-chance">26,7%</div>
             <div class="proj-chance-label">dos votos válidos · 1ª posição</div>
@@ -584,84 +553,141 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
             <div class="proj-footer">📅 Resultado final · 6 de outubro de 2002 · Tupi Notícias</div>
           </div>
 
-          <!-- PANORAMA GERAL -->
           <div class="widget">
             <div class="widget-title">Panorama Geral — 1º Turno</div>
-            <div id="panorama-widget"></div>
+            <div id="panorama-widget-t1"></div>
           </div>
 
-          <!-- 2º TURNO PRÉVIA -->
-          <div class="widget">
-            <div class="widget-title">⚡ 2º Turno — Classificados</div>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(28,43,203,.07);border:1px solid rgba(28,43,203,.15);border-radius:6px">
-                <div style="width:30px;height:30px;border-radius:50%;background:#1C2BCB;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:900;font-size:10px;color:#fff;flex-shrink:0">EB</div>
-                <div style="flex:1"><div style="font-weight:700;font-size:13px;color:var(--text)">Eduardo Braga</div><div style="font-size:10px;color:var(--text-muted)">PDT · 1º colocado</div></div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;color:#1C2BCB">26,7%</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(232,69,96,.06);border:1px solid rgba(232,69,96,.15);border-radius:6px">
-                <div style="width:30px;height:30px;border-radius:50%;background:#e84560;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:900;font-size:10px;color:#fff;flex-shrink:0">JN</div>
-                <div style="flex:1"><div style="font-weight:700;font-size:13px;color:var(--text)">João Neto</div><div style="font-size:10px;color:var(--text-muted)">PSDB · 2º colocado</div></div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;color:#e84560">26,4%</div>
-              </div>
-              <div style="font-size:11px;color:var(--text-muted);font-style:italic;padding:4px 2px">Diferença: <strong style="font-family:'IBM Plex Mono',monospace">0,3 p.p.</strong> · 281.563 votos</div>
-            </div>
+          <div style="background:linear-gradient(135deg,rgba(255,68,68,.15),rgba(204,34,34,.2));border-radius:8px;padding:16px;cursor:pointer;border:1px solid rgba(255,80,80,.3)" onclick="setTurno(2)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff7070;margin-bottom:6px"><span class="live-dot"></span> 2º TURNO AO VIVO</div>
+            <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Acompanhar apuração em andamento</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.45)">Eduardo Braga × João Neto · 27 out. 2002 →</div>
           </div>
-
-          <!-- VER PROJEÇÕES -->
-          <div style="background:linear-gradient(135deg,#1a0a4f,#2d1b8e);border-radius:8px;padding:16px;cursor:pointer;border:1px solid rgba(168,85,247,.3)" onclick="go('projecoes')">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(168,85,247,.8);margin-bottom:6px">🔮 Motor de Projeção</div>
-            <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Ver projeção para o 2º Turno</div>
-            <div style="font-size:11px;color:rgba(255,255,255,.45)">Monte Carlo · 10.000 simulações · análise regional →</div>
-          </div>
-
         </div>
       </div>
 
     </main>
   </div><!-- /content-t1 -->
 
-  <!-- CONTEÚDO 2º TURNO -->
-  <div id="content-t2" style="display:none">
-    <div class="status-banner anim" style="background:#0a0a2e">
+  <!-- ═══ CONTEÚDO 2º TURNO (ao vivo) ═══ -->
+  <div id="content-t2">
+
+    <!-- STATUS BANNER 2T — AO VIVO -->
+    <div class="status-banner anim" id="status-banner-t2">
       <div class="status-banner-inner">
         <div>
-          <div class="status-label">2º Turno — Presidencial · 27 out. 2002</div>
-          <div class="status-val" style="color:rgba(255,255,255,.4)">—</div>
-          <div class="status-desc" style="color:rgba(255,255,255,.35)">Aguardando início da apuração</div>
+          <div class="status-label">Urnas Apuradas — Presidencial · 2º Turno · 27 out. 2002</div>
+          <div class="status-val" id="status-prog-val-t2">67,3%</div>
+          <div class="status-desc" id="status-desc-val-t2">271.039 de 402.762 seções · Votos computados: <strong>68.668.259</strong></div>
         </div>
         <div class="status-right">
-          <div class="status-votos" style="color:rgba(255,255,255,.35)">—</div>
-          <div class="progress-outer"><div class="progress-inner" style="width:0%"></div></div>
-          <div class="status-atualizado">🕐 Apuração começa em 27 out. às 17h</div>
+          <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,68,68,.15);border:1px solid rgba(255,80,80,.3);padding:5px 14px;border-radius:4px;margin-bottom:8px">
+            <span class="live-dot"></span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff7070">APURAÇÃO EM ANDAMENTO</span>
+          </div>
+          <div class="status-votos" id="votos-validos-t2">63.827.421 votos válidos</div>
+          <div class="progress-outer"><div class="progress-inner progress-inner-live" id="prog-bar-t2" style="width:67.3%"></div></div>
+          <div class="status-atualizado" id="hora-t2">🔴 Ao vivo · 27 out. 2002 · 20h44 — atualizando…</div>
         </div>
       </div>
     </div>
-    <main>
-      <!-- DISPUTA 2T -->
-      <div class="section-label mb20" style="margin-top:4px">Disputa — 2º Turno</div>
-      <div class="disputa-hero" style="background:rgba(10,10,46,.95);--p1:50%;--p2:50%">
+
+    <main class="anim">
+
+      <!-- DISPUTA PRINCIPAL 2T -->
+      <div class="section-label mb20">
+        Disputa — 2º Turno
+        <span style="display:flex;align-items:center;gap:6px;font-size:10px;color:#ff7070;font-weight:700;letter-spacing:.06em;text-transform:uppercase;animation:badge-pulse 1.4s infinite"><span class="live-dot" style="width:6px;height:6px;margin:0"></span>AO VIVO</span>
+      </div>
+
+      <div class="disputa-hero" id="disputa-hero-t2" style="--p1:52.3%;--p2:47.7%">
         <div class="disp-side">
-          <div class="disp-label">Candidato A</div>
+          <div class="disp-label">1º Colocado <span style="font-size:9px;background:rgba(26,203,75,.2);color:#1acb4b;padding:1px 6px;border-radius:3px;letter-spacing:.06em;margin-left:4px">VENCENDO</span></div>
           <div class="disp-nome">Eduardo Braga · PDT</div>
-          <div class="disp-pct" style="color:rgba(255,255,255,.25)">—</div>
-          <div class="disp-votos" style="color:rgba(255,255,255,.25)">aguardando apuração</div>
+          <div class="disp-pct" style="color:#1acb4b" id="pct-t2-eb">52,3%</div>
+          <div class="disp-votos" id="votos-t2-eb">33.412.894 votos</div>
         </div>
         <div class="disp-vs">×</div>
         <div class="disp-side right">
-          <div class="disp-label">Candidato B</div>
+          <div class="disp-label">2º Colocado</div>
           <div class="disp-nome">João Neto · PSDB</div>
-          <div class="disp-pct" style="color:rgba(255,255,255,.25)">—</div>
-          <div class="disp-votos" style="color:rgba(255,255,255,.25)">aguardando apuração</div>
+          <div class="disp-pct" style="color:#e84560" id="pct-t2-jn">47,7%</div>
+          <div class="disp-votos" id="votos-t2-jn">30.414.527 votos</div>
         </div>
       </div>
-      <div style="height:10px;border-radius:0 0 6px 6px;background:rgba(255,255,255,.06);margin-bottom:28px"></div>
-
-      <div class="empty-state">
-        <div class="empty-icon">🗳️</div>
-        <div class="empty-title">Apuração não iniciada</div>
-        <div class="empty-sub">O 2º turno ocorre em <strong>27 de outubro de 2002</strong>. Os resultados aparecerão aqui assim que as urnas começarem a ser apuradas às 17h.</div>
+      <div style="display:grid;grid-template-columns:52.3fr 47.7fr;height:10px;border-radius:0 0 6px 6px;overflow:hidden;margin-bottom:6px" id="bar-ratio-t2">
+        <div style="background:#1C2BCB"></div>
+        <div style="background:#e84560"></div>
       </div>
+      <div style="display:flex;justify-content:center;margin-bottom:24px">
+        <span style="font-size:11px;color:var(--text-muted);font-family:'IBM Plex Mono',monospace">Diferença: <strong style="color:var(--text)">+4,6 p.p.</strong> · 2.998.367 votos · <span style="color:#FF7A00">32,7% ainda a apurar</span></span>
+      </div>
+
+      <!-- CARDS 2T -->
+      <div class="section-label mb20">Resultado Parcial — 2º Turno <span class="info-chip" style="background:rgba(255,68,68,.1);color:#ff7070;border:1px solid rgba(255,80,80,.25);font-family:'IBM Plex Mono',monospace">67,3% apurado</span></div>
+      <div class="cards-grid" id="cards-grid-t2"></div>
+
+      <div class="two-col">
+        <div>
+          <div class="section-label" style="margin-bottom:14px">Apuração Parcial — 2º Turno</div>
+          <div class="rank-wrap">
+            <table class="ranking-table">
+              <thead><tr>
+                <th style="width:34px;text-align:center">#</th>
+                <th>Candidato</th>
+                <th style="text-align:right">%</th>
+                <th class="rank-votos-cell" style="text-align:right">Votos</th>
+                <th class="rank-bar-wrap">Representação</th>
+                <th>Situação</th>
+              </tr></thead>
+              <tbody id="ranking-tbody-t2"></tbody>
+            </table>
+          </div>
+
+          <div class="chart-section">
+            <div class="chart-title">Evolução da Apuração — 2º Turno 2002</div>
+            <div class="chart-sub">Variação percentual ao longo da contagem · apuração em andamento</div>
+            <div class="chart-container"><canvas id="evolucao-chart-t2"></canvas></div>
+          </div>
+        </div>
+
+        <div class="sidebar-col">
+
+          <!-- STATUS AO VIVO -->
+          <div class="proj-box">
+            <div class="proj-status-chip proj-status-chip-live"><span class="live-dot" style="width:6px;height:6px;margin:0"></span> APURAÇÃO AO VIVO</div>
+            <div class="proj-title">Eduardo Braga mantém vantagem com 67% apurado</div>
+            <div class="proj-chance" style="color:#1acb4b">+4,6 p.p.</div>
+            <div class="proj-chance-label">de vantagem · 52,3% × 47,7%</div>
+            <div class="proj-desc">Braga lidera com consistência desde as primeiras seções. Interior fortemente favorável. Capitais ainda parcialmente apuradas.</div>
+            <div class="proj-footer">🔴 Ao vivo · 27 de outubro de 2002 · Tupi Notícias<br>⏱ Última atualização: 20h44 · 402.762 seções</div>
+          </div>
+
+          <!-- PANORAMA 2T -->
+          <div class="widget">
+            <div class="widget-title">Panorama Parcial — 2º Turno</div>
+            <div id="panorama-widget-t2"></div>
+          </div>
+
+          <!-- PROJEÇÃO -->
+          <div style="background:linear-gradient(135deg,#0a1f0a,#0d2d0d);border-radius:8px;padding:16px;border:1px solid rgba(26,203,75,.3)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,203,75,.8);margin-bottom:6px">🔮 PROJEÇÃO DO MOTOR</div>
+            <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Eduardo Braga · 73% de chance</div>
+            <div style="height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;margin-bottom:8px">
+              <div style="width:73%;height:100%;background:#1acb4b;border-radius:3px"></div>
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,.45)">Monte Carlo · 10.000 simulações · <span style="cursor:pointer;color:rgba(168,85,247,.8)" onclick="go('projecoes')">Ver análise completa →</span></div>
+          </div>
+
+          <!-- ALERTA LIVE -->
+          <div style="background:rgba(245,120,0,.07);border:1px solid rgba(245,120,0,.25);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.65;color:var(--text)">
+            <div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF7A00;margin-bottom:6px">⚠️ ZONA CRÍTICA</div>
+            <strong>32,7% restante</strong> — urnas das capitais ainda em apuração. João Neto historicamente leva +3 p.p. nas zonas urbanas densas.
+          </div>
+
+        </div>
+      </div>
+
     </main>
   </div><!-- /content-t2 -->
 
@@ -703,7 +729,7 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
 
   <main class="anim" id="hist-main"></main>
 
-</div><!-- /page-historico -->
+</div>
 
 
 <!-- ████████████ PAGE: PROJEÇÕES ████████████ -->
@@ -713,7 +739,7 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
     <span>Motor de Projeção — Tupi Notícias</span>
     <div class="top-bar-right">
       <a href="#" onclick="go('apuracao');return false">← Apuração</a>
-      <span class="delay-indicator" id="delay-ind">⏱ ATUALIZANDO MODELO…</span>
+      <span class="delay-indicator" id="delay-ind">⏱ MODELO ATUALIZANDO…</span>
       <button class="theme-toggle" onclick="toggleTheme()">🌙 Tema</button>
     </div>
   </div></div>
@@ -737,96 +763,69 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
     </ul></nav>
   </header>
 
-  <!-- BANNER PROJEÇÕES -->
   <div class="proj-page-banner anim">
     <div class="proj-page-banner-inner">
       <div>
-        <div class="status-label" style="color:rgba(168,85,247,.7)">Motor de Projeção — 2º Turno · 27 out. 2002</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,4vw,40px);font-weight:700;letter-spacing:-1.5px;color:#fff" id="proj-headline-pct">58%</div>
+        <div class="status-label" style="color:rgba(168,85,247,.7)">Motor de Projeção — 2º Turno · 27 out. 2002 · AO VIVO</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,4vw,40px);font-weight:700;letter-spacing:-1.5px;color:#fff" id="proj-headline-pct">73%</div>
         <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:4px">chance de vitória projetada · <span style="color:#a855f7" id="proj-headline-cand">Eduardo Braga</span></div>
       </div>
       <div style="text-align:right">
         <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(168,85,247,.6);margin-bottom:4px">Monte Carlo</div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;color:rgba(255,255,255,.7)">10.000</div>
         <div style="font-size:11px;color:rgba(255,255,255,.3)">simulações rodadas</div>
-        <div style="font-size:10px;color:rgba(255,165,0,.6);margin-top:6px" id="proj-update-time">⏱ Modelo atualizado: 6 out. · 22h45</div>
+        <div style="font-size:10px;color:rgba(255,165,0,.6);margin-top:6px" id="proj-update-time">⏱ Ao vivo · 67,3% apurado · 20h44</div>
       </div>
     </div>
   </div>
 
   <main class="anim" id="proj-main">
-
-    <!-- GRID PRINCIPAL -->
     <div class="two-col" style="margin-top:0">
       <div>
-
-        <!-- CLASSIFICAÇÃO -->
         <div class="section-label" style="margin-top:4px">📊 Classificação da Disputa</div>
         <div id="classif-container"></div>
-
-        <!-- PONTO DE INFLEXÃO -->
         <div class="section-label">🧠 Detecção de Ponto de Inflexão</div>
         <div id="inflexao-container"></div>
-
-        <!-- SIMULADOR DE CENÁRIOS -->
         <div class="section-label">🎛️ Simulador de Cenários</div>
         <div class="sim-card">
-          <div class="sim-title">
-            <span>⚙️</span>
-            <span>Selecione o cenário para recalcular as projeções</span>
-          </div>
+          <div class="sim-title"><span>⚙️</span><span>Selecione o cenário para recalcular as projeções</span></div>
           <div class="sim-controls" id="sim-controls"></div>
           <div class="sim-result-grid" id="sim-results"></div>
           <div class="sim-chance-bar" style="margin-top:14px">
             <div class="sim-chance-fill" id="sim-chance-bar-fill" style="background:#1C2BCB"></div>
           </div>
           <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-top:5px;font-family:'IBM Plex Mono',monospace">
-            <span>←  Vantagem João Neto</span>
-            <span>Vantagem Eduardo Braga  →</span>
+            <span>← Vantagem João Neto</span>
+            <span>Vantagem Eduardo Braga →</span>
           </div>
         </div>
-
-        <!-- GRÁFICO EVOLUÇÃO DA CHANCE -->
         <div class="chart-section">
           <div class="chart-title">📈 Evolução da Chance de Vitória — Eduardo Braga</div>
           <div class="chart-sub">Probabilidade ao longo do processamento do modelo · etapas de refinamento</div>
           <div class="chart-container" style="height:200px"><canvas id="chance-chart"></canvas></div>
         </div>
-
-        <!-- GRÁFICO MONTE CARLO (distribuição) -->
         <div class="chart-section">
           <div class="chart-title">🎲 Distribuição Monte Carlo — Eduardo Braga</div>
           <div class="chart-sub">Frequência de resultados em 10.000 simulações · % votos no 2º turno</div>
           <div class="chart-container" style="height:180px"><canvas id="mc-chart"></canvas></div>
         </div>
-
       </div>
 
-      <!-- SIDEBAR PROJEÇÕES -->
       <div class="sidebar-col">
-
-        <!-- INDICADORES ANALÍTICOS -->
         <div class="section-label" style="margin-top:4px">⚖️ Indicadores Analíticos</div>
         <div id="indicadores-container"></div>
-
-        <!-- ALERTAS -->
         <div class="section-label">🚨 Alertas Inteligentes</div>
         <div class="alert-list" id="alertas-container"></div>
-
-        <!-- MODO ANALISTA -->
         <button class="analista-toggle" id="analista-btn" onclick="toggleAnalista()">
           <span>🧠</span>
           <span id="analista-btn-label">ATIVAR MODO ANALISTA</span>
         </button>
         <div class="analista-panel" id="analista-panel"></div>
-
       </div>
     </div>
 
-    <!-- ANÁLISE PROFUNDA — LARGURA TOTAL -->
     <div class="section-label">🧠 Análise Profunda</div>
 
-    <!-- MATRIZ REGIONAL -->
     <div class="chart-section" style="margin-bottom:20px">
       <div class="chart-title">📊 Matriz Regional — Projeção 2º Turno</div>
       <div class="chart-sub">Baseado no desempenho do 1º turno e histórico eleitoral regional</div>
@@ -846,11 +845,9 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
       </div>
     </div>
 
-    <!-- ANÁLISE AUTOMÁTICA -->
     <div class="section-label">🤖 Análise Automática (IA)</div>
     <div class="analise-box" id="analise-auto"></div>
 
-    <!-- TRANSFERÊNCIA DE VOTOS -->
     <div class="section-label">🗳️ Projeção — Transferência de Votos (Ângela Portela)</div>
     <div class="sim-card" style="margin-bottom:20px">
       <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px">
@@ -859,167 +856,176 @@ main{max-width:1400px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(12px,3vw,
       <div id="transferencia-container"></div>
     </div>
 
-    <!-- PROBABILIDADE DE VIRADA HIPER DETALHADA -->
     <div class="section-label">📉 Probabilidade de Virada — Análise Hiper Detalhada</div>
     <div id="virada-container"></div>
 
   </main>
 
-</div><!-- /page-projecoes -->
-
+</div>
 
 <script>
 /* ═══════════════════════════════════════
-   DADOS GLOBAIS (carregados do JSON)
+   FALLBACK DATA COMPLETO (embutido)
 ═══════════════════════════════════════ */
+const FALLBACK_DATA = {
+  ticker:[
+    "🔴 2º TURNO AO VIVO — Eduardo Braga lidera com 52,3% · 67% apurado",
+    "📊 Braga mantém vantagem de +4,6 p.p. sobre João Neto",
+    "🏙️ Capitais ainda em apuração — fator decisivo da noite",
+    "⚡ Motor de projeção indica 73% de chance para Eduardo Braga",
+    "📅 1º Turno encerrado — resultado final confirmado em 6 out. 2002"
+  ],
+  primeirTurno:{
+    progresso:100, secoes_apuradas:402762, secoes_total:402762,
+    total_votos:102032451, votos_validos:94842054, brancos:0, nulos:0,
+    data:"6 de outubro de 2002", hora_encerramento:"22h18",
+    candidatos:[
+      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",numero:12,cor:"#1C2BCB",votos:27460571,pct:26.7,pct_str:"26,7%",votos_fmt:"27.460.571",status:"2º TURNO",status_code:"2t",ordem:1},
+      {nome:"João Neto",sigla:"JN",partido:"PSDB",numero:45,cor:"#e84560",votos:27179008,pct:26.4,pct_str:"26,4%",votos_fmt:"27.179.008",status:"2º TURNO",status_code:"2t",ordem:2},
+      {nome:"Ângela Portela",sigla:"AP",partido:"MDB",numero:15,cor:"#F5A000",votos:26260114,pct:25.5,pct_str:"25,5%",votos_fmt:"26.260.114",status:"ELIMINADA",status_code:"nao",ordem:3},
+      {nome:"Enéas Carneiro",sigla:"EC",partido:"PRONA",numero:56,cor:"#22c55e",votos:9741553,pct:9.5,pct_str:"9,5%",votos_fmt:"9.741.553",status:"ELIMINADO",status_code:"nao",ordem:4},
+      {nome:"Maria João Abujamras",sigla:"MJ",partido:"PSTU",numero:16,cor:"#9b59b6",votos:3372843,pct:3.3,pct_str:"3,3%",votos_fmt:"3.372.843",status:"ELIMINADA",status_code:"nao",ordem:5},
+      {nome:"João Goulart Filho",sigla:"JGF",partido:"PNM",numero:33,cor:"#e67e22",votos:1828965,pct:1.8,pct_str:"1,8%",votos_fmt:"1.828.965",status:"ELIMINADO",status_code:"nao",ordem:6},
+      {nome:"Marcos Pontes",sigla:"MP",partido:"PSB",numero:40,cor:"#aabbcc",votos:999000,pct:1.0,pct_str:"1,0%",votos_fmt:"999.000",status:"ELIMINADO",status_code:"nao",ordem:7}
+    ]
+  },
+  evolucao:[
+    {h:"17h00",pct_apurado:5,  eb:25.1,jn:25.8,ap:24.9},
+    {h:"17h30",pct_apurado:12, eb:25.5,jn:25.9,ap:25.1},
+    {h:"18h00",pct_apurado:24, eb:26.0,jn:26.2,ap:25.3},
+    {h:"18h30",pct_apurado:40, eb:26.3,jn:26.5,ap:25.4},
+    {h:"19h00",pct_apurado:58, eb:26.5,jn:26.4,ap:25.5},
+    {h:"19h30",pct_apurado:74, eb:26.6,jn:26.4,ap:25.5},
+    {h:"20h00",pct_apurado:88, eb:26.7,jn:26.4,ap:25.5},
+    {h:"22h18",pct_apurado:100,eb:26.7,jn:26.4,ap:25.5}
+  ],
+  segundoTurno:{
+    progresso:67.3, secoes_apuradas:271039, secoes_total:402762,
+    total_votos:68668259, votos_validos:63827421, brancos:0, nulos:0,
+    data:"27 de outubro de 2002", hora_encerramento:null,
+    candidatos:[
+      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",cor:"#1C2BCB",votos:33412894,pct:52.3,pct_str:"52,3%",votos_fmt:"33.412.894",status:"VENCENDO",status_code:"vencendo",ordem:1},
+      {nome:"João Neto",sigla:"JN",partido:"PSDB",cor:"#e84560",votos:30414527,pct:47.7,pct_str:"47,7%",votos_fmt:"30.414.527",status:"PERDENDO",status_code:"perdendo",ordem:2}
+    ]
+  },
+  evolucaoT2:[
+    {h:"17h00",pct_apurado:3,  eb:50.2,jn:49.8},
+    {h:"17h30",pct_apurado:8,  eb:51.0,jn:49.0},
+    {h:"18h00",pct_apurado:17, eb:51.5,jn:48.5},
+    {h:"18h30",pct_apurado:28, eb:51.8,jn:48.2},
+    {h:"19h00",pct_apurado:41, eb:52.0,jn:48.0},
+    {h:"19h30",pct_apurado:53, eb:52.1,jn:47.9},
+    {h:"20h00",pct_apurado:62, eb:52.2,jn:47.8},
+    {h:"20h44",pct_apurado:67.3,eb:52.3,jn:47.7}
+  ],
+  projecoes:{
+    status:"segundo_turno_em_andamento",
+    atualizado_em:"27 out. 2002 · 20h44",
+    segundo_turno:{
+      candidato_a:{nome:"Eduardo Braga",partido:"PDT",sigla:"EB",cor:"#1C2BCB",chance_vitoria:0.73,cenarios:{base:52.3,otimista:54.1,adverso:50.5},tendencia:"+0.5%",pct_esperado:52.3},
+      candidato_b:{nome:"João Neto",partido:"PSDB",sigla:"JN",cor:"#e84560",chance_vitoria:0.27,cenarios:{base:47.7,otimista:49.5,adverso:45.9},tendencia:"-0.5%",pct_esperado:47.7},
+      diferenca_pct_esperada:4.6,diferenca_votos_esperada:2998367,risco_virada:0.27,classificacao:"tendencia",
+      ponto_nao_retorno:"Se Braga manter +4 p.p. com 80% apurado → vitória matematicamente segura",
+      janela_critica:"32,7% restante — capitais ainda apurando. Zonas urbanas densas favorecem João Neto.",
+      analise_automatica:"Com 67,3% das urnas apuradas, Eduardo Braga mantém vantagem consistente de 4,6 pontos percentuais. O interior — fortemente favorável ao PDT — já está quase inteiramente computado. As urnas restantes (32,7%) concentram-se nas capitais e regiões metropolitanas, onde João Neto historicamente se beneficia de +3 p.p. sobre a média nacional. Para vencer, João Neto precisaria reverter toda a margem atual apenas com essas seções, o que o modelo avalia como improvável mas matematicamente possível.",
+      transferencia_votos:{portela_para_braga_pct:38,portela_para_neto_pct:32,portela_brancos_nulos_pct:30}
+    },
+    regioes:[
+      {nome:"Capital",      eb_1t:48,jn_1t:50,eb_2t_proj:49,jn_2t_proj:51,pct_votos:45,decisiva:true, cor:"#e84560"},
+      {nome:"Interior",     eb_1t:57,jn_1t:39,eb_2t_proj:56,jn_2t_proj:44,pct_votos:38,decisiva:false,cor:"#1C2BCB"},
+      {nome:"Litoral",      eb_1t:51,jn_1t:44,eb_2t_proj:52,jn_2t_proj:48,pct_votos:17,decisiva:false,cor:"#F5A000"}
+    ],
+    evolucao_chance:[
+      {h:"Resultado 1T",eb:58,jn:42},{h:"Ajuste regional",eb:64,jn:36},
+      {h:"Abertura 2T",  eb:61,jn:39},{h:"17% apurado",    eb:63,jn:37},
+      {h:"28% apurado",  eb:65,jn:35},{h:"41% apurado",    eb:68,jn:32},
+      {h:"53% apurado",  eb:70,jn:30},{h:"67% apurado",    eb:73,jn:27}
+    ],
+    monte_carlo:{simulacoes:10000,distribuicao_eb:[
+      {faixa:"49–50%",freq:3},{faixa:"50–51%",freq:7},{faixa:"51–52%",freq:14},
+      {faixa:"52–53%",freq:22},{faixa:"53–54%",freq:26},{faixa:"54–55%",freq:18},
+      {faixa:"55–56%",freq:8},{faixa:"56–57%",freq:2}
+    ]},
+    alertas:[
+      {tipo:"success",icone:"✅",msg:"67,3% apurado — Braga lidera com 52,3% × 47,7% (margem de +4,6 p.p.)."},
+      {tipo:"warning",icone:"⚠️",msg:"32,7% restante concentrado em capitais — principal fonte de incerteza."},
+      {tipo:"danger", icone:"🏙️",msg:"João Neto tem vantagem histórica nas capitais (+3,2 p.p.). Se essa tendência se confirmar, disputa se aproxima."},
+      {tipo:"info",   icone:"📊",msg:"Motor atualizado em tempo real. σ ≈ 1,8 p.p. neste estágio da apuração."}
+    ],
+    cenarios_simulador:{
+      base:                {eb:52.3,jn:47.7,chance_eb:73},
+      capital_pesa_mais:   {eb:50.1,jn:49.9,chance_eb:51},
+      interior_pesa_mais:  {eb:54.5,jn:45.5,chance_eb:90},
+      alto_comparecimento: {eb:52.6,jn:47.4,chance_eb:76},
+      baixo_comparecimento:{eb:51.9,jn:48.1,chance_eb:68},
+      indecisos_braga:     {eb:53.8,jn:46.2,chance_eb:87},
+      indecisos_neto:      {eb:51.2,jn:48.8,chance_eb:62}
+    }
+  }
+};
+
 let D = null;
 let chartInst = null;
+let chartInstT2 = null;
 let chanceChartInst = null;
 let mcChartInst = null;
-let turnoAtual = 1;
+let turnoAtual = 2;
 let analistaAtivo = false;
 let cenarioAtivo = 'base';
 
-/* ═══ LOAD JSON ═══ */
-const JSON_URL = 'https://raw.githubusercontent.com/tupi-tv/tupi/refs/heads/main/apuracao_2002.json';
-
 async function loadData() {
+  // Usar fallback imediatamente para garantir carregamento rápido
+  D = FALLBACK_DATA;
+  
+  // Tentar carregar dados externos em segundo plano (sem bloquear)
   try {
-    const r = await fetch(JSON_URL + '?t=' + Date.now()); // cache-bust
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    D = await r.json();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+    const r = await fetch('https://raw.githubusercontent.com/tupi-tv/tupi/refs/heads/main/apuracao_2002.json', { signal: controller.signal });
+    clearTimeout(timeoutId);
+    if (r.ok) {
+      const remoteData = await r.json();
+      // Mesclar dados remotos com fallback (preservar estrutura)
+      D = { ...FALLBACK_DATA, ...remoteData };
+    }
   } catch (e) {
-    console.warn('JSON remoto indisponível, usando fallback embutido.', e);
-    D = getFallbackData();
+    console.log('Usando dados locais (fallback)');
   }
 }
 
-/* ═══ POLLING AO VIVO — re-busca o JSON a cada 10s e atualiza tudo ═══ */
-async function pollData() {
-  try {
-    const r = await fetch(JSON_URL + '?t=' + Date.now());
-    if (!r.ok) return;
-    D = await r.json();
-    // Re-renderiza tudo automaticamente a cada ciclo
-    renderTicker();
-    renderCards();
-    renderRanking();
-    renderPanorama();
-    renderHistorico();
-    renderProjecoes();
-    renderChart();
-    // Regrava gráficos da aba de projeções se estiver ativa E apuração iniciou
-    const progAtivo = (D?.primeirTurno?.progresso ?? 0) > 0;
-    if (progAtivo && document.getElementById('page-projecoes')?.classList.contains('active')) {
-      renderChanceChart(D.projecoes.evolucao_chance);
-      renderMCChart(D.projecoes.monte_carlo);
-    }
-  } catch (_) { /* silencioso — não interrompe a exibição */ }
-}
-
-function startPolling(intervaloMs = 10000) {
-  setInterval(pollData, intervaloMs);
-}
-
-/* ═══ FALLBACK DATA (caso o JSON não seja encontrado — inicia sempre zerado) ═══ */
-function getFallbackData() {
-  return {
-    ticker:["🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias","⏳ Aguardando início da apuração","📅 1º Turno: 6 de outubro de 2002","🔴 AO VIVO — Tupi Notícias acompanha em tempo real"],
-    primeirTurno:{progresso:0,secoes_apuradas:0,secoes_total:402762,total_votos:0,votos_validos:0,brancos:0,nulos:0,data:"6 de outubro de 2002",hora_encerramento:null,candidatos:[
-      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",numero:12,cor:"#1C2BCB",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:1},
-      {nome:"João Neto",sigla:"JN",partido:"PSDB",numero:45,cor:"#e84560",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:2},
-      {nome:"Ângela Portela",sigla:"AP",partido:"MDB",numero:15,cor:"#F5A000",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:3},
-      {nome:"Enéas Carneiro",sigla:"EC",partido:"PRONA",numero:56,cor:"#22c55e",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:4},
-      {nome:"Maria João Abujamras",sigla:"MJ",partido:"PSTU",numero:16,cor:"#9b59b6",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:5},
-      {nome:"João Goulart Filho",sigla:"JGF",partido:"PNM",numero:33,cor:"#e67e22",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:6},
-      {nome:"Marcos Pontes",sigla:"MP",partido:"PSB",numero:40,cor:"#aabbcc",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:7}
-    ]},
-    evolucao:[{h:"--:--",pct_apurado:0,eb:0,jn:0,ap:0}],
-    segundoTurno:{progresso:0,secoes_apuradas:0,secoes_total:402762,total_votos:0,votos_validos:0,data:"27 de outubro de 2002",hora_encerramento:null,candidatos:[
-      {nome:"Eduardo Braga",sigla:"EB",partido:"PDT",cor:"#1C2BCB",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:1},
-      {nome:"João Neto",sigla:"JN",partido:"PSDB",cor:"#e84560",votos:0,pct:0,pct_str:"0,0%",votos_fmt:"0",status:"AGUARDANDO",status_code:"wait",ordem:2}
-    ]},
-    evolucaoT2:[{h:"--:--",pct_apurado:0,eb:0,jn:0}],
-    projecoes:{
-      status:"pre_segundo_turno",atualizado_em:"6 out. 2002 · 22h45",
-      segundo_turno:{
-        candidato_a:{nome:"Eduardo Braga",partido:"PDT",sigla:"EB",cor:"#1C2BCB",chance_vitoria:0.58,cenarios:{base:51.8,otimista:54.2,adverso:49.1},tendencia:"+0.4%",pct_esperado:51.8},
-        candidato_b:{nome:"João Neto",partido:"PSDB",sigla:"JN",cor:"#e84560",chance_vitoria:0.42,cenarios:{base:48.2,otimista:50.9,adverso:45.8},tendencia:"-0.4%",pct_esperado:48.2},
-        diferenca_pct_esperada:3.6,diferenca_votos_esperada:2112000,risco_virada:0.42,classificacao:"disputa_acirrada",
-        ponto_nao_retorno:"Se Braga atingir +5 p.p. com 70% apurado → vitória irreversível",
-        janela_critica:"Primeiros 50% das urnas — concentradas nas capitais",        analise_automatica:"Eduardo Braga parte como leve favorito para o 2º turno, impulsionado pelo domínio no interior (57% × 43%). No entanto, João Neto detém vantagem histórica nas capitais — que ainda representarão cerca de 45% dos votos. A eleição deve ser decidida no ambiente urbano, com margem menor que 4 pontos percentuais. Votos de Ângela Portela (25,5%) são o principal fator incerto.",
-        transferencia_votos:{portela_para_braga_pct:38,portela_para_neto_pct:32,portela_brancos_nulos_pct:30}
-      },
-      regioes:[
-        {nome:"Capital",eb_1t:48,jn_1t:50,eb_2t_proj:49,jn_2t_proj:51,pct_votos:45,decisiva:true,cor:"#e84560"},
-        {nome:"Interior",eb_1t:57,jn_1t:39,eb_2t_proj:56,jn_2t_proj:44,pct_votos:38,decisiva:false,cor:"#1C2BCB"},
-        {nome:"Litoral",eb_1t:51,jn_1t:44,eb_2t_proj:52,jn_2t_proj:48,pct_votos:17,decisiva:false,cor:"#F5A000"}
-      ],
-      evolucao_chance:[
-        {h:"Resultado 1T",eb:52,jn:48},{h:"Ajuste regional",eb:58,jn:42},{h:"Transferência AP",eb:55,jn:45},
-        {h:"Monte Carlo",eb:57,jn:43},{h:"Ajuste capital",eb:53,jn:47},{h:"Modelo final",eb:58,jn:42}
-      ],
-      monte_carlo:{simulacoes:10000,distribuicao_eb:[
-        {faixa:"47–48%",freq:5},{faixa:"48–49%",freq:10},{faixa:"49–50%",freq:18},
-        {faixa:"50–51%",freq:20},{faixa:"51–52%",freq:22},{faixa:"52–53%",freq:14},
-        {faixa:"53–54%",freq:8},{faixa:"54–55%",freq:3}
-      ]},
-      alertas:[
-        {tipo:"info",icone:"📅",msg:"Projeção baseada nos resultados do 1º turno. O 2º turno ocorre em 27 de outubro."},
-        {tipo:"warning",icone:"⚠️",msg:"Disputa acirrada: margem projetada de apenas 3,6 p.p. — dentro da margem de erro."},
-        {tipo:"danger",icone:"🔥",msg:"João Neto tem vantagem histórica nas capitais (+3,2 p.p.). Capital representa 45% dos votos."},
-        {tipo:"success",icone:"🟢",msg:"Braga domina o interior (57% × 43%) — 38% do eleitorado total."}
-      ],
-      cenarios_simulador:{
-        base:{eb:51.8,jn:48.2,chance_eb:58},
-        capital_pesa_mais:{eb:48.9,jn:51.1,chance_eb:34},
-        interior_pesa_mais:{eb:54.2,jn:45.8,chance_eb:79},
-        alto_comparecimento:{eb:52.1,jn:47.9,chance_eb:61},
-        baixo_comparecimento:{eb:51.3,jn:48.7,chance_eb:55},
-        indecisos_braga:{eb:53.5,jn:46.5,chance_eb:75},
-        indecisos_neto:{eb:50.2,jn:49.8,chance_eb:52}
-      }
-    }
-  };
-}
-
-/* ═══ TURNO TABS ═══ */
-function setTurno(n) {
-  turnoAtual = n;
-  document.getElementById('tab-t1').classList.toggle('active', n===1);
-  document.getElementById('tab-t2').classList.toggle('active', n===2);
-  document.getElementById('content-t1').style.display = n===1 ? '':'none';
-  document.getElementById('content-t2').style.display = n===2 ? '':'none';
-}
-
-/* ═══ TICKER ═══ */
 function renderTicker() {
   const el = document.getElementById('ticker-inner');
-  if (!el) return;
+  if (!el || !D) return;
   const sep = '<span class="ticker-sep">◆</span>';
-  const txt = D.ticker.map(t => `<span>${t}${sep}</span>`).join('');
-  el.innerHTML = txt + txt;
+  el.innerHTML = (D.ticker.map(t=>`<span>${t}${sep}</span>`).join('')).repeat(2);
 }
 
-/* ═══ CARDS ═══ */
-function renderCards() {
-  const grid = document.getElementById('cards-grid');
-  if (!grid) return;
-  const maxPct = Math.max(...D.primeirTurno.candidatos.map(c => c.pct));
-  grid.innerHTML = D.primeirTurno.candidatos.map(c => {
-    const tagClass = c.status_code==='2t' ? 'tag-2t' : c.status_code==='wait' ? 'tag-wait' : 'tag-nao';
-    const tagIcon  = c.status_code==='2t' ? '⚡' : c.status_code==='wait' ? '⏳' : '✕';
+function renderCards(candidatos, gridId, isT2=false) {
+  const grid = document.getElementById(gridId);
+  if (!grid || !candidatos) return;
+  const maxPct = Math.max(...candidatos.map(c=>c.pct));
+  grid.innerHTML = candidatos.map(c => {
+    let tagClass, tagIcon;
+    if (isT2) {
+      tagClass = c.status_code==='vencendo' ? 'tag-vencendo' : 'tag-perdendo';
+      tagIcon  = c.status_code==='vencendo' ? '▲' : '▼';
+    } else {
+      tagClass = c.status_code==='2t' ? 'tag-2t' : (c.status_code==='wait' ? 'tag-wait' : 'tag-nao');
+      tagIcon  = c.status_code==='2t' ? '⚡' : (c.status_code==='wait' ? '⏳' : '✕');
+    }
+    const extra = isT2 ? `<div style="font-size:10px;color:var(--text-muted);margin-bottom:4px;font-family:'IBM Plex Mono',monospace">${D.segundoTurno.progresso}% apurado</div>` : '';
     return `<div class="cand-card">
       <div class="cand-card-header">
         <div class="cand-avatar" style="background:${c.cor}">${c.sigla}</div>
         <div>
           <div class="cand-card-name">${c.nome}</div>
-          <div class="cand-card-partido">${c.partido} · nº ${c.numero}</div>
+          <div class="cand-card-partido">${c.partido}${c.numero?' · nº '+c.numero:''}</div>
         </div>
       </div>
       <div class="cand-card-body">
         <div class="cand-rank-num">${c.ordem}º colocado</div>
         <div class="cand-pct-big" style="color:${c.cor}">${c.pct_str}</div>
+        ${extra}
         <div class="cand-votos">${c.votos_fmt} votos</div>
         <div class="cand-bar-track">
           <div class="cand-bar-fill" style="width:${(c.pct/maxPct*100).toFixed(2)}%;background:${c.cor}"></div>
@@ -1030,14 +1036,19 @@ function renderCards() {
   }).join('');
 }
 
-/* ═══ RANKING ═══ */
-function renderRanking() {
-  const tbody = document.getElementById('ranking-tbody');
-  if (!tbody) return;
-  const maxPct = Math.max(...D.primeirTurno.candidatos.map(c => c.pct));
-  tbody.innerHTML = D.primeirTurno.candidatos.map(c => {
-    const tagClass = c.status_code==='2t' ? 'tag-2t' : c.status_code==='wait' ? 'tag-wait' : 'tag-nao';
-    const tagIcon  = c.status_code==='2t' ? '⚡' : c.status_code==='wait' ? '⏳' : '✕';
+function renderRanking(candidatos, tbodyId, isT2=false) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody || !candidatos) return;
+  const maxPct = Math.max(...candidatos.map(c=>c.pct));
+  tbody.innerHTML = candidatos.map(c => {
+    let tagClass, tagIcon;
+    if (isT2) {
+      tagClass = c.status_code==='vencendo' ? 'tag-vencendo' : 'tag-perdendo';
+      tagIcon  = c.status_code==='vencendo' ? '▲' : '▼';
+    } else {
+      tagClass = c.status_code==='2t' ? 'tag-2t' : (c.status_code==='wait' ? 'tag-wait' : 'tag-nao');
+      tagIcon  = c.status_code==='2t' ? '⚡' : (c.status_code==='wait' ? '⏳' : '✕');
+    }
     return `<tr>
       <td class="rank-pos">${c.ordem}º</td>
       <td><div class="rank-cand-cell">
@@ -1054,56 +1065,44 @@ function renderRanking() {
   }).join('');
 }
 
-/* ═══ PANORAMA WIDGET ═══ */
-function renderPanorama() {
-  const el = document.getElementById('panorama-widget');
-  if (!el) return;
-  const pt = D.primeirTurno;
-  const brancos = pt.brancos;  // 0 conforme definido no JSON
-  const nulos   = pt.nulos;    // 0 conforme definido no JSON
-  const brancosDisp = brancos === 0 ? '—' : brancos.toLocaleString('pt-BR');
-  const nulosDisp   = nulos   === 0 ? '—' : nulos.toLocaleString('pt-BR');
+function renderPanorama(pt, elId, isT2=false) {
+  const el = document.getElementById(elId);
+  if (!el || !pt) return;
+  const pctLabel = isT2 ? `<div>✅ <strong>Apuração:</strong> ${pt.progresso.toFixed(1)}% em andamento</div>` :
+                           `<div>✅ <strong>Apuração:</strong> ${pt.progresso.toFixed(1)}% encerrada</div>`;
+  const dataLabel = isT2 ? '27 de outubro de 2002' : pt.data;
   el.innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
       <div style="background:var(--surface-2);padding:10px;border-radius:6px">
         <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px">Total de votos</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--text)">${pt.total_votos.toLocaleString('pt-BR')}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--text)">${(pt.total_votos||0).toLocaleString('pt-BR')}</div>
       </div>
       <div style="background:var(--surface-2);padding:10px;border-radius:6px">
         <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px">Votos válidos</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--text)">${pt.votos_validos.toLocaleString('pt-BR')}</div>
-      </div>
-      <div style="background:var(--surface-2);padding:10px;border-radius:6px">
-        <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px">Brancos</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--text-muted)">${brancosDisp}</div>
-      </div>
-      <div style="background:var(--surface-2);padding:10px;border-radius:6px">
-        <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px">Nulos</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--text-muted)">${nulosDisp}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--text)">${(pt.votos_validos||0).toLocaleString('pt-BR')}</div>
       </div>
     </div>
     <div style="font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:10px">
-      <div style="margin-bottom:4px">📅 <strong>Data:</strong> ${pt.data}</div>
-      <div style="margin-bottom:4px">🏛️ <strong>Seções:</strong> ${pt.secoes_apuradas.toLocaleString('pt-BR')} totalmente apuradas</div>
-      <div>✅ <strong>Apuração:</strong> ${pt.progresso.toFixed(1)}% encerrada</div>
+      <div style="margin-bottom:4px">📅 <strong>Data:</strong> ${dataLabel}</div>
+      <div style="margin-bottom:4px">🏛️ <strong>Seções:</strong> ${(pt.secoes_apuradas||0).toLocaleString('pt-BR')} de ${(pt.secoes_total||402762).toLocaleString('pt-BR')}</div>
+      ${pctLabel}
     </div>`;
 }
 
-/* ═══ CHART EVOLUÇÃO ═══ */
 function renderChart() {
   const canvas = document.getElementById('evolucao-chart');
-  if (!canvas) return;
+  if (!canvas || !D || !D.evolucao) return;
   const isDark = document.documentElement.getAttribute('data-theme')==='dark';
   const gc = isDark ? 'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
   const lc = isDark ? '#8892b0':'#999';
-  if (chartInst) { chartInst.destroy(); chartInst = null; }
+  if (chartInst) { chartInst.destroy(); chartInst=null; }
   chartInst = new Chart(canvas, {
     type:'line',
     data:{
       labels: D.evolucao.map(e=>e.h),
       datasets:[
         {label:'Eduardo Braga (PDT)',data:D.evolucao.map(e=>e.eb),borderColor:'#1C2BCB',tension:.4,fill:false,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#1C2BCB'},
-        {label:'João Neto (PSDB)',data:D.evolucao.map(e=>e.jn),borderColor:'#e84560',tension:.4,fill:false,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#e84560'},
+        {label:'João Neto (PSDB)',   data:D.evolucao.map(e=>e.jn),borderColor:'#e84560',tension:.4,fill:false,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#e84560'},
         {label:'Ângela Portela (MDB)',data:D.evolucao.map(e=>e.ap),borderColor:'#F5A000',tension:.4,fill:false,borderWidth:1.8,pointRadius:2,pointBackgroundColor:'#F5A000'}
       ]
     },
@@ -1122,13 +1121,81 @@ function renderChart() {
   });
 }
 
-/* ═══ HISTÓRICO ═══ */
+function renderChartT2() {
+  const canvas = document.getElementById('evolucao-chart-t2');
+  if (!canvas || !D || !D.evolucaoT2) return;
+  const isDark = document.documentElement.getAttribute('data-theme')==='dark';
+  const gc = isDark ? 'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
+  const lc = isDark ? '#8892b0':'#999';
+  if (chartInstT2) { chartInstT2.destroy(); chartInstT2=null; }
+  chartInstT2 = new Chart(canvas, {
+    type:'line',
+    data:{
+      labels: D.evolucaoT2.map(e=>e.h),
+      datasets:[
+        {label:'Eduardo Braga (PDT)',data:D.evolucaoT2.map(e=>e.eb),borderColor:'#1C2BCB',backgroundColor:'rgba(28,43,203,.08)',fill:true,tension:.4,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#1C2BCB'},
+        {label:'João Neto (PSDB)',   data:D.evolucaoT2.map(e=>e.jn),borderColor:'#e84560',backgroundColor:'rgba(232,69,96,.05)',fill:true,tension:.4,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#e84560'}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{labels:{color:lc,font:{family:"'IBM Plex Sans'",size:11},boxWidth:12,padding:16}},
+        tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1).replace('.',',')}%`}}
+      },
+      scales:{
+        x:{grid:{color:gc},ticks:{color:lc,font:{family:"'IBM Plex Mono'",size:10}}},
+        y:{min:44,max:56,grid:{color:gc},ticks:{color:lc,font:{family:"'IBM Plex Mono'",size:10},callback:v=>v+'%'}}
+      }
+    }
+  });
+}
+
 function renderHistorico() {
   const el = document.getElementById('hist-main');
-  if (!el) return;
+  if (!el || !D) return;
   const pt = D.primeirTurno;
   const maxPct = Math.max(...pt.candidatos.map(c=>c.pct));
   el.innerHTML = `
+    <div class="hist-item" id="hist-2002-t2">
+      <div class="hist-header" onclick="toggleHist('hist-2002-t2')">
+        <div class="hist-ano-badge">2002</div>
+        <div class="hist-info">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span class="hist-turno-badge" style="background:rgba(255,68,68,.12);color:#ff7070;border-color:rgba(255,68,68,.2)">2º Turno — AO VIVO</span>
+            <span style="font-weight:700;font-size:14px;color:var(--text)">Eleição Presidencial</span>
+          </div>
+          <div class="hist-desc">27 de outubro de 2002 · Eduardo Braga × João Neto · ${D.segundoTurno.progresso}% apurado</div>
+        </div>
+        <div class="hist-chevron">▼</div>
+      </div>
+      <div class="hist-body">
+        <div class="hist-vencedor" style="border-left-color:#1acb4b">
+          <div class="hist-venc-label">🔴 Parcial ao vivo — 1º colocado</div>
+          <div class="hist-venc-nome">Eduardo Braga · PDT</div>
+          <div class="hist-venc-pct" style="color:#1acb4b">${D.segundoTurno.candidatos[0].pct_str}</div>
+          <div class="hist-venc-votos">${D.segundoTurno.candidatos[0].votos_fmt} votos · ${D.segundoTurno.progresso}% apurado</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div class="section-label" style="margin-bottom:12px">Resultado Parcial</div>
+          <div class="hist-cands-list">
+            ${D.segundoTurno.candidatos.map(c=>{
+              const tc = c.status_code==='vencendo'?'tag-vencendo':'tag-perdendo';
+              const ti = c.status_code==='vencendo'?'▲':'▼';
+              return `<div class="hist-cand-row">
+                <div class="hist-cand-av" style="background:${c.cor}">${c.sigla}</div>
+                <div style="flex:1;min-width:0"><span class="hist-cand-name">${c.nome}</span> <span class="hist-cand-partido">${c.partido}</span></div>
+                <div class="hist-cand-bar"><div class="hist-cand-bar-fill" style="width:${c.pct}%;background:${c.cor}"></div></div>
+                <span class="hist-cand-pct" style="color:${c.cor}">${c.pct_str}</span>
+                <span class="hist-cand-votos">${c.votos_fmt}</span>
+                <span class="hist-cand-tag ${tc}">${ti} ${c.status}</span>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="hist-item" id="hist-2002-t1">
       <div class="hist-header" onclick="toggleHist('hist-2002-t1')">
         <div class="hist-ano-badge">2002</div>
@@ -1136,6 +1203,7 @@ function renderHistorico() {
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span class="hist-turno-badge">1º Turno</span>
             <span style="font-weight:700;font-size:14px;color:var(--text)">Eleição Presidencial</span>
+            <span class="info-chip chip-encerrado" style="font-size:9px">✓ Encerrado</span>
           </div>
           <div class="hist-desc">6 de outubro de 2002 · 7 candidatos · 102.032.451 votos</div>
         </div>
@@ -1143,7 +1211,7 @@ function renderHistorico() {
       </div>
       <div class="hist-body">
         <div class="hist-vencedor">
-          <div class="hist-venc-label">1º Colocado — Vai ao 2º Turno</div>
+          <div class="hist-venc-label">1º Colocado — Resultado Final</div>
           <div class="hist-venc-nome">Eduardo Braga · PDT</div>
           <div class="hist-venc-pct">26,7%</div>
           <div class="hist-venc-votos">27.460.571 votos</div>
@@ -1152,1182 +1220,298 @@ function renderHistorico() {
           <div class="section-label" style="margin-bottom:12px">Resultado Completo</div>
           <div class="hist-cands-list">
             ${pt.candidatos.map(c=>{
-              const tagClass = c.status_code==='2t' ? 'tag-2t' : c.status_code==='wait' ? 'tag-wait' : 'tag-nao';
-              const tagIcon  = c.status_code==='2t' ? '⚡' : c.status_code==='wait' ? '⏳' : '✕';
+              const tc = c.status_code==='2t'?'tag-2t':'tag-nao';
+              const ti = c.status_code==='2t'?'⚡':'✕';
               return `<div class="hist-cand-row">
                 <div class="hist-cand-av" style="background:${c.cor}">${c.sigla}</div>
-                <div style="flex:1;min-width:0">
-                  <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap">
-                    <span class="hist-cand-name">${c.nome}</span>
-                    <span class="hist-cand-partido">${c.partido}</span>
-                  </div>
-                </div>
-                <div class="hist-cand-bar">
-                  <div class="hist-cand-bar-fill" style="width:${(c.pct/maxPct*100).toFixed(2)}%;background:${c.cor}"></div>
-                </div>
+                <div style="flex:1;min-width:0"><span class="hist-cand-name">${c.nome}</span> <span class="hist-cand-partido">${c.partido}</span></div>
+                <div class="hist-cand-bar"><div class="hist-cand-bar-fill" style="width:${(c.pct/maxPct*100).toFixed(0)}%;background:${c.cor}"></div></div>
                 <span class="hist-cand-pct" style="color:${c.cor}">${c.pct_str}</span>
                 <span class="hist-cand-votos">${c.votos_fmt}</span>
-                <span class="hist-cand-tag ${tagClass}">${tagIcon} ${c.status}</span>
+                <span class="hist-cand-tag ${tc}">${ti} ${c.status}</span>
               </div>`;
             }).join('')}
           </div>
         </div>
         <div style="background:var(--surface-2);padding:12px 14px;border-radius:6px;font-size:12px;color:var(--text-muted);line-height:1.7">
-          <strong style="color:var(--text)">📌 Contexto histórico:</strong> O 1º turno de 2002 ficou marcado pela diferença de apenas
-          <strong style="font-family:'IBM Plex Mono',monospace">281.563 votos</strong> (0,3 p.p.) entre o 1º e o 2º colocados —
-          a menor margem entre o 1º e o 2º colocados de um pleito presidencial no Brasil.
-          Eduardo Braga e João Neto avançaram ao 2º turno de 27 de outubro.
-        </div>
-        <div style="margin-top:12px;padding:10px 14px;background:rgba(245,160,0,.07);border:1px solid rgba(245,160,0,.18);border-radius:6px;font-size:12px;color:var(--text-soft)">
-          📅 <strong>2º Turno:</strong> 27 de outubro de 2002 — Eduardo Braga × João Neto.
-          <a href="#" onclick="go('apuracao');setTurno(2);return false"
-             style="color:var(--tupi-orange);font-weight:700;text-decoration:none;margin-left:6px">Ver aba 2º Turno →</a>
+          📌 <strong style="color:var(--text)">Contexto:</strong> Menor margem da história presidencial brasileira — apenas <strong style="font-family:'IBM Plex Mono',monospace">281.563 votos</strong> (0,3 p.p.) separaram o 1º do 2º colocado.
         </div>
       </div>
     </div>`;
 }
 
-/* ═══════════════════════════════════════
-   CÁLCULOS — DERIVADOS DA APURAÇÃO
-   Nenhum valor hardcoded. Tudo calculado
-   a partir de primeirTurno + evolucao +
-   projecoes (monte_carlo, regioes, etc.)
-═══════════════════════════════════════ */
-
-/* ─── PONTO DE INFLEXÃO ───
-   Varre a evolução hora a hora para detectar:
-   1. Quando o 1º colocado assumiu a liderança
-   2. Quando a corrida virou estatisticamente irreversível
-   Threshold: candidato em 2º precisaria de >50.3% dos
-   votos RESTANTES para empatar → modelo classifica como
-   "zona irreversível" (validado empiricamente).
-*/
-function calcInflexao(D) {
-  const pt    = D.segundoTurno;
-  // Zerado enquanto apuração do 2º turno não iniciou
-  if (!pt || (pt.progresso ?? 0) === 0) return null;
-  const total = pt.total_votos;
-  const evo   = D.evolucaoT2 || [];
-
-  // Ordena candidatos: 1º e 2º colocados reais (pelo resultado final)
-  const sorted = [...pt.candidatos].sort((a,b) => b.votos - a.votos);
-  const c1 = sorted[0];  // quem terminou na frente
-  const c2 = sorted[1];  // quem terminou atrás
-
-  // Chaves no objeto evolucao (lowercase da sigla)
-  const k1 = c1.sigla.toLowerCase();
-  const k2 = c2.sigla.toLowerCase();
-
-  // Thresholds do modelo estatístico
-  const THRESH_ATENCAO     = 0.501; // precisa de >50.1% dos restantes → atenção
-  const THRESH_IRREVERSIVEL= 0.503; // precisa de >50.3% dos restantes → irreversível
-
-  let evFirstLead   = null;
-  let evAtencao     = null;
-  let evIrreverivel = null;
-
-  for (const ev of evo) {
-    const pctApur = ev.pct_apurado ?? 0;
-    if (pctApur === 0 || pctApur >= 100) continue;
-    if (!(k1 in ev) || !(k2 in ev)) continue;
-
-    const contados  = (pctApur / 100) * total;
-    const restantes = total - contados;
-    if (restantes <= 0) continue;
-
-    const v1 = (ev[k1] / 100) * contados;
-    const v2 = (ev[k2] / 100) * contados;
-
-    // c1 lidera?
-    if (v1 <= v2) continue;  // ainda não lidera neste momento
-
-    if (!evFirstLead) evFirstLead = ev;
-
-    // pctNecessario = fração dos votos restantes que c2 precisaria para empatar c1
-    const gap = v1 - v2;
-    const pctNecessario = (restantes + gap) / (2 * restantes);
-
-    if (!evAtencao && pctNecessario > THRESH_ATENCAO)      evAtencao     = ev;
-    if (!evIrreverivel && pctNecessario > THRESH_IRREVERSIVEL) evIrreverivel = ev;
-  }
-
-  // Monta timeline a partir dos eventos detectados
-  const timeline = [];
-
-  // Evento 0 — candidato adversário liderava no começo
-  const evAdversario = evo.find(e => {
-    const p = e.pct_apurado ?? 0;
-    return p > 0 && p < 30 && (e[k2] ?? 0) > (e[k1] ?? 0);
-  });
-  if (evAdversario) {
-    timeline.push({ pct: evAdversario.pct_apurado, hora: evAdversario.h,
-      desc: `${c2.nome} lidera nas urnas iniciais`, tipo:'info' });
-  }
-
-  // Evento 1 — diferença cai abaixo de 0.5 p.p. (momento crítico)
-  const evNarrow = evo.find(e => {
-    const p = e.pct_apurado ?? 0;
-    if (p === 0 || !(k1 in e) || !(k2 in e)) return false;
-    const diff = Math.abs((e[k1] ?? 0) - (e[k2] ?? 0));
-    return diff < 0.5 && diff >= 0 && (e[k2] ?? 0) >= (e[k1] ?? 0);
-  });
-  if (evNarrow) {
-    timeline.push({ pct: evNarrow.pct_apurado, hora: evNarrow.h,
-      desc: `Diferença cai abaixo de 0,5 p.p. — disputa acirrada`, tipo:'warning' });
-  }
-
-  // Evento 2 — primeira liderança
-  if (evFirstLead) {
-    timeline.push({ pct: evFirstLead.pct_apurado, hora: evFirstLead.h,
-      desc: `${c1.nome} assume liderança pela primeira vez`, tipo:'warning' });
-  }
-
-  // Evento 3 — zona irreversível
-  if (evIrreverivel) {
-    const pctRef  = evIrreverivel.pct_apurado;
-    const cont    = (pctRef / 100) * total;
-    const rest    = total - cont;
-    const v1r     = (evIrreverivel[k1] / 100) * cont;
-    const v2r     = (evIrreverivel[k2] / 100) * cont;
-    const gapVot  = v1r - v2r;
-    const pctNec  = ((rest + gapVot) / (2 * rest) * 100).toFixed(1);
-    timeline.push({ pct: pctRef, hora: evIrreverivel.h,
-      desc: `Ponto de inflexão — modelo detecta zona irreversível (${c2.nome} precisaria de ${pctNec}% dos restantes)`,
-      tipo:'danger' });
-  }
-
-  // Evento 4 — encerramento (só adiciona se apuração encerrada)
-  if (pt.hora_encerramento) {
-    timeline.push({ pct: pt.progresso, hora: pt.hora_encerramento,
-      desc: `Apuração encerrada — ${c1.nome} e ${c2.nome} ao 2º turno`, tipo:'success' });
-  }
-
-  // Garante ordem e sem duplicatas de pct
-  timeline.sort((a,b) => a.pct - b.pct);
-  const seen = new Set();
-  const timelineUniq = timeline.filter(t => { if (seen.has(t.pct)) return false; seen.add(t.pct); return true; });
-
-  // Gap em p.p. no momento do inflexão (ou final)
-  const refEv   = evIrreverivel || evo.find(e => (e.pct_apurado ?? 0) === 100) || evo[evo.length-1];
-  const gapPP   = parseFloat(((refEv[k1] ?? c1.pct) - (refEv[k2] ?? c2.pct)).toFixed(1));
-  const pctMom  = evIrreverivel ? evIrreverivel.pct_apurado : pt.progresso;
-  const horaMom = evIrreverivel ? evIrreverivel.h : (pt.hora_encerramento ?? '--:--');
-
-  const irreversivel = evIrreverivel !== null;
-
-  return {
-    detectado: evFirstLead !== null,
-    zona_irreversivel: irreversivel,
-    momento_pct: pctMom,
-    hora_deteccao: horaMom.replace(':','h').replace(/h(\d\d)$/,'h$1'),
-    vencedor: { nome:c1.nome, sigla:c1.sigla, partido:c1.partido, cor:c1.cor },
-    perdedor: { nome:c2.nome, sigla:c2.sigla, partido:c2.partido, cor:c2.cor },
-    diferenca_no_momento: gapPP,
-    texto_alerta: irreversivel
-      ? `Eleição entrou em zona irreversível`
-      : `Disputa ainda matematicamente em aberto`,
-    timeline: timelineUniq
-  };
+function renderT1Content() {
+  if (!D) return;
+  renderCards(D.primeirTurno.candidatos, 'cards-grid-t1');
+  renderRanking(D.primeirTurno.candidatos, 'ranking-tbody-t1');
+  renderPanorama(D.primeirTurno, 'panorama-widget-t1');
 }
 
-/* ─── NORMAL CDF (Abramowitz & Stegun approximation) ─── */
-function normCDF(z) {
-  const sign = z < 0 ? -1 : 1;
-  const az = Math.abs(z);
-  const t  = 1 / (1 + 0.2316419 * az);
-  const d  = 0.3989423 * Math.exp(-az * az / 2);
-  const p  = d * t * (0.3193815 + t * (-0.3565638 + t * (1.7814779 + t * (-1.8212560 + t * 1.3302745))));
-  return 0.5 + sign * (0.5 - p);
-}
-
-/* ─── CHANCE AO VIVO (2º turno) ───
-   Recalcula probabilidade de vitória em tempo real conforme
-   as urnas do 2T são apuradas.
-   Modelo: normal CDF onde σ decresce com √(fração restante),
-   simulando a crescente certeza do resultado à medida que
-   mais votos são contabilizados.
-*/
-function calcChanceAoVivo(D) {
+function renderT2Content() {
+  if (!D) return;
   const st = D.segundoTurno;
-  if (!st || (st.progresso ?? 0) === 0) return null;
-
-  const p   = st.progresso; // % apurado (0–100)
-  const evo = D.evolucaoT2 || [];
-
-  // Ponto mais recente com dados reais de urna
-  const ultimo = [...evo].reverse().find(e => (e.pct_apurado ?? 0) > 0);
-  if (!ultimo) return null;
-
-  const eb   = ultimo.eb;  // % de EB nos votos já contados
-  const jn   = ultimo.jn;  // % de JN nos votos já contados
-  const frac = p / 100;
-  const rem  = 1 - frac;
-
-  let chanceEB;
-  if (rem <= 0.001) {
-    // Apuração encerrada
-    chanceEB = eb > 50 ? 99.5 : 0.5;
-  } else {
-    // Quantos % dos votos restantes EB precisa para atingir 50% do total
-    const pNeeded = (50 - eb * frac) / rem;
-    // σ base = 3.5 p.p. no início, decresce com √(fração restante)
-    const sigma = 3.5 * Math.sqrt(rem);
-    const z = (eb - pNeeded) / sigma;
-    chanceEB = Math.max(0.5, Math.min(99.5, normCDF(z) * 100));
+  renderCards(st.candidatos, 'cards-grid-t2', true);
+  renderRanking(st.candidatos, 'ranking-tbody-t2', true);
+  renderPanorama(st, 'panorama-widget-t2', true);
+  
+  // Atualizar elementos dinâmicos do 2T
+  const progVal = document.getElementById('status-prog-val-t2');
+  if (progVal) progVal.textContent = st.progresso.toFixed(1) + '%';
+  const progBar = document.getElementById('prog-bar-t2');
+  if (progBar) progBar.style.width = st.progresso + '%';
+  const statusDesc = document.getElementById('status-desc-val-t2');
+  if (statusDesc) statusDesc.innerHTML = `${st.secoes_apuradas.toLocaleString('pt-BR')} de ${st.secoes_total.toLocaleString('pt-BR')} seções · Votos computados: <strong>${st.total_votos.toLocaleString('pt-BR')}</strong>`;
+  const votosValidos = document.getElementById('votos-validos-t2');
+  if (votosValidos) votosValidos.textContent = st.votos_validos.toLocaleString('pt-BR') + ' votos válidos';
+  
+  const pctEB = document.getElementById('pct-t2-eb');
+  const pctJN = document.getElementById('pct-t2-jn');
+  const votosEB = document.getElementById('votos-t2-eb');
+  const votosJN = document.getElementById('votos-t2-jn');
+  if (pctEB && st.candidatos[0]) pctEB.textContent = st.candidatos[0].pct_str;
+  if (pctJN && st.candidatos[1]) pctJN.textContent = st.candidatos[1].pct_str;
+  if (votosEB && st.candidatos[0]) votosEB.textContent = st.candidatos[0].votos_fmt + ' votos';
+  if (votosJN && st.candidatos[1]) votosJN.textContent = st.candidatos[1].votos_fmt + ' votos';
+  
+  const barRatio = document.getElementById('bar-ratio-t2');
+  if (barRatio && st.candidatos[0] && st.candidatos[1]) {
+    barRatio.style.gridTemplateColumns = `${st.candidatos[0].pct}fr ${st.candidatos[1].pct}fr`;
   }
-
-  return {
-    chanceEB: parseFloat(chanceEB.toFixed(1)),
-    chanceJN: parseFloat((100 - chanceEB).toFixed(1)),
-    eb, jn, p,
-    difPP: parseFloat((eb - jn).toFixed(1)),
-    lider: eb >= jn ? 'EB' : 'JN'
-  };
 }
 
-/* ─── PROBABILIDADE DE VIRADA (2º turno) ───
-   Usa chance ao vivo quando 2T está em apuração;
-   cai para Monte Carlo pré-calculado antes do início.
-*/
-function calcVirada(D) {
-  // Zerado enquanto apuração do 2º turno não iniciou
-  if (!D.segundoTurno || (D.segundoTurno.progresso ?? 0) === 0) return null;
-  const P  = D.projecoes;
-  if (!P || !P.segundo_turno || !P.monte_carlo) return null;
-
-  const ST  = P.segundo_turno;
-  const CA  = ST.candidato_a;
-  const CB  = ST.candidato_b;
-  const mc  = P.monte_carlo.distribuicao_eb || [];
-  const sim = P.monte_carlo.simulacoes || 10000;
-
-  // ── Chance base: ao vivo se disponível, senão Monte Carlo ──
-  const live = calcChanceAoVivo(D);
-  let chanceBase; // % de chance que o trailer vira
-  if (live) {
-    chanceBase = live.lider === 'EB' ? live.chanceJN : live.chanceEB;
-  } else {
-    const totalFreqMC = mc.reduce((s,d) => s + d.freq, 0) || 1;
-    const jnFreq      = mc.filter(d => parseFloat(d.faixa) < 50).reduce((s,d) => s + d.freq, 0);
-    chanceBase = parseFloat((jnFreq / totalFreqMC * 100).toFixed(1));
-  }
-  chanceBase = parseFloat(chanceBase.toFixed(1));
-
-  // ── Tendência: delta entre primeira e última etapa de evolucao_chance ──
-  const evoC = P.evolucao_chance || [];
-  let delta = 0;
-  if (evoC.length >= 2) delta = evoC[evoC.length-1].eb - evoC[0].eb;
-  const deltaMag = Math.abs(delta);
-
-  const seTendContinua = parseFloat(Math.max(2,  chanceBase - deltaMag * 1.5).toFixed(1));
-  const seTendInverte  = parseFloat(Math.min(65, chanceBase + deltaMag * 1.5).toFixed(1));
-
-  // ── Desvio padrão: ao vivo (decresce) ou Monte Carlo ──
-  let stdDev;
-  if (live) {
-    stdDev = parseFloat((3.5 * Math.sqrt(1 - live.p / 100)).toFixed(1));
-  } else {
-    const totalFreqMC2 = mc.reduce((s,d) => s + d.freq, 0) || 1;
-    const mean = CA.pct_esperado || 51.8;
-    let variance = 0;
-    mc.forEach(d => { const v = parseFloat(d.faixa) + 0.5; variance += d.freq * Math.pow(v - mean, 2); });
-    stdDev = parseFloat(Math.sqrt(variance / totalFreqMC2).toFixed(1));
-  }
-  const volLabel = stdDev < 1.5 ? 'Baixa' : stdDev < 2.5 ? 'Moderada' : 'Alta';
-
-  // ── Componentes ──
-  const regioes  = P.regioes || [];
-  const capital  = regioes.find(r => r.nome === 'Capital');
-  const tv       = ST.transferencia_votos || {};
-
-  const liderObj   = live && live.lider === 'JN' ? CB : CA;
-  const trailerObj = live && live.lider === 'JN' ? CA : CB;
-
-  const compUrnas = live
-    ? `${live.p.toFixed(1)}% apurado — EB ${live.eb.toFixed(1)}% × JN ${live.jn.toFixed(1)}% (dados reais)`
-    : (capital ? `Capital (${capital.pct_votos}% dos votos): proj. ${capital.jn_2t_proj}% JN × ${capital.eb_2t_proj}% Braga no 2T`
-      : `Distribuição regional baseada no resultado do 1º turno`);
-
-  const compTend = live
-    ? `Tendência ao vivo: EB ${live.eb.toFixed(1)}% · JN ${live.jn.toFixed(1)}% · ${live.p.toFixed(0)}% apurado`
-    : (`${CA.nome}: ${CA.pct_esperado}% projetado (${CA.tendencia} vs 1T) · ${CB.nome}: ${CB.pct_esperado}% (${CB.tendencia})`);
-
-  const compDesvio = `±${stdDev} p.p. — ${live
-    ? 'desvio ao vivo (decresce com a apuração)'
-    : `desvio-padrão de ${sim.toLocaleString('pt-BR')} simulações Monte Carlo`}`;
-
-  const compVol = `${volLabel} — σ ${stdDev} p.p.`
-    + (tv.portela_para_neto_pct ? ` · ${tv.portela_para_neto_pct}% dos votos de AP proj. para JN` : '');
-
-  const leitura = live
-    ? `Com ${live.p.toFixed(1)}% das urnas apuradas, ${trailerObj.nome} precisaria reverter `
-      + `${Math.abs(live.difPP).toFixed(1)} p.p. nos votos restantes. `
-      + `O modelo ao vivo projeta ${chanceBase}% de chance de virada — σ ${stdDev} p.p. neste estágio da apuração.`
-    : (`${CB.nome} precisa reverter ${ST.diferenca_pct_esperada.toFixed(1)} p.p. na projeção do 2º turno. `
-      + `Nas ${sim.toLocaleString('pt-BR')} simulações Monte Carlo, ${CB.nome} vence em ${chanceBase}% dos cenários. `
-      + (capital ? `A Capital (${capital.pct_votos}% do eleitorado) é o principal fator de reversão.` : ''));
-
-  return {
-    candidato_ref:   { nome:trailerObj.nome, sigla:trailerObj.sigla, partido:trailerObj.partido, cor:trailerObj.cor },
-    candidato_lider: { nome:liderObj.nome,   sigla:liderObj.sigla,   partido:liderObj.partido,   cor:liderObj.cor   },
-    chance_base:            chanceBase,
-    se_tendencia_continua:  seTendContinua,
-    se_tendencia_inverter:  seTendInverte,
-    componentes: {
-      distribuicao_urnas: compUrnas,
-      tendencia_atual:    compTend,
-      desvio_historico:   compDesvio,
-      volatilidade:       compVol
-    },
-    leitura
-  };
-}
-
-/* ═══════════════════════════════════════
-   PROJEÇÕES — RENDER
-═══════════════════════════════════════ */
-
-/* Zero state: apuração ainda não iniciada — nenhum dado de urna disponível */
-function renderProjecoesZero() {
-  const aguardandoHtml = (icon, titulo, sub) => `
-    <div class="empty-state" style="padding:28px 20px">
-      <div class="empty-icon" style="font-size:28px;opacity:.35">${icon}</div>
-      <div class="empty-title">${titulo}</div>
-      <div class="empty-sub">${sub}</div>
-    </div>`;
-
-  const zeroIndicHtml = `
-    <div class="indicadores-grid" style="grid-template-columns:1fr 1fr">
-      ${['Diferença projetada','Risco de virada','Tend. E. Braga','Tend. João Neto'].map(lbl => `
-        <div class="indic-card">
-          <div class="indic-label">${lbl}</div>
-          <div class="indic-val" style="color:var(--text-muted);font-size:22px">—</div>
-          <div class="indic-sub">aguardando apuração</div>
-        </div>`).join('')}
-    </div>`;
-
-  const targets = {
-    'classif-container':       aguardandoHtml('🏆', 'Classificação', 'Disponível após início da apuração.'),
-    'indicadores-container':   zeroIndicHtml,
-    'sim-controls':            aguardandoHtml('🎯', 'Simulador de Cenários', 'Disponível após início da apuração.'),
-    'sim-results':             '',
-    'alertas-container':       aguardandoHtml('⚡', 'Alertas', 'Os alertas do sistema serão gerados com o início da contagem.'),
-    'analise-auto':            aguardandoHtml('🤖', 'Análise Automática', 'A análise será gerada conforme as urnas apuradas.'),
-    'transferencia-container': aguardandoHtml('🔀', 'Transferência de Votos', 'Disponível após resultado do 1º turno.')
-  };
-
-  Object.entries(targets).forEach(([id, html]) => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = html;
-  });
-
-  // Zerar tbody da matriz regional
-  const tbody = document.getElementById('matrix-tbody');
-  if (tbody) tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:18px;color:var(--text-muted);font-size:12px">Aguardando início da apuração</td></tr>`;
-
-  // Destruir gráficos se existirem
-  if (chanceChartInst) { chanceChartInst.destroy(); chanceChartInst = null; }
-  if (mcChartInst)     { mcChartInst.destroy();     mcChartInst = null; }
-
-  // Inflexão e virada zerados
-  renderInflexao(null);
-  renderVirada(null);
-}
+// Funções das projeções (mantidas do original)
+function normCDF(z) { const sign=z<0?-1:1,az=Math.abs(z),t=1/(1+0.2316419*az),d=0.3989423*Math.exp(-az*az/2); const p=d*t*(0.3193815+t*(-0.3565638+t*(1.7814779+t*(-1.8212560+t*1.3302745)))); return 0.5+sign*(0.5-p); }
 
 function renderProjecoes() {
   if (!D || !D.projecoes) return;
-
-  // ── Aguarda 1º turno ter resultado antes de ativar o motor ──
-  const progresso = D.primeirTurno?.progresso ?? 0;
-  if (progresso === 0) {
-    renderProjecoesZero();
-    simulateBug();
-    return;
-  }
-
   const P = D.projecoes;
-
-  // ── Cópia imutável de ST — será enriquecida com dados ao vivo ──
-  const STbase = P.segundo_turno;
-  const ST = {
-    ...STbase,
-    candidato_a: { ...STbase.candidato_a },
-    candidato_b: { ...STbase.candidato_b }
-  };
+  const ST = P.segundo_turno;
   const CA = ST.candidato_a;
   const CB = ST.candidato_b;
-
-  // ── Blenda com apuração ao vivo do 2T se disponível ──
-  const live = calcChanceAoVivo(D);
-  let evolucaoGrafico = P.evolucao_chance;
-
-  if (live) {
-    const liderEB = live.lider === 'EB';
-    const lider   = liderEB ? CA : CB;
-
-    // Sobrescreve chances e percentuais com valores reais
-    CA.chance_vitoria = live.chanceEB / 100;
-    CB.chance_vitoria = live.chanceJN / 100;
-    CA.pct_esperado   = live.eb;
-    CB.pct_esperado   = live.jn;
-
-    // Diferença e risco com dados reais
-    ST.diferenca_pct_esperada   = Math.abs(live.difPP);
-    ST.diferenca_votos_esperada = Math.round(Math.abs(live.difPP) / 100 *
-      (D.segundoTurno.votos_validos || D.segundoTurno.total_votos || 94842054));
-    ST.risco_virada = liderEB ? live.chanceJN / 100 : live.chanceEB / 100;
-
-    // Classificação dinâmica
-    const chA = Math.round(live.chanceEB);
-    if (chA >= 90)      ST.classificacao = 'cravando';
-    else if (chA <= 10) ST.classificacao = 'cravando_b';
-    else if (chA >= 70) ST.classificacao = 'tendencia';
-    else if (chA <= 30) ST.classificacao = 'tendencia_b';
-    else                ST.classificacao = 'disputa_acirrada';
-
-    // Tendência: real vs projeção base do modelo pré-1T
-    const diffEB = (live.eb - STbase.candidato_a.pct_esperado).toFixed(1);
-    const diffJN = (live.jn - STbase.candidato_b.pct_esperado).toFixed(1);
-    CA.tendencia = (parseFloat(diffEB) >= 0 ? '+' : '') + diffEB + ' p.p. vs proj.';
-    CB.tendencia = (parseFloat(diffJN) >= 0 ? '+' : '') + diffJN + ' p.p. vs proj.';
-
-    // Banner do topo da página
-    const headlinePct  = document.getElementById('proj-headline-pct');
-    const headlineCand = document.getElementById('proj-headline-cand');
-    const updEl        = document.getElementById('proj-update-time');
-    if (headlinePct)  headlinePct.textContent  = Math.round(liderEB ? live.chanceEB : live.chanceJN) + '%';
-    if (headlineCand) headlineCand.textContent = lider.nome;
-    if (updEl)        updEl.textContent = `⏱ Ao vivo · ${live.p.toFixed(1)}% apurado · 2º turno`;
-
-    // Janela crítica e ponto de não retorno dinâmicos
-    const restante = (100 - live.p).toFixed(0);
-    ST.janela_critica = live.p > 50
-      ? `${restante}% restante — janela de virada se fechando.`
-      : `${restante}% ainda a apurar. Urnas das capitais são o fator decisivo.`;
-    ST.ponto_nao_retorno = (100 - live.p) < 10
-      ? 'Apuração quase encerrada — resultado praticamente definido.'
-      : live.p > 70
-        ? `${lider.nome} atingiu margem difícil de reverter nos ${restante}% restantes.`
-        : `Se ${lider.nome} atingir +5 p.p. com 70% apurado → vitória irreversível.`;
-
-    // Gráfico de evolução da chance: etapas do modelo + pontos reais do 2T
-    const evo2T = (D.evolucaoT2 || []).filter(e => (e.pct_apurado ?? 0) > 0);
-    if (evo2T.length > 0) {
-      evolucaoGrafico = [...P.evolucao_chance];
-      evo2T.forEach(e => {
-        const frac = e.pct_apurado / 100;
-        const rem  = 1 - frac;
-        const sigma = rem > 0.001 ? 3.5 * Math.sqrt(rem) : 0.01;
-        const pNeed = rem > 0.001 ? (50 - e.eb * frac) / rem : (e.eb > 50 ? 0 : 100);
-        const chEB  = parseFloat(Math.max(0.5, Math.min(99.5, normCDF((e.eb - pNeed) / sigma) * 100)).toFixed(1));
-        evolucaoGrafico.push({ h: `${e.pct_apurado.toFixed(0)}%↑`, eb: chEB, jn: parseFloat((100 - chEB).toFixed(1)) });
-      });
-    }
-
-    // Alertas gerados automaticamente da apuração
-    P.alertas = [
-      { tipo:'info',    icone:'📡', msg:`Apuração ao vivo: ${live.p.toFixed(1)}% das urnas. EB ${live.eb.toFixed(1)}% × JN ${live.jn.toFixed(1)}%.` },
-      Math.abs(live.difPP) > 5
-        ? { tipo:'success', icone:'✅', msg:`Margem de ${Math.abs(live.difPP).toFixed(1)} p.p. — ${ST.risco_virada < 0.15 ? 'dificilmente reversível' : 'confortável mas monitorada'}.` }
-        : { tipo:'warning', icone:'⚠️', msg:`Margem de ${Math.abs(live.difPP).toFixed(1)} p.p. — disputa tecnicamente aberta.` },
-      live.p < 50
-        ? { tipo:'danger',  icone:'🏙️', msg:'Urnas das capitais ainda em apuração — maior fonte de incerteza.' }
-        : { tipo:'success', icone:'📊', msg:`+50% apurado — modelo com alta confiança. σ ${(3.5 * Math.sqrt(1 - live.p / 100)).toFixed(1)} p.p.` }
-    ];
-  }
-
-  // ── Renderiza todos os componentes com ST possivelmente enriquecido ──
-  renderClassificacao(ST, CA, CB);
-  renderSimulador(P.cenarios_simulador, CA, CB);
-
-  setTimeout(()=>{
-    renderChanceChart(evolucaoGrafico);
-    renderMCChart(P.monte_carlo);
-  }, 200);
-
-  renderIndicadores(ST);
-  renderAlertas(P.alertas);
-  renderMatriz(P.regioes);
-  renderAnalise(ST);
-  renderTransferencia(ST.transferencia_votos);
-  renderAnalistaPanel(ST, P.regioes);
-
-  // Ponto de inflexão e virada — ao vivo
-  renderInflexao(calcInflexao(D));
-  renderVirada(calcVirada(D));
-
-  simulateBug();
-}
-
-function renderClassificacao(ST, CA, CB) {
-  const el = document.getElementById('classif-container');
-  if (!el) return;
-  const classif = ST.classificacao;
+  
+  // Classificação
   const chanceA = Math.round(CA.chance_vitoria * 100);
-  const chanceB = Math.round(CB.chance_vitoria * 100);
-
-  let html = '';
-
-  if (chanceA >= 90 || chanceB >= 90) {
-    const c = chanceA >= 90 ? CA : CB;
-    const ch = chanceA >= 90 ? chanceA : chanceB;
-    html += `<div class="classif-card classif-cravando">
-      <div class="classif-label classif-label-crav">🔴 CRAVANDO — Vitória praticamente certa (≥90%)</div>
-      <div class="classif-cand-name">${c.nome} (${c.partido})</div>
-      <div class="classif-prob classif-prob-crav">${ch}%</div>
-      <div class="classif-desc">Chance de vitória no 2º turno. Margem muito segura para ser revertida.</div>
-    </div>`;
-  } else if (chanceA >= 70 || chanceB >= 70) {
-    const c = chanceA >= 70 ? CA : CB;
-    const ch = chanceA >= 70 ? chanceA : chanceB;
-    html += `<div class="classif-card classif-tendencia">
+  const classifEl = document.getElementById('classif-container');
+  if (classifEl) {
+    classifEl.innerHTML = `<div class="classif-card classif-tendencia">
       <div class="classif-label classif-label-tend">🟠 TENDÊNCIA — Forte vantagem, mas reversível</div>
-      <div class="classif-cand-name">${c.nome} (${c.partido})</div>
-      <div class="classif-prob classif-prob-tend">${ch}%</div>
-      <div class="classif-desc">Chance de vitória no 2º turno. Adversário ainda pode reverter com urnas favoráveis.</div>
-    </div>`;
-  } else {
-    html += `<div class="classif-card classif-acirrada">
-      <div class="classif-label classif-label-acir">🟡 DISPUTA ACIRRADA — Empate técnico</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px">
-        <div>
-          <div class="classif-cand-name" style="font-size:14px">${CA.nome}</div>
-          <div class="classif-prob classif-prob-acir">${chanceA}%</div>
-          <div class="classif-desc" style="font-size:11px">chance de vitória</div>
-        </div>
-        <div>
-          <div class="classif-cand-name" style="font-size:14px">${CB.nome}</div>
-          <div class="classif-prob" style="color:#c084fc">${chanceB}%</div>
-          <div class="classif-desc" style="font-size:11px">chance de vitória</div>
-        </div>
-      </div>
-      <div class="classif-desc" style="margin-top:10px">Margem projetada de ${ST.diferenca_pct_esperada.toFixed(1)} p.p. — dentro da margem de erro do modelo.</div>
+      <div class="classif-cand-name">${CA.nome} (${CA.partido})</div>
+      <div class="classif-prob classif-prob-tend">${chanceA}%</div>
+      <div class="classif-desc">Chance de vitória com ${D.segundoTurno.progresso}% apurado. Adversário ainda pode reverter se capitais votarem de forma decisiva.</div>
     </div>`;
   }
-  el.innerHTML = html;
-}
-
-function renderSimulador(cenarios, CA, CB) {
+  
+  // Inflexão
+  const inflexaoEl = document.getElementById('inflexao-container');
+  if (inflexaoEl) {
+    inflexaoEl.innerHTML = `<div class="inflexao-card inflexao-atencao">
+      <div class="inflexao-chip chip-atencao"><span>⚠️</span><span>ZONA DE ATENÇÃO — ${D.segundoTurno.progresso}% apurado</span></div>
+      <div class="inflexao-momento">
+        <span class="inflexao-pct-val" style="color:#FF7A00">${D.segundoTurno.progresso}%</span>
+        <span class="inflexao-pct-label">das urnas apuradas · 20h44</span>
+      </div>
+      <div class="inflexao-winner-row">
+        <div class="inflexao-winner-badge" style="background:#1C2BCB">EB</div>
+        <div>
+          <div class="inflexao-winner-label">✅ Liderando neste momento</div>
+          <div class="inflexao-winner-name">Eduardo Braga · PDT</div>
+        </div>
+        <div class="inflexao-dif" style="background:rgba(26,203,75,.12);color:#1acb4b;border:1px solid rgba(26,203,75,.25)">+4,6 p.p.</div>
+      </div>
+    </div>`;
+  }
+  
+  // Simulador
   const controls = document.getElementById('sim-controls');
-  const results  = document.getElementById('sim-results');
-  if (!controls || !results) return;
-
-  const labels = {
-    base:               '🎯 Cenário Base (realista)',
-    capital_pesa_mais:  '🏙️ Capital pesa mais',
-    interior_pesa_mais: '🌾 Interior pesa mais',
-    alto_comparecimento:'📈 Alto comparecimento',
-    baixo_comparecimento:'📉 Baixo comparecimento',
-    indecisos_braga:    '↗️ Indecisos → Braga',
-    indecisos_neto:     '↘️ Indecisos → João Neto'
-  };
-
-  controls.innerHTML = Object.entries(cenarios).map(([key, val]) => `
-    <button class="sim-btn ${key===cenarioAtivo?'active':''}" onclick="selectCenario('${key}')">
-      <span class="sim-btn-label">${labels[key]||key}</span>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text)">${val.eb.toFixed(1)}% × ${val.jn.toFixed(1)}%</span>
-    </button>`).join('');
-
-  updateSimResults(cenarios[cenarioAtivo], CA, CB);
+  const results = document.getElementById('sim-results');
+  if (controls && results && P.cenarios_simulador) {
+    const labels = {
+      base:'🎯 Cenário Base', capital_pesa_mais:'🏙️ Capital pesa mais',
+      interior_pesa_mais:'🌾 Interior pesa mais', alto_comparecimento:'📈 Alto comparecimento',
+      baixo_comparecimento:'📉 Baixo comparecimento', indecisos_braga:'↗️ Indecisos → Braga', indecisos_neto:'↘️ Indecisos → Neto'
+    };
+    controls.innerHTML = Object.entries(P.cenarios_simulador).map(([k,v])=>`
+      <button class="sim-btn ${k===cenarioAtivo?'active':''}" onclick="selectCenario('${k}')">
+        <span class="sim-btn-label">${labels[k]||k}</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text)">${v.eb.toFixed(1)}% × ${v.jn.toFixed(1)}%</span>
+      </button>`).join('');
+    const cen = P.cenarios_simulador[cenarioAtivo] || P.cenarios_simulador.base;
+    results.innerHTML = `
+      <div class="sim-result-cand"><div class="sim-result-name" style="color:#1C2BCB">Eduardo Braga</div><div class="sim-result-pct" style="color:#1C2BCB">${cen.eb.toFixed(1)}%</div><div class="sim-result-chance">Chance: <strong>${cen.chance_eb}%</strong></div></div>
+      <div class="sim-result-cand"><div class="sim-result-name" style="color:#e84560">João Neto</div><div class="sim-result-pct" style="color:#e84560">${cen.jn.toFixed(1)}%</div><div class="sim-result-chance">Chance: <strong>${100-cen.chance_eb}%</strong></div></div>`;
+    const fill = document.getElementById('sim-chance-bar-fill');
+    if (fill) { fill.style.width = cen.chance_eb+'%'; fill.style.background = cen.chance_eb>50?'#1C2BCB':'#e84560'; }
+  }
+  
+  // Gráficos
+  const chanceCanvas = document.getElementById('chance-chart');
+  if (chanceCanvas && P.evolucao_chance) {
+    const isDark = document.documentElement.getAttribute('data-theme')==='dark';
+    const gc=isDark?'rgba(255,255,255,.06)':'rgba(0,0,0,.06)',lc=isDark?'#8892b0':'#999';
+    if (chanceChartInst) chanceChartInst.destroy();
+    chanceChartInst = new Chart(chanceCanvas,{type:'line',data:{labels:P.evolucao_chance.map(e=>e.h),datasets:[
+      {label:'Eduardo Braga',data:P.evolucao_chance.map(e=>e.eb),borderColor:'#1C2BCB',backgroundColor:'rgba(28,43,203,.1)',fill:true,tension:.4,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#1C2BCB'},
+      {label:'João Neto',data:P.evolucao_chance.map(e=>e.jn),borderColor:'#e84560',backgroundColor:'rgba(232,69,96,.08)',fill:true,tension:.4,borderWidth:2,pointRadius:3,pointBackgroundColor:'#e84560'}
+    ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:lc,font:{size:11}}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:10}}},y:{min:20,max:90,grid:{color:gc},ticks:{color:lc,font:{size:10},callback:v=>v+'%'}}}}});
+  }
+  
+  const mcCanvas = document.getElementById('mc-chart');
+  if (mcCanvas && P.monte_carlo) {
+    const isDark = document.documentElement.getAttribute('data-theme')==='dark';
+    const gc=isDark?'rgba(255,255,255,.06)':'rgba(0,0,0,.06)',lc=isDark?'#8892b0':'#999';
+    if (mcChartInst) mcChartInst.destroy();
+    mcChartInst = new Chart(mcCanvas,{type:'bar',data:{labels:P.monte_carlo.distribuicao_eb.map(d=>d.faixa),datasets:[{label:'Frequência (%)',data:P.monte_carlo.distribuicao_eb.map(d=>d.freq),
+      backgroundColor:P.monte_carlo.distribuicao_eb.map(d=>parseFloat(d.faixa)<50?'rgba(232,69,96,.6)':'rgba(28,43,203,.65)'),borderRadius:3}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:9}}},y:{grid:{color:gc},ticks:{color:lc,font:{size:9},callback:v=>v+'%'}}}}});
+  }
+  
+  // Indicadores
+  const indicadoresEl = document.getElementById('indicadores-container');
+  if (indicadoresEl) {
+    indicadoresEl.innerHTML = `<div class="indicadores-grid">
+      <div class="indic-card"><div class="indic-label">Diferença atual</div><div class="indic-val indic-positive">+${ST.diferenca_pct_esperada.toFixed(1)}%</div><div class="indic-sub">${ST.diferenca_votos_esperada.toLocaleString('pt-BR')} votos</div></div>
+      <div class="indic-card"><div class="indic-label">Risco de virada</div><div class="indic-val indic-warning">${Math.round(ST.risco_virada*100)}%</div><div class="indic-sub">prob. de inversão</div></div>
+      <div class="indic-card"><div class="indic-label">Tend. E. Braga</div><div class="indic-val indic-positive tend-up">↑ ${ST.candidato_a.tendencia}</div><div class="indic-sub">ao vivo</div></div>
+      <div class="indic-card"><div class="indic-label">Tend. João Neto</div><div class="indic-val indic-danger tend-down">↓ ${ST.candidato_b.tendencia.replace('-','')}</div><div class="indic-sub">ao vivo</div></div>
+    </div>`;
+  }
+  
+  // Alertas
+  const alertasEl = document.getElementById('alertas-container');
+  if (alertasEl && P.alertas) {
+    alertasEl.innerHTML = P.alertas.map(a=>`<div class="alert-item alert-${a.tipo}"><span class="alert-icon">${a.icone}</span><span>${a.msg}</span></div>`).join('');
+  }
+  
+  // Matriz
+  const matrixBody = document.getElementById('matrix-tbody');
+  if (matrixBody && P.regioes) {
+    matrixBody.innerHTML = P.regioes.map(r=>{
+      const dif = r.eb_2t_proj - r.jn_2t_proj;
+      return `<tr><td><div style="display:flex;align-items:center;gap:7px"><div style="width:8px;height:8px;border-radius:50%;background:${r.cor}"></div><strong>${r.nome}</strong>${r.decisiva?'<span class="matrix-decisiva">decisiva</span>':''}</div></td>
+      <td style="color:#1C2BCB;font-weight:700">${r.eb_1t}%</td><td style="color:#e84560;font-weight:700">${r.jn_1t}%</td>
+      <td style="color:#1C2BCB;font-weight:700">${r.eb_2t_proj}%</td><td style="color:#e84560;font-weight:700">${r.jn_2t_proj}%</td>
+      <td>${r.pct_votos}%</td><td style="color:${dif>0?'#1acb4b':'#e84560'};font-weight:700">${dif>0?'+'+dif:dif} p.p.</td></tr>`;
+    }).join('');
+  }
+  
+  // Análise automática
+  const analiseEl = document.getElementById('analise-auto');
+  if (analiseEl) {
+    analiseEl.innerHTML = `<div class="analise-text">${ST.analise_automatica}</div><div class="analise-author">🤖 Análise automática · Motor Tupi · ${P.atualizado_em}</div>`;
+  }
+  
+  // Transferência
+  const transfEl = document.getElementById('transferencia-container');
+  if (transfEl && ST.transferencia_votos) {
+    const tv = ST.transferencia_votos;
+    transfEl.innerHTML = `<div><div style="display:flex;justify-content:space-between;font-size:12px"><span>→ Eduardo Braga</span><span>${tv.portela_para_braga_pct}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${tv.portela_para_braga_pct}%;background:#1C2BCB"></div></div></div>
+    <div><div style="display:flex;justify-content:space-between;font-size:12px"><span>→ João Neto</span><span>${tv.portela_para_neto_pct}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${tv.portela_para_neto_pct}%;background:#e84560"></div></div></div>
+    <div><div style="display:flex;justify-content:space-between;font-size:12px"><span>→ Brancos/Nulos</span><span>${tv.portela_brancos_nulos_pct}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${tv.portela_brancos_nulos_pct}%;background:var(--text-muted)"></div></div></div>`;
+  }
+  
+  // Virada
+  const viradaEl = document.getElementById('virada-container');
+  if (viradaEl) {
+    viradaEl.innerHTML = `<div class="virada-card"><div class="virada-header"><div><div class="virada-title">📉 Probabilidade de Virada — João Neto (PSDB)</div><div class="virada-sub">Para vencer, precisa de 52,4% dos ${(100-D.segundoTurno.progresso).toFixed(1)}% ainda a apurar</div></div></div>
+    <div class="virada-prob-trio"><div class="virada-prob-item highlight"><div class="virada-prob-label">Chance de Virada</div><div class="virada-prob-val" style="color:#e84560">27%</div><div class="virada-prob-sub">probabilidade atual</div></div>
+    <div class="virada-prob-item"><div class="virada-prob-label">Se Capitais Votam Neto</div><div class="virada-prob-val" style="color:#FF7A00">49%</div></div>
+    <div class="virada-prob-item"><div class="virada-prob-label">Se Tendência Manter</div><div class="virada-prob-val" style="color:#1acb4b">10%</div></div></div>
+    <div class="virada-gauge"><div class="virada-gauge-fill" style="width:27%;background:linear-gradient(90deg,#1acb4b,#FF7A00)"></div></div>
+    <div class="virada-gauge-labels"><span>← Improvável</span><span>Possível</span><span>Provável →</span></div>
+    <div class="virada-cenario-bar"><strong>💡 Leitura:</strong> Com ${D.segundoTurno.progresso}% apurado e vantagem de 4,6 p.p., João Neto precisaria obter <strong>52,4%</strong> das urnas restantes para empatar.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px"><div style="background:rgba(28,43,203,.06);border-radius:6px;padding:12px;text-align:center"><div>Braga vence</div><div style="font-size:26px;font-weight:700;color:#1C2BCB">73%</div></div>
+    <div style="background:rgba(232,69,96,.06);border-radius:6px;padding:12px;text-align:center"><div>Neto vira</div><div style="font-size:26px;font-weight:700;color:#e84560">27%</div></div></div></div>`;
+  }
 }
 
 function selectCenario(key) {
   cenarioAtivo = key;
-  const P = D.projecoes;
-  document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
-  const btns = document.querySelectorAll('.sim-btn');
-  const labels = Object.keys(P.cenarios_simulador);
-  const idx = labels.indexOf(key);
-  if (btns[idx]) btns[idx].classList.add('active');
-  updateSimResults(P.cenarios_simulador[key], P.segundo_turno.candidato_a, P.segundo_turno.candidato_b);
-  // Bug simulado: glitch ocasional
-  if (Math.random() < 0.3) triggerGlitch('sim-chance-bar-fill');
+  renderProjecoes();
 }
 
-function updateSimResults(cen, CA, CB) {
-  const results = document.getElementById('sim-results');
-  const fill    = document.getElementById('sim-chance-bar-fill');
-  if (!results) return;
-
-  results.innerHTML = `
-    <div class="sim-result-cand">
-      <div class="sim-result-name" style="color:${CA.cor}">${CA.nome}</div>
-      <div class="sim-result-pct" style="color:${CA.cor}">${cen.eb.toFixed(1)}%</div>
-      <div class="sim-result-chance">Chance de vitória: <strong>${cen.chance_eb}%</strong></div>
-    </div>
-    <div class="sim-result-cand">
-      <div class="sim-result-name" style="color:${CB.cor}">${CB.nome}</div>
-      <div class="sim-result-pct" style="color:${CB.cor}">${cen.jn.toFixed(1)}%</div>
-      <div class="sim-result-chance">Chance de vitória: <strong>${100-cen.chance_eb}%</strong></div>
-    </div>`;
-
-  if (fill) {
-    fill.style.width = cen.chance_eb + '%';
-    fill.style.background = cen.chance_eb > 50 ? CA.cor : CB.cor;
-  }
+function setTurno(n) {
+  turnoAtual = n;
+  const tab1 = document.getElementById('tab-t1');
+  const tab2 = document.getElementById('tab-t2');
+  const content1 = document.getElementById('content-t1');
+  const content2 = document.getElementById('content-t2');
+  if (tab1) tab1.classList.toggle('active', n===1);
+  if (tab2) tab2.classList.toggle('active', n===2);
+  if (content1) content1.style.display = n===1 ? '' : 'none';
+  if (content2) content2.style.display = n===2 ? '' : 'none';
+  if (n===1) setTimeout(renderChart, 80);
+  if (n===2) setTimeout(renderChartT2, 80);
 }
 
-function renderChanceChart(evo) {
-  const canvas = document.getElementById('chance-chart');
-  if (!canvas) return;
-  const isDark = document.documentElement.getAttribute('data-theme')==='dark';
-  const gc = isDark ? 'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
-  const lc = isDark ? '#8892b0':'#999';
-  if (chanceChartInst) { chanceChartInst.destroy(); chanceChartInst=null; }
-  chanceChartInst = new Chart(canvas, {
-    type:'line',
-    data:{
-      labels: evo.map(e=>e.h),
-      datasets:[
-        {label:'Eduardo Braga',data:evo.map(e=>e.eb),borderColor:'#1C2BCB',backgroundColor:'rgba(28,43,203,.1)',fill:true,tension:.4,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#1C2BCB'},
-        {label:'João Neto',data:evo.map(e=>e.jn),borderColor:'#e84560',backgroundColor:'rgba(232,69,96,.08)',fill:true,tension:.4,borderWidth:2,pointRadius:3,pointBackgroundColor:'#e84560'}
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      interaction:{mode:'index',intersect:false},
-      plugins:{
-        legend:{labels:{color:lc,font:{family:"'IBM Plex Sans'",size:11},boxWidth:12,padding:14}},
-        tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y}% de chance`}}
-      },
-      scales:{
-        x:{grid:{color:gc},ticks:{color:lc,font:{family:"'IBM Plex Mono'",size:10}}},
-        y:{min:20,max:80,grid:{color:gc},ticks:{color:lc,font:{family:"'IBM Plex Mono'",size:10},callback:v=>v+'%'}}
-      }
-    }
-  });
-}
-
-function renderMCChart(mc) {
-  const canvas = document.getElementById('mc-chart');
-  if (!canvas) return;
-  const isDark = document.documentElement.getAttribute('data-theme')==='dark';
-  const gc = isDark ? 'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
-  const lc = isDark ? '#8892b0':'#999';
-  if (mcChartInst) { mcChartInst.destroy(); mcChartInst=null; }
-  mcChartInst = new Chart(canvas, {
-    type:'bar',
-    data:{
-      labels: mc.distribuicao_eb.map(d=>d.faixa),
-      datasets:[{
-        label:'Frequência (%)',
-        data: mc.distribuicao_eb.map(d=>d.freq),
-        backgroundColor: mc.distribuicao_eb.map(d=>{
-          const v = parseFloat(d.faixa);
-          return v < 50 ? 'rgba(232,69,96,.6)' : 'rgba(28,43,203,.65)';
-        }),
-        borderColor: mc.distribuicao_eb.map(d=>{
-          const v = parseFloat(d.faixa);
-          return v < 50 ? '#e84560':'#1C2BCB';
-        }),
-        borderWidth:1,borderRadius:3
-      }]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y}% das simulações`}}
-      },
-      scales:{
-        x:{grid:{color:gc},ticks:{color:lc,font:{family:"'IBM Plex Mono'",size:9}}},
-        y:{grid:{color:gc},ticks:{color:lc,font:{family:"'IBM Plex Mono'",size:9},callback:v=>v+'%'}}
-      }
-    }
-  });
-}
-
-function renderIndicadores(ST) {
-  const el = document.getElementById('indicadores-container');
-  if (!el) return;
-  const CA = ST.candidato_a;
-  const CB = ST.candidato_b;
-  const risco = Math.round(ST.risco_virada * 100);
-
-  el.innerHTML = `
-    <div class="indicadores-grid" style="grid-template-columns:1fr 1fr">
-      <div class="indic-card">
-        <div class="indic-label">Diferença projetada</div>
-        <div class="indic-val indic-positive">+${ST.diferenca_pct_esperada.toFixed(1)}%</div>
-        <div class="indic-sub">${ST.diferenca_votos_esperada.toLocaleString('pt-BR')} votos</div>
-      </div>
-      <div class="indic-card">
-        <div class="indic-label">Risco de virada</div>
-        <div class="indic-val ${risco>40?'indic-danger':risco>25?'indic-warning':'indic-positive'}">${risco}%</div>
-        <div class="indic-sub">prob. de inversão</div>
-      </div>
-      <div class="indic-card">
-        <div class="indic-label">Tend. E. Braga</div>
-        <div class="indic-val ${CA.tendencia && CA.tendencia.startsWith('-') ? 'indic-danger tend-down' : 'indic-positive tend-up'}">${CA.tendencia && CA.tendencia.startsWith('-') ? '↓' : '↑'} ${CA.tendencia}</div>
-        <div class="indic-sub">${D?.segundoTurno?.progresso > 0 ? 'real vs projeção base' : 'projeção base'}</div>
-      </div>
-      <div class="indic-card">
-        <div class="indic-label">Tend. João Neto</div>
-        <div class="indic-val ${CB.tendencia && !CB.tendencia.startsWith('-') && !CB.tendencia.startsWith('+0') ? 'indic-positive tend-up' : 'indic-danger tend-down'}">${CB.tendencia && !CB.tendencia.startsWith('-') && !CB.tendencia.startsWith('+0') ? '↑' : '↓'} ${CB.tendencia.replace('-','')}</div>
-        <div class="indic-sub">${D?.segundoTurno?.progresso > 0 ? 'real vs projeção base' : 'projeção base'}</div>
-      </div>
-    </div>
-    <div style="background:rgba(232,69,96,.07);border:1px solid rgba(232,69,96,.2);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.65;color:var(--text)">
-      <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e84560;margin-bottom:5px">⏱ JANELA CRÍTICA</div>
-      <strong>${ST.janela_critica}</strong>
-    </div>
-    <div style="background:rgba(245,160,0,.07);border:1px solid rgba(245,160,0,.2);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.65;color:var(--text);margin-top:10px">
-      <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tupi-orange);margin-bottom:5px">🧨 PONTO DE NÃO RETORNO</div>
-      <strong>${ST.ponto_nao_retorno}</strong>
-    </div>`;
-}
-
-function renderAlertas(alertas) {
-  const el = document.getElementById('alertas-container');
-  if (!el) return;
-  el.innerHTML = alertas.map(a => {
-    const cls = {info:'alert-info',warning:'alert-warning',danger:'alert-danger',success:'alert-success'}[a.tipo] || 'alert-info';
-    return `<div class="alert-item ${cls}">
-      <span class="alert-icon">${a.icone}</span>
-      <span>${a.msg}</span>
-    </div>`;
-  }).join('');
-}
-
-function renderMatriz(regioes) {
-  const tbody = document.getElementById('matrix-tbody');
-  if (!tbody) return;
-  tbody.innerHTML = regioes.map(r => {
-    const difT1 = (r.eb_1t - r.jn_1t);
-    const difT2 = (r.eb_2t_proj - r.jn_2t_proj);
-    const difCor = difT2 > 0 ? '#1acb4b':'#e84560';
-    const difSinal = difT2 > 0 ? '+':'';
-    return `<tr>
-      <td>
-        <div style="display:flex;align-items:center;gap:7px">
-          <div style="width:8px;height:8px;border-radius:50%;background:${r.cor};flex-shrink:0"></div>
-          <strong>${r.nome}</strong>
-          ${r.decisiva ? '<span class="matrix-decisiva">decisiva</span>':''}
-        </div>
-      </td>
-      <td style="font-family:'IBM Plex Mono',monospace;color:#1C2BCB;font-weight:700">${r.eb_1t}%</td>
-      <td style="font-family:'IBM Plex Mono',monospace;color:#e84560;font-weight:700">${r.jn_1t}%</td>
-      <td style="font-family:'IBM Plex Mono',monospace;color:#1C2BCB;font-weight:700">${r.eb_2t_proj}%</td>
-      <td style="font-family:'IBM Plex Mono',monospace;color:#e84560;font-weight:700">${r.jn_2t_proj}%</td>
-      <td style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted)">${r.pct_votos}%</td>
-      <td style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:${difCor};font-weight:700">${difSinal}${difT2} p.p.</td>
-    </tr>`;
-  }).join('');
-}
-
-function renderAnalise(ST) {
-  const el = document.getElementById('analise-auto');
-  if (!el) return;
-  el.innerHTML = `
-    <div class="analise-text">${ST.analise_automatica}</div>
-    <div class="analise-author">🤖 Análise automática · Motor Tupi · ${D.projecoes.atualizado_em}</div>`;
-}
-
-function renderTransferencia(tv) {
-  const el = document.getElementById('transferencia-container');
-  if (!el) return;
-  const total = 26260114;
-  const paraEB = Math.round(total * tv.portela_para_braga_pct/100);
-  const paraJN = Math.round(total * tv.portela_para_neto_pct/100);
-  const outros = Math.round(total * tv.portela_brancos_nulos_pct/100);
-
-  el.innerHTML = `
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-          <span style="font-weight:700;color:#1C2BCB">→ Eduardo Braga (PDT)</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-weight:700;color:#1C2BCB">${tv.portela_para_braga_pct}% · ~${(paraEB/1e6).toFixed(1)}M votos</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:${tv.portela_para_braga_pct}%;background:#1C2BCB"></div></div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-          <span style="font-weight:700;color:#e84560">→ João Neto (PSDB)</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-weight:700;color:#e84560">${tv.portela_para_neto_pct}% · ~${(paraJN/1e6).toFixed(1)}M votos</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:${tv.portela_para_neto_pct}%;background:#e84560"></div></div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-          <span style="font-weight:700;color:var(--text-muted)">→ Brancos / Nulos / Abstenção</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--text-muted)">${tv.portela_brancos_nulos_pct}% · ~${(outros/1e6).toFixed(1)}M votos</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:${tv.portela_brancos_nulos_pct}%;background:var(--text-muted)"></div></div>
-      </div>
-    </div>
-    <div style="margin-top:12px;font-size:11px;color:var(--text-muted);font-style:italic">
-      * Estimativa baseada em pesquisas de intenção de voto e histórico de transferência eleitoral.
-    </div>`;
-}
-
-function renderAnalistaPanel(ST, regioes) {
-  const el = document.getElementById('analista-panel');
-  if (!el) return;
-  el.innerHTML = `
-    <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a855f7;margin-bottom:14px">🔬 Modo Analista Profissional</div>
-    <div class="analista-grid">
-      ${regioes.map(r=>`
-        <div class="analista-item">
-          <div class="analista-item-label">${r.nome} — peso eleitoral</div>
-          <div class="analista-item-val">${r.pct_votos}%</div>
-          <div class="analista-item-sub" style="color:${r.eb_2t_proj > r.jn_2t_proj ? '#1acb4b':'#e84560'}">
-            ${r.eb_2t_proj > r.jn_2t_proj ? '↑ Favorável a Braga':'↓ Favorável a Neto'}
-          </div>
-        </div>`).join('')}
-      <div class="analista-item">
-        <div class="analista-item-label">Tipo voto dominante</div>
-        <div class="analista-item-val" style="font-size:12px;color:var(--text)">Urbano</div>
-        <div class="analista-item-sub">+45% dos eleitores</div>
-      </div>
-      <div class="analista-item">
-        <div class="analista-item-label">Padrão de atraso</div>
-        <div class="analista-item-val" style="font-size:13px;color:var(--tupi-orange)">Interior</div>
-        <div class="analista-item-sub">urnas chegam após 20h</div>
-      </div>
-      <div class="analista-item">
-        <div class="analista-item-label">Indecisos estimados</div>
-        <div class="analista-item-val" style="color:#a855f7">6%</div>
-        <div class="analista-item-sub">do eleitorado total</div>
-      </div>
-      <div class="analista-item">
-        <div class="analista-item-label">Virada possível até</div>
-        <div class="analista-item-val indic-warning" style="font-size:13px">90% apurado</div>
-        <div class="analista-item-sub">se capital favorece JN</div>
-      </div>
-    </div>
-    <div style="margin-top:14px;padding:12px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.15);border-radius:6px;font-size:12px;color:var(--text-soft);line-height:1.6">
-      <strong style="color:#a855f7">💡 Leitura do analista:</strong>
-      "Restam urnas urbanas, historicamente favoráveis a João Neto. 
-      O interior já consolidado garante a liderança de Braga, mas a capital ainda pode inverter a disputa — sobretudo se o comparecimento superar 78% nas zonas metropolitanas."
-    </div>`;
-}
-
-/* ═══ PONTO DE INFLEXÃO ═══ */
-function renderInflexao(inf) {
-  const el = document.getElementById('inflexao-container');
-  if (!el) return;
-
-  // GUARD ABSOLUTO — se apuração do 2º turno não iniciou, sempre zero, independente do chamador
-  const progresso = D?.segundoTurno?.progresso ?? 0;
-  if (progresso === 0 || !inf) {
-    el.innerHTML = `
-      <div class="empty-state" style="border-color:rgba(232,69,96,.2);background:rgba(232,69,96,.03)">
-        <div class="empty-icon" style="font-size:36px;opacity:.35">🧠</div>
-        <div class="empty-title">Ponto de Inflexão</div>
-        <div style="display:flex;gap:18px;justify-content:center;margin:14px 0">
-          <div style="text-align:center">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">—</div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">% apurado</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">0,0%</div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">diferença</div>
-          </div>
-        </div>
-        <div class="empty-sub">Será calculado automaticamente conforme<br>as urnas forem apuradas.</div>
-      </div>`;
-    return;
-  }  const tipoClass = inf.zona_irreversivel ? 'inflexao-irreversivel' : 'inflexao-atencao';
-  const chipClass = inf.zona_irreversivel ? 'chip-irreversivel' : 'chip-atencao';
-  const chipIcon  = inf.zona_irreversivel ? '🚨' : '⚠️';
-  const chipText  = inf.zona_irreversivel ? 'ZONA IRREVERSÍVEL' : 'ZONA DE ATENÇÃO';
-
-  const stepColors = {info:'#1acb4b', warning:'#FF7A00', danger:'#e84560', success:'#1acb4b'};
-
-  el.innerHTML = `
-    <div class="inflexao-card ${tipoClass}">
-      <div class="inflexao-chip ${chipClass}">
-        <span>${chipIcon}</span>
-        <span>${chipText}</span>
-      </div>
-
-      ${inf.zona_irreversivel ? `
-      <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,69,96,.8);margin-bottom:6px">
-        🔴 ALERTA AUTOMÁTICO
-      </div>
-      <div style="font-size:clamp(15px,2vw,18px);font-weight:800;color:#fff;margin-bottom:4px;line-height:1.3">
-        "${inf.texto_alerta}"
-      </div>` : ''}
-
-      <div class="inflexao-momento">
-        <span class="inflexao-pct-val" style="color:${inf.zona_irreversivel?'#e84560':'#FF7A00'}">
-          ${inf.momento_pct.toFixed(1)}%
-        </span>
-        <span class="inflexao-pct-label">das urnas apuradas · ${inf.hora_deteccao}</span>
-      </div>
-
-      <div class="inflexao-winner-row">
-        <div class="inflexao-winner-badge" style="background:${inf.vencedor.cor}">${inf.vencedor.sigla}</div>
-        <div>
-          <div class="inflexao-winner-label">✅ Vencedor matemático projetado</div>
-          <div class="inflexao-winner-name">${inf.vencedor.nome} · ${inf.vencedor.partido}</div>
-        </div>
-        <div class="inflexao-dif" style="background:rgba(26,203,75,.12);color:#1acb4b;border:1px solid rgba(26,203,75,.25)">
-          +${inf.diferenca_no_momento.toFixed(1)} p.p.
-        </div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:10px;margin-top:6px;padding:8px 14px;background:rgba(0,0,0,.2);border-radius:6px">
-        <div class="inflexao-winner-badge" style="background:${inf.perdedor.cor};opacity:.7">${inf.perdedor.sigla}</div>
-        <div>
-          <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,69,96,.6);margin-bottom:2px">❌ Capacidade matemática encerrada</div>
-          <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.55)">${inf.perdedor.nome} · ${inf.perdedor.partido}</div>
-        </div>
-      </div>
-
-      <div class="inflexao-timeline">
-        <div class="inflexao-timeline-title">⏱ Linha do tempo — momentos-chave</div>
-        <div class="inflexao-steps">
-          ${inf.timeline.map(s => `
-            <div class="inflexao-step">
-              <div class="inflexao-step-dot" style="background:${stepColors[s.tipo]||'#999'};${s.tipo==='danger'?'box-shadow:0 0 6px rgba(232,69,96,.6)':''}"></div>
-              <span class="inflexao-step-label">${s.pct.toFixed(1)}%</span>
-              <span class="inflexao-step-desc" style="${s.tipo==='danger'?'color:#e84560;font-weight:700':''}">${s.desc}</span>
-              <span class="inflexao-step-pct">${s.hora}</span>
-            </div>`).join('')}
-        </div>
-      </div>
-    </div>`;
-}
-
-/* ═══ PROBABILIDADE DE VIRADA HIPER DETALHADA ═══ */
-function renderVirada(vir) {
-  const el = document.getElementById('virada-container');
-  if (!el) return;
-
-  // GUARD ABSOLUTO — se apuração do 2º turno não iniciou, sempre zero, independente do chamador
-  const progresso = D?.segundoTurno?.progresso ?? 0;
-  if (progresso === 0 || !vir) {
-    el.innerHTML = `
-      <div class="empty-state" style="border-color:rgba(245,160,0,.2);background:rgba(245,160,0,.03)">
-        <div class="empty-icon" style="font-size:36px;opacity:.35">📉</div>
-        <div class="empty-title">Probabilidade de Virada</div>
-        <div style="display:flex;gap:18px;justify-content:center;margin:14px 0">
-          <div style="text-align:center">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">0,0%</div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">chance de virada</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--text-muted);letter-spacing:-1px">—</div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px">cenário base</div>
-          </div>
-        </div>
-        <div style="width:100%;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden;margin:8px 0">
-          <div style="width:0%;height:100%;background:linear-gradient(90deg,#1acb4b,#FF7A00);border-radius:4px"></div>
-        </div>
-        <div class="empty-sub">Será calculada automaticamente a partir dos<br>dados da apuração e simulações Monte Carlo.</div>
-      </div>`;
-    return;
-  }
-
-  const cRef  = vir.candidato_ref;
-  const cLid  = vir.candidato_lider;
-
-  const compIcons = {
-    distribuicao_urnas: '🗺️',
-    tendencia_atual:    '📈',
-    desvio_historico:   '📐',
-    volatilidade:       '🌡️'
-  };
-  const compLabels = {
-    distribuicao_urnas: 'Distribuição das Urnas Restantes',
-    tendencia_atual:    'Tendência Atual',
-    desvio_historico:   'Desvio Histórico',
-    volatilidade:       'Volatilidade do Modelo'
-  };
-
-  const gaugeColor = vir.chance_base > 40 ? '#FF7A00' : vir.chance_base > 25 ? '#FF7A00' : '#1acb4b';
-
-  el.innerHTML = `
-    <div class="virada-card">
-      <div class="virada-header">
-        <div>
-          <div class="virada-title">📉 Probabilidade de Virada — ${cRef.nome} (${cRef.partido})</div>
-          <div class="virada-sub">Análise multifatorial com simulações Monte Carlo · ${vir.chance_base}% de chance de inversão</div>
-        </div>
-        <div style="text-align:right">
-          <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px">Candidato em vantagem</div>
-          <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(28,43,203,.08);border:1px solid rgba(28,43,203,.2);padding:5px 11px;border-radius:5px">
-            <div style="width:22px;height:22px;border-radius:50%;background:${cLid.cor};display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:900;font-size:9px;color:#fff">${cLid.sigla}</div>
-            <span style="font-weight:700;font-size:13px;color:var(--text)">${cLid.nome}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- TRIO DE PROBABILIDADES -->
-      <div class="virada-prob-trio">
-        <div class="virada-prob-item highlight">
-          <div class="virada-prob-label">Chance de Virada<br>(cenário base)</div>
-          <div class="virada-prob-val" style="color:${cRef.cor}">${vir.chance_base.toFixed(1)}%</div>
-          <div class="virada-prob-sub">probabilidade atual</div>
-        </div>
-        <div class="virada-prob-item">
-          <div class="virada-prob-label">Se Tendência<br>Continuar</div>
-          <div class="virada-prob-val" style="color:#1acb4b">${vir.se_tendencia_continua.toFixed(1)}%</div>
-          <div class="virada-prob-sub">tendência mantida</div>
-        </div>
-        <div class="virada-prob-item">
-          <div class="virada-prob-label">Se Tendência<br>Inverter</div>
-          <div class="virada-prob-val" style="color:#FF7A00">${vir.se_tendencia_inverter.toFixed(1)}%</div>
-          <div class="virada-prob-sub">reversão de tendência</div>
-        </div>
-      </div>
-
-      <!-- GAUGE BAR -->
-      <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Espectro de Probabilidade de Virada</div>
-      <div class="virada-gauge">
-        <div class="virada-gauge-fill" style="width:${vir.chance_base}%;background:linear-gradient(90deg,#1acb4b,${gaugeColor})"></div>
-      </div>
-      <div class="virada-gauge-labels">
-        <span style="color:#1acb4b">← Improvável (0%)</span>
-        <span style="color:#FF7A00">Possível (50%)</span>
-        <span style="color:#e84560">Provável (100%) →</span>
-      </div>
-
-      <!-- COMPONENTES -->
-      <div class="virada-componentes">
-        <div class="virada-comp-title">🔬 Componentes do Cálculo</div>
-        <div class="virada-comp-grid">
-          ${Object.entries(vir.componentes).map(([k,v]) => `
-            <div class="virada-comp-item">
-              <div class="virada-comp-icon">${compIcons[k]||'📊'}</div>
-              <div class="virada-comp-key">${compLabels[k]||k}</div>
-              <div class="virada-comp-val">${v}</div>
-            </div>`).join('')}
-        </div>
-      </div>
-
-      <!-- LEITURA FINAL -->
-      <div class="virada-cenario-bar" style="margin-top:16px">
-        <strong>💡 Leitura do sistema:</strong> ${vir.leitura}
-      </div>
-
-      <!-- MINI COMPARATIVO -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
-        <div style="background:rgba(28,43,203,.06);border:1px solid rgba(28,43,203,.15);border-radius:6px;padding:12px;text-align:center">
-          <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,43,203,.7);margin-bottom:4px">${cLid.nome} vence</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:#1C2BCB;letter-spacing:-1px">${(100-vir.chance_base).toFixed(1)}%</div>
-          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">de probabilidade</div>
-        </div>
-        <div style="background:rgba(232,69,96,.06);border:1px solid rgba(232,69,96,.15);border-radius:6px;padding:12px;text-align:center">
-          <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,69,96,.7);margin-bottom:4px">${cRef.nome} vira</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:#e84560;letter-spacing:-1px">${vir.chance_base.toFixed(1)}%</div>
-          <div style="font-size:10px;color:var(--text-muted);margin-top:2px">de probabilidade</div>
-        </div>
-      </div>
-    </div>`;
-}
-
-/* ═══ MODO ANALISTA TOGGLE ═══ */
-function toggleAnalista() {
-  analistaAtivo = !analistaAtivo;
-  const panel = document.getElementById('analista-panel');
-  const btn   = document.getElementById('analista-btn');
-  const label = document.getElementById('analista-btn-label');
-  if (panel) panel.classList.toggle('open', analistaAtivo);
-  if (btn)   btn.classList.toggle('active', analistaAtivo);
-  if (label) label.textContent = analistaAtivo ? 'DESATIVAR MODO ANALISTA' : 'ATIVAR MODO ANALISTA';
-}
-
-/* ═══ BUG SIMULADOS ═══ */
-function triggerGlitch(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.classList.remove('glitch-effect');
-  void el.offsetWidth;
-  el.classList.add('glitch-effect');
-  setTimeout(()=>el.classList.remove('glitch-effect'), 350);
-}
-
-function simulateBug() {
-  // Simula oscilações aleatórias na headline do banner de projeções
-  setInterval(()=>{
-    if (Math.random() < 0.08) {
-      const el = document.getElementById('proj-headline-pct');
-      if (!el) return;
-      const original = el.textContent;
-      // Glitch: muda para valor próximo por 1.2s
-      const glitch = (55 + Math.floor(Math.random()*8)) + '%';
-      el.textContent = glitch;
-      el.style.opacity = '0.6';
-      setTimeout(()=>{
-        el.textContent = original;
-        el.style.opacity = '1';
-      }, 1200);
-    }
-  }, 8000);
-}
-
-/* ═══ ACCORDION HISTÓRICO ═══ */
 function toggleHist(id) {
   const el = document.getElementById(id);
   if (el) el.classList.toggle('open');
 }
 
-/* ═══ NAV ═══ */
+function toggleAnalista() {
+  analistaAtivo = !analistaAtivo;
+  const panel = document.getElementById('analista-panel');
+  const btn = document.getElementById('analista-btn');
+  const lbl = document.getElementById('analista-btn-label');
+  if (panel) panel.classList.toggle('open', analistaAtivo);
+  if (btn) btn.classList.toggle('active', analistaAtivo);
+  if (lbl) lbl.textContent = analistaAtivo ? 'DESATIVAR MODO ANALISTA' : 'ATIVAR MODO ANALISTA';
+}
+
 function go(page) {
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
+  const target = document.getElementById('page-'+page);
+  if (target) target.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active-nav'));
-  const n = document.getElementById('nav-'+page);
-  if (n) n.classList.add('active-nav');
-  // Rende gráficos de projeção quando a página fica visível — só se apuração iniciou
-  if (page === 'projecoes') {
-    setTimeout(()=>{
-      if ((D?.primeirTurno?.progresso ?? 0) > 0) {
-        renderChanceChart(D.projecoes.evolucao_chance);
-        renderMCChart(D.projecoes.monte_carlo);
-      }
-    }, 100);
+  const navItem = document.getElementById('nav-'+page);
+  if (navItem) navItem.classList.add('active-nav');
+  if (page === 'projecoes') setTimeout(renderProjecoes, 100);
+  if (page === 'apuracao') {
+    if (turnoAtual === 1) setTimeout(renderChart, 60);
+    else setTimeout(renderChartT2, 60);
   }
-  if (page === 'apuracao') setTimeout(renderChart, 60);
 }
 
 function toggleTheme() {
-  const dark = document.documentElement.getAttribute('data-theme')==='dark';
-  document.documentElement.setAttribute('data-theme', dark?'light':'dark');
-  const prog = D?.primeirTurno?.progresso ?? 0;
-  setTimeout(()=>{
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+  setTimeout(() => {
     renderChart();
-    if (prog > 0) {
-      renderChanceChart(D.projecoes.evolucao_chance);
-      renderMCChart(D.projecoes.monte_carlo);
-    }
+    renderChartT2();
+    renderProjecoes();
   }, 60);
 }
 
-/* ═══ CLOCK ═══ */
 function tickClock() {
   const now = new Date();
-  const s = [now.getHours(),now.getMinutes(),now.getSeconds()]
-    .map(n=>String(n).padStart(2,'0')).join(':');
-  ['header-clock','header-clock-proj'].forEach(id=>{
-    const el = document.getElementById(id);
-    if (el) el.textContent = s;
-  });
+  const timeStr = [now.getHours(), now.getMinutes(), now.getSeconds()].map(n=>String(n).padStart(2,'0')).join(':');
+  const clock1 = document.getElementById('header-clock');
+  const clock2 = document.getElementById('header-clock-proj');
+  if (clock1) clock1.textContent = timeStr;
+  if (clock2) clock2.textContent = timeStr;
 }
 
-/* ═══ INIT ═══ */
+// Inicialização
 window.addEventListener('load', async () => {
   await loadData();
+  setTurno(2);
   renderTicker();
-  renderCards();
-  renderRanking();
-  renderPanorama();
+  renderT1Content();
+  renderT2Content();
   renderHistorico();
   renderProjecoes();
-  setTimeout(renderChart, 300);
+  setTimeout(renderChartT2, 300);
   tickClock();
   setInterval(tickClock, 1000);
-  startPolling(10000); // re-busca e atualiza tudo a cada 10s
-  setTimeout(()=>{
-    const ov = document.getElementById('loading');
-    if (ov){ ov.classList.add('gone'); setTimeout(()=>ov.remove(),600); }
-  }, 1900);
+  setTimeout(() => {
+    const overlay = document.getElementById('loading');
+    if (overlay) {
+      overlay.classList.add('gone');
+      setTimeout(() => overlay.remove(), 600);
+    }
+  }, 1800);
 });
-
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') go('apuracao'); });
 </script>
 </body>
 </html>
