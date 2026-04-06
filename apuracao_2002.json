@@ -1,375 +1,165 @@
 {
   "ticker": [
-    "🗳️ Eleições 2002 — Cobertura ao vivo pela Tupi Notícias",
-    "⏳ Aguardando início da apuração — urnas ainda não foram abertas",
-    "📅 1º Turno: 6 de outubro de 2002",
-    "🔴 AO VIVO — Tupi Notícias acompanha em tempo real"
+    "🔴 2º TURNO AO VIVO — Eduardo Braga lidera com 52,3% · 67% apurado",
+    "📊 Braga mantém vantagem de +4,6 p.p. sobre João Neto",
+    "🏙️ Capitais ainda em apuração — fator decisivo da noite",
+    "⚡ Motor de projeção indica 73% de chance para Eduardo Braga",
+    "📅 1º Turno encerrado — resultado final confirmado em 6 out. 2002"
+  ],
+  "presidente": {
+    "turno2_final": {
+      "progresso": 100,
+      "total_votos": 103176531,
+      "votos_validos": 103176531,
+      "brancos": 0,
+      "nulos": 0,
+      "candidatos": [
+        { "ordem": 1, "nome": "João Neto",     "sigla": "JN", "partido": "PSDB", "numero": 45, "cor": "#e84560", "votos": 51970218, "pct": 50.37, "situacao": "ELEITO",      "situacao_codigo": "eleito" },
+        { "ordem": 2, "nome": "Eduardo Braga", "sigla": "EB", "partido": "PDT",  "numero": 12, "cor": "#1C2BCB", "votos": 51206313, "pct": 49.63, "situacao": "NÃO ELEITO", "situacao_codigo": "nao" }
+      ]
+    }
+  },
+  "governadores": [
+    {
+      "uf": "SP", "estado": "São Paulo",
+      "turno": 2, "data": "27 de outubro de 2002", "status": "encerrado",
+      "progresso": 100, "total_votos": 23144868, "votos_validos": 23144868, "brancos": 0, "nulos": 0,
+      "candidatos": [
+        { "ordem": 1, "nome": "Michel Temer",       "partido": "MDB",  "numero": 15, "cor": "#F5A000", "numColor": "#000", "votos": 11868241, "pct": 51.28, "situacao": "ELEITO",      "situacao_codigo": "eleito" },
+        { "ordem": 2, "nome": "Luciano Casablanca", "partido": "PSDB", "numero": 45, "cor": "#e84560", "numColor": "#fff", "votos": 11276627, "pct": 48.72, "situacao": "NÃO ELEITO", "situacao_codigo": "nao" }
+      ]
+    },
+    {
+      "uf": "RS", "estado": "Rio Grande do Sul",
+      "turno": 2, "data": "27 de outubro de 2002", "status": "encerrado",
+      "progresso": 100, "total_votos": 7735491, "votos_validos": 7735491, "brancos": 0, "nulos": 0,
+      "candidatos": [
+        { "ordem": 1, "nome": "Jorginho Mello",    "partido": "PDT", "numero": 12, "cor": "#1C2BCB", "numColor": "#fff", "votos": 4030500, "pct": 52.10, "situacao": "ELEITO",      "situacao_codigo": "eleito" },
+        { "ordem": 2, "nome": "Artibulas Maximus", "partido": "PP",  "numero": 11, "cor": "#6b7280", "numColor": "#fff", "votos": 3704991, "pct": 47.90, "situacao": "NÃO ELEITO", "situacao_codigo": "nao" }
+      ]
+    },
+    {
+      "uf": "GO", "estado": "Goiás",
+      "turno": 2, "data": "27 de outubro de 2002", "status": "encerrado",
+      "progresso": 100, "total_votos": 3451010, "votos_validos": 3451010, "brancos": 0, "nulos": 0,
+      "candidatos": [
+        { "ordem": 1, "nome": "Wellington Fagundes", "partido": "PDT", "numero": 12, "cor": "#1C2BCB", "numColor": "#fff", "votos": 1787851, "pct": 51.81, "situacao": "ELEITO",      "situacao_codigo": "eleito" },
+        { "ordem": 2, "nome": "Bruno Peixoto",        "partido": "REP", "numero": 10, "cor": "#16a34a", "numColor": "#fff", "votos": 1663159, "pct": 48.19, "situacao": "NÃO ELEITO", "situacao_codigo": "nao" }
+      ]
+    }
   ],
   "primeirTurno": {
-    "progresso": 8.2,
-    "secoes_apuradas": 0,
+    "progresso": 100,
+    "secoes_apuradas": 402762,
     "secoes_total": 402762,
-    "total_votos": 8624474,
-    "votos_validos": 8624474,
+    "total_votos": 102032451,
+    "votos_validos": 94842054,
     "brancos": 0,
     "nulos": 0,
     "data": "6 de outubro de 2002",
-    "hora_encerramento": null,
+    "hora_encerramento": "22h18",
     "candidatos": [
-      {
-        "nome": "Eduardo Braga",
-        "sigla": "EB",
-        "partido": "PDT",
-        "numero": 12,
-        "cor": "#1C2BCB",
-        "votos": 4150538,
-        "pct": 48.13,
-        "pct_str": "48,13%",
-        "votos_fmt": "4.150.538",
-        "status": "EM_APURACAO",
-        "status_code": "counting",
-        "ordem": 1
-      },
-      {
-        "nome": "João Neto",
-        "sigla": "JN",
-        "partido": "PSDB",
-        "numero": 45,
-        "cor": "#e84560",
-        "votos": 4473936,
-        "pct": 51.87,
-        "pct_str": "51,87%",
-        "votos_fmt": "4.473.936",
-        "status": "EM_APURACAO",
-        "status_code": "counting",
-        "ordem": 2
-      },
-      {
-        "nome": "Ângela Portela",
-        "sigla": "AP",
-        "partido": "MDB",
-        "numero": 15,
-        "cor": "#F5A000",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
-        "ordem": 3
-      },
-      {
-        "nome": "Enéas Carneiro",
-        "sigla": "EC",
-        "partido": "PRONA",
-        "numero": 56,
-        "cor": "#22c55e",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
-        "ordem": 4
-      },
-      {
-        "nome": "Maria João Abujamras",
-        "sigla": "MJ",
-        "partido": "PSTU",
-        "numero": 16,
-        "cor": "#9b59b6",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
-        "ordem": 5
-      },
-      {
-        "nome": "João Goulart Filho",
-        "sigla": "JGF",
-        "partido": "PNM",
-        "numero": 33,
-        "cor": "#e67e22",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
-        "ordem": 6
-      },
-      {
-        "nome": "Marcos Pontes",
-        "sigla": "MP",
-        "partido": "PSB",
-        "numero": 40,
-        "cor": "#aabbcc",
-        "votos": 0,
-        "pct": 0.0,
-        "pct_str": "0,0%",
-        "votos_fmt": "0",
-        "status": "AGUARDANDO",
-        "status_code": "wait",
-        "ordem": 7
-      }
+      { "nome": "Eduardo Braga",        "sigla": "EB",  "partido": "PDT",   "numero": 12, "cor": "#1C2BCB", "votos": 27460571, "pct": 26.7, "pct_str": "26,7%", "votos_fmt": "27.460.571", "status": "2º TURNO",  "status_code": "2t",  "ordem": 1 },
+      { "nome": "João Neto",            "sigla": "JN",  "partido": "PSDB",  "numero": 45, "cor": "#e84560", "votos": 27179008, "pct": 26.4, "pct_str": "26,4%", "votos_fmt": "27.179.008", "status": "2º TURNO",  "status_code": "2t",  "ordem": 2 },
+      { "nome": "Ângela Portela",       "sigla": "AP",  "partido": "MDB",   "numero": 15, "cor": "#F5A000", "votos": 26260114, "pct": 25.5, "pct_str": "25,5%", "votos_fmt": "26.260.114", "status": "ELIMINADA", "status_code": "nao", "ordem": 3 },
+      { "nome": "Enéas Carneiro",       "sigla": "EC",  "partido": "PRONA", "numero": 56, "cor": "#22c55e", "votos": 9741553,  "pct": 9.5,  "pct_str": "9,5%",  "votos_fmt": "9.741.553",  "status": "ELIMINADO", "status_code": "nao", "ordem": 4 },
+      { "nome": "Maria João Abujamras", "sigla": "MJ",  "partido": "PSTU",  "numero": 16, "cor": "#9b59b6", "votos": 3372843,  "pct": 3.3,  "pct_str": "3,3%",  "votos_fmt": "3.372.843",  "status": "ELIMINADA", "status_code": "nao", "ordem": 5 },
+      { "nome": "João Goulart Filho",   "sigla": "JGF", "partido": "PNM",   "numero": 33, "cor": "#e67e22", "votos": 1828965,  "pct": 1.8,  "pct_str": "1,8%",  "votos_fmt": "1.828.965",  "status": "ELIMINADO", "status_code": "nao", "ordem": 6 },
+      { "nome": "Marcos Pontes",        "sigla": "MP",  "partido": "PSB",   "numero": 40, "cor": "#aabbcc", "votos": 999000,   "pct": 1.0,  "pct_str": "1,0%",  "votos_fmt": "999.000",    "status": "ELIMINADO", "status_code": "nao", "ordem": 7 }
     ]
   },
   "evolucao": [
-    {
-      "h": "--:--",
-      "eb": 0,
-      "jn": 0,
-      "ap": 0,
-      "pct_apurado": 0
-    }
+    { "h": "17h00", "pct_apurado": 5,    "eb": 25.1, "jn": 25.8, "ap": 24.9 },
+    { "h": "17h30", "pct_apurado": 12,   "eb": 25.5, "jn": 25.9, "ap": 25.1 },
+    { "h": "18h00", "pct_apurado": 24,   "eb": 26.0, "jn": 26.2, "ap": 25.3 },
+    { "h": "18h30", "pct_apurado": 40,   "eb": 26.3, "jn": 26.5, "ap": 25.4 },
+    { "h": "19h00", "pct_apurado": 58,   "eb": 26.5, "jn": 26.4, "ap": 25.5 },
+    { "h": "19h30", "pct_apurado": 74,   "eb": 26.6, "jn": 26.4, "ap": 25.5 },
+    { "h": "20h00", "pct_apurado": 88,   "eb": 26.7, "jn": 26.4, "ap": 25.5 },
+    { "h": "22h18", "pct_apurado": 100,  "eb": 26.7, "jn": 26.4, "ap": 25.5 }
   ],
-  "projecoes": {
-    "status": "pre_segundo_turno",
-    "atualizado_em": "6 out. 2002 · 22h45",
-    "segundo_turno": {
-      "candidato_a": {
-        "nome": "Eduardo Braga",
-        "partido": "PDT",
-        "sigla": "EB",
-        "cor": "#1C2BCB",
-        "chance_vitoria": 0.58,
-        "cenarios": {
-          "base": 51.8,
-          "otimista": 54.2,
-          "adverso": 49.1
-        },
-        "tendencia": "+0.4%",
-        "pct_esperado": 51.8
-      },
-      "candidato_b": {
-        "nome": "João Neto",
-        "partido": "PSDB",
-        "sigla": "JN",
-        "cor": "#e84560",
-        "chance_vitoria": 0.42,
-        "cenarios": {
-          "base": 48.2,
-          "otimista": 50.9,
-          "adverso": 45.8
-        },
-        "tendencia": "-0.4%",
-        "pct_esperado": 48.2
-      },
-      "diferenca_pct_esperada": 3.6,
-      "diferenca_votos_esperada": 2112000,
-      "risco_virada": 0.42,
-      "classificacao": "disputa_acirrada",
-      "ponto_nao_retorno": "Se Braga atingir +5 p.p. com 70% apurado → vitória irreversível",
-      "janela_critica": "Primeiros 50% das urnas — concentradas nas capitais",
-      "analise_automatica": "Eduardo Braga parte como leve favorito para o 2º turno, impulsionado pelo domínio no interior (57% × 43%). No entanto, João Neto detém vantagem histórica nas capitais — que ainda representarão cerca de 45% dos votos. A eleição deve ser decidida no ambiente urbano, com margem menor que 4 pontos percentuais. Votos de Ângela Portela (25,5%) são o principal fator incerto.",
-      "transferencia_votos": {
-        "portela_para_braga_pct": 38,
-        "portela_para_neto_pct": 32,
-        "portela_brancos_nulos_pct": 30
-      }
-    },
-    "regioes": [
-      {
-        "nome": "Capital",
-        "eb_1t": 48,
-        "jn_1t": 50,
-        "eb_2t_proj": 49,
-        "jn_2t_proj": 51,
-        "pct_votos": 45,
-        "decisiva": true,
-        "cor": "#e84560"
-      },
-      {
-        "nome": "Interior",
-        "eb_1t": 57,
-        "jn_1t": 39,
-        "eb_2t_proj": 56,
-        "jn_2t_proj": 44,
-        "pct_votos": 38,
-        "decisiva": false,
-        "cor": "#1C2BCB"
-      },
-      {
-        "nome": "Litoral",
-        "eb_1t": 51,
-        "jn_1t": 44,
-        "eb_2t_proj": 52,
-        "jn_2t_proj": 48,
-        "pct_votos": 17,
-        "decisiva": false,
-        "cor": "#F5A000"
-      }
-    ],
-    "evolucao_chance": [
-      {
-        "h": "Resultado 1T",
-        "eb": 52,
-        "jn": 48
-      },
-      {
-        "h": "Ajuste regional",
-        "eb": 58,
-        "jn": 42
-      },
-      {
-        "h": "Transferência AP",
-        "eb": 55,
-        "jn": 45
-      },
-      {
-        "h": "Monte Carlo",
-        "eb": 57,
-        "jn": 43
-      },
-      {
-        "h": "Ajuste capital",
-        "eb": 53,
-        "jn": 47
-      },
-      {
-        "h": "Modelo final",
-        "eb": 58,
-        "jn": 42
-      }
-    ],
-    "monte_carlo": {
-      "simulacoes": 10000,
-      "distribuicao_eb": [
-        {
-          "faixa": "47–48%",
-          "freq": 5
-        },
-        {
-          "faixa": "48–49%",
-          "freq": 10
-        },
-        {
-          "faixa": "49–50%",
-          "freq": 18
-        },
-        {
-          "faixa": "50–51%",
-          "freq": 20
-        },
-        {
-          "faixa": "51–52%",
-          "freq": 22
-        },
-        {
-          "faixa": "52–53%",
-          "freq": 14
-        },
-        {
-          "faixa": "53–54%",
-          "freq": 8
-        },
-        {
-          "faixa": "54–55%",
-          "freq": 3
-        }
-      ]
-    },
-    "alertas": [
-      {
-        "tipo": "info",
-        "icone": "📅",
-        "msg": "Projeção baseada nos resultados do 1º turno. O 2º turno ocorre em 27 de outubro."
-      },
-      {
-        "tipo": "warning",
-        "icone": "⚠️",
-        "msg": "Disputa acirrada: margem projetada de apenas 3,6 p.p. — dentro da margem de erro."
-      },
-      {
-        "tipo": "danger",
-        "icone": "🔥",
-        "msg": "João Neto tem vantagem histórica nas capitais (+3,2 p.p.). Capital representa 45% dos votos."
-      },
-      {
-        "tipo": "success",
-        "icone": "🟢",
-        "msg": "Braga domina o interior (57% × 43%) — 38% do eleitorado total."
-      }
-    ],
-    "cenarios_simulador": {
-      "base": {
-        "eb": 51.8,
-        "jn": 48.2,
-        "chance_eb": 58
-      },
-      "capital_pesa_mais": {
-        "eb": 48.9,
-        "jn": 51.1,
-        "chance_eb": 34
-      },
-      "interior_pesa_mais": {
-        "eb": 54.2,
-        "jn": 45.8,
-        "chance_eb": 79
-      },
-      "alto_comparecimento": {
-        "eb": 52.1,
-        "jn": 47.9,
-        "chance_eb": 61
-      },
-      "baixo_comparecimento": {
-        "eb": 51.3,
-        "jn": 48.7,
-        "chance_eb": 55
-      },
-      "indecisos_braga": {
-        "eb": 53.5,
-        "jn": 46.5,
-        "chance_eb": 75
-      },
-      "indecisos_neto": {
-        "eb": 50.2,
-        "jn": 49.8,
-        "chance_eb": 52
-      }
-    }
-  },
   "segundoTurno": {
-    "progresso": 0,
-    "secoes_apuradas": 0,
+    "progresso": 67.3,
+    "secoes_apuradas": 271039,
     "secoes_total": 402762,
-    "total_votos": 23,
-    "votos_validos": 23,
+    "total_votos": 68668259,
+    "votos_validos": 63827421,
     "brancos": 0,
     "nulos": 0,
     "data": "27 de outubro de 2002",
     "hora_encerramento": null,
     "candidatos": [
-      {
-        "nome": "Eduardo Braga",
-        "sigla": "EB",
-        "partido": "PDT",
-        "numero": 12,
-        "cor": "#1C2BCB",
-        "votos": 15,
-        "pct": 65.21739130434783,
-        "pct_str": "65,2%",
-        "votos_fmt": "15",
-        "status": "EM_APURACAO",
-        "status_code": "counting",
-        "ordem": 1
-      },
-      {
-        "nome": "João Neto",
-        "sigla": "JN",
-        "partido": "PSDB",
-        "numero": 45,
-        "cor": "#e84560",
-        "votos": 8,
-        "pct": 34.78260869565217,
-        "pct_str": "34,8%",
-        "votos_fmt": "8",
-        "status": "EM_APURACAO",
-        "status_code": "counting",
-        "ordem": 2
-      }
+      { "nome": "Eduardo Braga", "sigla": "EB", "partido": "PDT",  "cor": "#1C2BCB", "votos": 33412894, "pct": 52.3, "pct_str": "52,3%", "votos_fmt": "33.412.894", "status": "VENCENDO", "status_code": "vencendo", "ordem": 1 },
+      { "nome": "João Neto",     "sigla": "JN", "partido": "PSDB", "cor": "#e84560", "votos": 30414527, "pct": 47.7, "pct_str": "47,7%", "votos_fmt": "30.414.527", "status": "PERDENDO", "status_code": "perdendo", "ordem": 2 }
     ]
+  },
+  "evolucaoT2": [
+    { "h": "17h00", "pct_apurado": 3,    "eb": 50.2, "jn": 49.8 },
+    { "h": "17h30", "pct_apurado": 8,    "eb": 51.0, "jn": 49.0 },
+    { "h": "18h00", "pct_apurado": 17,   "eb": 51.5, "jn": 48.5 },
+    { "h": "18h30", "pct_apurado": 28,   "eb": 51.8, "jn": 48.2 },
+    { "h": "19h00", "pct_apurado": 41,   "eb": 52.0, "jn": 48.0 },
+    { "h": "19h30", "pct_apurado": 53,   "eb": 52.1, "jn": 47.9 },
+    { "h": "20h00", "pct_apurado": 62,   "eb": 52.2, "jn": 47.8 },
+    { "h": "20h44", "pct_apurado": 67.3, "eb": 52.3, "jn": 47.7 }
+  ],
+  "projecoes": {
+    "status": "segundo_turno_em_andamento",
+    "atualizado_em": "27 out. 2002 · 20h44",
+    "segundo_turno": {
+      "candidato_a": { "nome": "Eduardo Braga", "partido": "PDT",  "sigla": "EB", "cor": "#1C2BCB", "chance_vitoria": 0.73, "cenarios": { "base": 52.3, "otimista": 54.1, "adverso": 50.5 }, "tendencia": "+0.5%", "pct_esperado": 52.3 },
+      "candidato_b": { "nome": "João Neto",     "partido": "PSDB", "sigla": "JN", "cor": "#e84560", "chance_vitoria": 0.27, "cenarios": { "base": 47.7, "otimista": 49.5, "adverso": 45.9 }, "tendencia": "-0.5%", "pct_esperado": 47.7 },
+      "diferenca_pct_esperada": 4.6,
+      "diferenca_votos_esperada": 2998367,
+      "risco_virada": 0.27,
+      "classificacao": "tendencia",
+      "ponto_nao_retorno": "Se Braga manter +4 p.p. com 80% apurado → vitória matematicamente segura",
+      "janela_critica": "32,7% restante — capitais ainda apurando. Zonas urbanas densas favorecem João Neto.",
+      "analise_automatica": "Com 67,3% das urnas apuradas, Eduardo Braga mantém vantagem consistente de 4,6 pontos percentuais. O interior — fortemente favorável ao PDT — já está quase inteiramente computado. As urnas restantes (32,7%) concentram-se nas capitais e regiões metropolitanas, onde João Neto historicamente se beneficia de +3 p.p. sobre a média nacional. Para vencer, João Neto precisaria reverter toda a margem atual apenas com essas seções, o que o modelo avalia como improvável mas matematicamente possível.",
+      "transferencia_votos": { "portela_para_braga_pct": 38, "portela_para_neto_pct": 32, "portela_brancos_nulos_pct": 30 }
+    },
+    "regioes": [
+      { "nome": "Capital",  "eb_1t": 48, "jn_1t": 50, "eb_2t_proj": 49, "jn_2t_proj": 51, "pct_votos": 45, "decisiva": true,  "cor": "#e84560" },
+      { "nome": "Interior", "eb_1t": 57, "jn_1t": 39, "eb_2t_proj": 56, "jn_2t_proj": 44, "pct_votos": 38, "decisiva": false, "cor": "#1C2BCB" },
+      { "nome": "Litoral",  "eb_1t": 51, "jn_1t": 44, "eb_2t_proj": 52, "jn_2t_proj": 48, "pct_votos": 17, "decisiva": false, "cor": "#F5A000" }
+    ],
+    "evolucao_chance": [
+      { "h": "Resultado 1T",   "eb": 58, "jn": 42 },
+      { "h": "Ajuste regional","eb": 64, "jn": 36 },
+      { "h": "Abertura 2T",    "eb": 61, "jn": 39 },
+      { "h": "17% apurado",    "eb": 63, "jn": 37 },
+      { "h": "28% apurado",    "eb": 65, "jn": 35 },
+      { "h": "41% apurado",    "eb": 68, "jn": 32 },
+      { "h": "53% apurado",    "eb": 70, "jn": 30 },
+      { "h": "67% apurado",    "eb": 73, "jn": 27 }
+    ],
+    "monte_carlo": {
+      "simulacoes": 10000,
+      "distribuicao_eb": [
+        { "faixa": "49–50%", "freq": 3  },
+        { "faixa": "50–51%", "freq": 7  },
+        { "faixa": "51–52%", "freq": 14 },
+        { "faixa": "52–53%", "freq": 22 },
+        { "faixa": "53–54%", "freq": 26 },
+        { "faixa": "54–55%", "freq": 18 },
+        { "faixa": "55–56%", "freq": 8  },
+        { "faixa": "56–57%", "freq": 2  }
+      ]
+    },
+    "alertas": [
+      { "tipo": "success", "icone": "✅",  "msg": "67,3% apurado — Braga lidera com 52,3% × 47,7% (margem de +4,6 p.p.)." },
+      { "tipo": "warning", "icone": "⚠️",  "msg": "32,7% restante concentrado em capitais — principal fonte de incerteza." },
+      { "tipo": "danger",  "icone": "🏙️", "msg": "João Neto tem vantagem histórica nas capitais (+3,2 p.p.). Se essa tendência se confirmar, disputa se aproxima." },
+      { "tipo": "info",    "icone": "📊",  "msg": "Motor atualizado em tempo real. σ ≈ 1,8 p.p. neste estágio da apuração." }
+    ],
+    "cenarios_simulador": {
+      "base":                 { "eb": 52.3, "jn": 47.7, "chance_eb": 73 },
+      "capital_pesa_mais":    { "eb": 50.1, "jn": 49.9, "chance_eb": 51 },
+      "interior_pesa_mais":   { "eb": 54.5, "jn": 45.5, "chance_eb": 90 },
+      "alto_comparecimento":  { "eb": 52.6, "jn": 47.4, "chance_eb": 76 },
+      "baixo_comparecimento": { "eb": 51.9, "jn": 48.1, "chance_eb": 68 },
+      "indecisos_braga":      { "eb": 53.8, "jn": 46.2, "chance_eb": 87 },
+      "indecisos_neto":       { "eb": 51.2, "jn": 48.8, "chance_eb": 62 }
+    }
   }
 }
